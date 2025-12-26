@@ -24,8 +24,8 @@
   <!-- <a href="https://bisheng.slack.com/join/shared_invite/"> -->
     <!-- <img src="https://img.shields.io/badge/Join-Slack-orange" alt="join-slack"/> -->
   </a>
-  <!-- <img src="https://img.shields.io/github/license/bisheng-io/bisheng" alt="license"/> -->
-  <!-- <img src="https://img.shields.io/docker/pulls/bisheng-io/bisheng" alt="docker-pull-count" /> -->
+  <!-- <img src="https://img.shields.io/github/license/terminus-io/terminus" alt="license"/> -->
+  <!-- <img src="https://img.shields.io/docker/pulls/terminus-io/terminus" alt="docker-pull-count" /> -->
 </div>
 
 BISHENGは、エンタープライズシナリオに焦点を当てたオープンなLLMアプリケーションDevOpsプラットフォームです。多くの業界リーディング企業やフォーチュン500企業で使用されています。
@@ -36,7 +36,7 @@ BISHENGは、エンタープライズシナリオに焦点を当てたオープ�
 1. **専門家級のセンスを備えた汎用エージェント「灵思」：**：[AGL](https://github.com/dataelement/AgentGuidanceLanguage)（Agent Guidance Language）フレームワークを通じて、分野の専門家の志向・経験・業務ロジックをAIに組み込み、エージェントがタスク処理時に「専門家レベルの理解」を備えられるようにします。  
 <p align="center"><img src="https://dataelem.com/bs/Linsight.png" alt="sence1"></p>    
 
-2. **独自の特徴を持つ[BISHENG workflow](https://dataelem.feishu.cn/wiki/R7HZwH5ZGiJUDrkHZXicA9pInif)**
+2. **独自の特徴を持つ[Terminus workflow](https://dataelem.feishu.cn/wiki/R7HZwH5ZGiJUDrkHZXicA9pInif)**
    
    - 🧩 **独立性と完備性を備えたアプリケーションオーケストレーションフレームワーク**：1つのフレームワーク内でさまざまなタスクを実現可能（類似製品では、botの呼び出しが必要だったり、chatflowとworkflowに分けて異なるタスクを処理する必要があります）。
    - 🔄 **Human in the loop**：Workflowの実行途中でユーザーが介入やフィードバック（多ターン対話を含む）を行えます（類似製品では最初から最後まで一貫して実行されるのみ）。
@@ -71,17 +71,17 @@ BISHENGのダウンロード
 ```bash
 git clone https://github.com/dataelement/bisheng.git
 # インストールディレクトリに移動
-cd bisheng/docker
+cd terminus/docker
 
 # システムにgitコマンドがない場合は、BISHENGのコードをzipファイルとしてダウンロードできます。
 wget https://github.com/dataelement/bisheng/archive/refs/heads/main.zip
 # 解凍してインストールディレクトリに移動
-unzip main.zip && cd bisheng-main/docker
+unzip main.zip && cd terminus-main/docker
 ```
 
 BISHENGの起動
 ```bash
-docker compose -f docker-compose.yml -p bisheng up -d
+docker compose -f docker-compose.yml -p terminus up -d
 ```
 
 起動完了後、ブラウザでhttp://IP:3001にアクセスします。ログインページが表示されるので、ユーザー登録を行います。

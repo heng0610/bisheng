@@ -20,8 +20,8 @@
   <!-- <a href="https://bisheng.slack.com/join/shared_invite/"> -->
     <!-- <img src="https://img.shields.io/badge/Join-Slack-orange" alt="join-slack"/> -->
   </a>
-  <!-- <img src="https://img.shields.io/github/license/bisheng-io/bisheng" alt="license"/> -->
-  <!-- <img src="https://img.shields.io/docker/pulls/bisheng-io/bisheng" alt="docker-pull-count" /> -->
+  <!-- <img src="https://img.shields.io/github/license/terminus-io/terminus" alt="license"/> -->
+  <!-- <img src="https://img.shields.io/docker/pulls/terminus-io/terminus" alt="docker-pull-count" /> -->
 </div>
 
 
@@ -34,7 +34,7 @@ BISHENG毕昇 是一款 <b>开源</b> LLM应用开发平台，主攻<b>企业场
 1. **具备专家级品味的通用Agent灵思**：通过 [AGL](https://github.com/dataelement/AgentGuidanceLanguage)（Agent Guidance Language）框架，将领域专家的偏好、经验与业务逻辑融入 AI 之中，让 Agent 在处理任务时能具备 「专家级理解」。
 <p align="center"><img src="https://dataelem.com/bs/Linsight.png" alt="sence1"></p>  
 
-2. **独具特色的[BISHENG workflow](https://dataelem.feishu.cn/wiki/R7HZwH5ZGiJUDrkHZXicA9pInif)**
+2. **独具特色的[Terminus workflow](https://dataelem.feishu.cn/wiki/R7HZwH5ZGiJUDrkHZXicA9pInif)**
    
    - 🧩 **独立、完备的应用编排框架**：可在一个框架下实现各类任务（同类产品需要被 bot 调用，或划分成 chatflow 与 workflow 来完成不同类型的任务）。
    - 🔄 **Human in the loop**：支持用户在Workflow执行的中间过程进行干预和反馈（包括多轮对话），而同类产品只能从头执行到尾。
@@ -69,17 +69,17 @@ BISHENG毕昇 是一款 <b>开源</b> LLM应用开发平台，主攻<b>企业场
 # 如果系统中有git命令，可以直接下载毕昇代码
 git clone https://github.com/dataelement/bisheng.git
 # 进入安装目录
-cd bisheng/docker
+cd terminus/docker
 
 # 如果系统没有没有git命令，可以下载毕昇代码zip包
 wget https://github.com/dataelement/bisheng/archive/refs/heads/main.zip
 # 解压并进入安装目录
-unzip main.zip && cd bisheng-main/docker
+unzip main.zip && cd terminus-main/docker
 ```
 启动BISHENG
 ```bash
 # 进入bisheng/docker或bisheng-main/docker目录，执行
-docker compose -f docker-compose.yml -p bisheng up -d
+docker compose -f docker-compose.yml -p terminus up -d
 ```
 启动后，在浏览器中访问 http://IP:3001 ，出现登录页，进行用户注册。默认第一个注册的用户会成为系统admin。
 
@@ -90,7 +90,7 @@ docker compose -f docker-compose.yml -p bisheng up -d
 - [📄应用案例/场景库](https://dataelem.feishu.cn/wiki/ZfkmwLPfeiAhQSkK2WvcX87unxc)
 - [📄经验技巧](https://dataelem.feishu.cn/wiki/OWFRwknFaiIMajke4m5cFeLrnie)
 - [📄功能使用说明](https://dataelem.feishu.cn/wiki/WxH6wubbAiBkRIkSEyecmpDMnjF)
-- [📄BISHENG Blog](https://dataelem.feishu.cn/wiki/BiNowcaYWilewdksXQ5cZl3tnzy)
+- [📄Terminus Blog](https://dataelem.feishu.cn/wiki/BiNowcaYWilewdksXQ5cZl3tnzy)
 
 
 ## 感谢 
@@ -103,7 +103,7 @@ docker compose -f docker-compose.yml -p bisheng up -d
 
 
 <br>
-Bisheng 采用了以下依赖库:
+Terminus 采用了以下依赖库:
 
 - 感谢开源LLM应用开发库 [langchain](https://github.com/langchain-ai/langchain)。
 - 感谢开源langchain可视化工具 [langflow](https://github.com/logspace-ai/langflow)。

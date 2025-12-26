@@ -1,7 +1,7 @@
 [project]
 name = "backend"
 version = "2.3.0-beta3"
-description = "BISHENG backend service"
+description = "Terminus backend service"
 readme = "README.md"
 license = "Apache 2.0"
 requires-python = ">=3.10"
