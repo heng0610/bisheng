@@ -1,9 +1,9 @@
 import ast
 from typing import Any, Dict, List, Optional, Union
 
-from bisheng.graph.utils import UnbuiltObject, flatten_list
-from bisheng.graph.vertex.base import Vertex
-from bisheng.interface.utils import extract_input_variables_from_prompt
+from terminus.graph.utils import UnbuiltObject, flatten_list
+from terminus.graph.vertex.base import Vertex
+from terminus.interface.utils import extract_input_variables_from_prompt
 
 
 class AgentVertex(Vertex):

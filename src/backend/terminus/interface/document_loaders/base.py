@@ -1,11 +1,11 @@
 from typing import Dict, List, Optional, Type
 
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.custom_lists import documentloaders_type_to_cls_dict
-from bisheng.common.services.config_service import settings
-from bisheng.template.frontend_node.documentloaders import DocumentLoaderFrontNode
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.custom_lists import documentloaders_type_to_cls_dict
+from terminus.common.services.config_service import settings
+from terminus.template.frontend_node.documentloaders import DocumentLoaderFrontNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_class
+from terminus.utils.util import build_template_from_class
 
 
 class DocumentLoaderCreator(LangChainTypeCreator):

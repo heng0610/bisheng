@@ -6,7 +6,7 @@ import requests
 
 
 def _test_python_code():
-    from bisheng import load_flow_from_json
+    from terminus import load_flow_from_json
 
     TWEAKS = {
         'PyPDFLoader-RJlDA': {},

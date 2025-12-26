@@ -2,7 +2,7 @@ from contextlib import contextmanager
 from typing import Any, Awaitable, Callable, List, Optional
 
 import pandas as pd
-from bisheng.services.base import Service
+from terminus.services.base import Service
 from PIL import Image
 
 

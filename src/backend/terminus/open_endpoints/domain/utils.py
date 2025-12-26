@@ -1,8 +1,8 @@
 from fastapi.exceptions import HTTPException
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.services.config_service import settings
-from bisheng.user.domain.models.user import UserDao
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.services.config_service import settings
+from terminus.user.domain.models.user import UserDao
 
 
 def get_default_operator() -> UserPayload:

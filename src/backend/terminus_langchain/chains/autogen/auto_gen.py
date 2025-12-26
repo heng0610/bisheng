@@ -5,7 +5,7 @@ import logging
 from typing import Any, Dict, List, Optional
 
 from autogen import ConversableAgent
-from bisheng_langchain.autogen_role import AutoGenGroupChatManager, AutoGenUser
+from terminus_langchain.autogen_role import AutoGenGroupChatManager, AutoGenUser
 from langchain.callbacks.manager import AsyncCallbackManagerForChainRun, CallbackManagerForChainRun
 from langchain.chains.base import Chain
 

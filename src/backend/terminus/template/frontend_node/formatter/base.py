@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
+from terminus.template.field.base import TemplateField
 from pydantic import BaseModel
 
 

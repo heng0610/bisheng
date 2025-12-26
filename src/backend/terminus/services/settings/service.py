@@ -1,9 +1,9 @@
 import os
 
 import yaml
-from bisheng.services.base import Service
-from bisheng.services.settings.auth import AuthSettings
-from bisheng.services.settings.base import Settings
+from terminus.services.base import Service
+from terminus.services.settings.auth import AuthSettings
+from terminus.services.settings.base import Settings
 from loguru import logger
 
 

@@ -1,4 +1,4 @@
-from bisheng.telemetry.domain.mid_table.base import BaseMidTable, BaseRecord
+from terminus.telemetry.domain.mid_table.base import BaseMidTable, BaseRecord
 
 
 class KnowledgeIncrementRecord(BaseRecord):

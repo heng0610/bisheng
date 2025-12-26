@@ -3,12 +3,12 @@ import inspect
 import os
 from typing import TYPE_CHECKING, Union
 
-from bisheng.services.base import Service
-from bisheng.services.plugins.base import BasePlugin, CallbackPlugin
+from terminus.services.base import Service
+from terminus.services.plugins.base import BasePlugin, CallbackPlugin
 from loguru import logger
 
 if TYPE_CHECKING:
-    from bisheng.services.settings.service import SettingsService
+    from terminus.services.settings.service import SettingsService
 
 
 class PluginService(Service):
@@ -18,7 +18,7 @@ class PluginService(Service):
         self.plugins: dict[str, BasePlugin] = {}
         # plugin_dir = settings_service.settings.PLUGIN_DIR
         self.plugin_dir = os.path.dirname(__file__)
-        self.plugins_base_module = 'bisheng.services.plugins'
+        self.plugins_base_module = 'terminus'.services.plugins'
         self.load_plugins()
 
     def load_plugins(self):

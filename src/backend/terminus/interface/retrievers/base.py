@@ -1,12 +1,12 @@
 from typing import Any, ClassVar, Dict, List, Optional, Type
 
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.importing.utils import import_class
-from bisheng.common.services.config_service import settings
-from bisheng.template.frontend_node.retrievers import RetrieverFrontendNode
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.importing.utils import import_class
+from terminus.common.services.config_service import settings
+from terminus.template.frontend_node.retrievers import RetrieverFrontendNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_class, build_template_from_method
-from bisheng_langchain import retrievers as bisheng_retrievers
+from terminus.utils.util import build_template_from_class, build_template_from_method
+from terminus_langchain import retrievers as bisheng_retrievers
 from langchain.retrievers import MultiQueryRetriever
 from langchain_community import retrievers
 
@@ -33,7 +33,7 @@ class RetrieverCreator(LangChainTypeCreator):
 
             self.type_dict.update({
                 retriever_name:
-                import_class(f'bisheng_langchain.retrievers.{retriever_name}')
+                import_class(f'terminus'_langchain.retrievers.{retriever_name}')
                 for retriever_name in bisheng_retrievers.__all__
             })
             self.type_dict['MultiQueryRetriever'] = MultiQueryRetriever

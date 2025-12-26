@@ -1,7 +1,7 @@
 import json
 from typing import Dict, List, Literal
 
-from bisheng.core.external.http_client.http_client_manager import get_http_client
+from terminus.core.external.http_client.http_client_manager import get_http_client
 
 
 class SFTBackend:

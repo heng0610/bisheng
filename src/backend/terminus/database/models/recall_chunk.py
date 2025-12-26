@@ -4,7 +4,7 @@ from typing import Optional
 from sqlalchemy import Column, DateTime, Text, text
 from sqlmodel import Field
 
-from bisheng.common.models.base import SQLModelSerializable
+from terminus.common.models.base import SQLModelSerializable
 
 
 class RecallBase(SQLModelSerializable):

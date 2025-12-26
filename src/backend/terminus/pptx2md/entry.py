@@ -14,10 +14,10 @@
 
 import logging
 
-import bisheng.pptx2md.outputter as outputter
-from bisheng.pptx2md.parser import parse
-from bisheng.pptx2md.types import ConversionConfig
-from bisheng.pptx2md.utils import load_pptx, prepare_titles
+import terminus.pptx2md.outputter as outputter
+from terminus.pptx2md.parser import parse
+from terminus.pptx2md.types import ConversionConfig
+from terminus.pptx2md.utils import load_pptx, prepare_titles
 
 logger = logging.getLogger(__name__)
 

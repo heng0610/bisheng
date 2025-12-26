@@ -8,16 +8,16 @@ from pydantic import field_validator
 from sqlalchemy import Column, DateTime, String, and_, func, or_, text
 from sqlmodel import JSON, Field, select, update
 
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.common.schemas.telemetry.event_data_schema import NewApplicationEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.assistant import Assistant
-from bisheng.database.models.role_access import AccessType, RoleAccess, RoleAccessDao
-from bisheng.user.domain.models.user_role import UserRoleDao
-from bisheng.utils import generate_uuid
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.models.base import SQLModelSerializable
+from terminus.common.schemas.telemetry.event_data_schema import NewApplicationEventData
+from terminus.common.services import telemetry_service
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.core.logger import trace_id_var
+from terminus.database.models.assistant import Assistant
+from terminus.database.models.role_access import AccessType, RoleAccess, RoleAccessDao
+from terminus.user.domain.models.user_role import UserRoleDao
+from terminus.utils import generate_uuid
 
 
 # if TYPE_CHECKING:
@@ -110,7 +110,7 @@ class FlowDao(FlowBase):
 
     @classmethod
     def create_flow(cls, flow_info: Flow, flow_type: Optional[int]) -> Flow:
-        from bisheng.database.models.flow_version import FlowVersion
+        from terminus.database.models.flow_version import FlowVersion
         with get_sync_db_session() as session:
             session.add(flow_info)
             # 创建一个默认的版本
@@ -150,7 +150,7 @@ class FlowDao(FlowBase):
 
     @classmethod
     def delete_flow(cls, flow_info: Flow) -> Flow:
-        from bisheng.database.models.flow_version import FlowVersion
+        from terminus.database.models.flow_version import FlowVersion
         with get_sync_db_session() as session:
             session.delete(flow_info)
             # 删除对应的版本信息

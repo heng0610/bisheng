@@ -1,12 +1,12 @@
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.template.base import Template
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.template.base import Template
 
-DEFAULT_CUSTOM_COMPONENT_CODE = """from bisheng import CustomComponent
+DEFAULT_CUSTOM_COMPONENT_CODE = """from terminus import CustomComponent
 from typing import Optional, List, Dict, Union
-from bisheng.field_typing import (
+from terminus.field_typing import (
     AgentExecutor,
     BaseChatMemory,
     BaseLanguageModel,

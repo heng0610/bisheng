@@ -1,6 +1,6 @@
 from typing import Any, List, Optional, Sequence, Tuple, Union
 
-from bisheng.interface.base import CustomAgentExecutor
+from terminus.interface.base import CustomAgentExecutor
 from langchain.agents import (AgentExecutor, AgentType, BaseSingleActionAgent, Tool, ZeroShotAgent,
                               initialize_agent)
 from langchain.agents.agent_toolkits.vectorstore.prompt import PREFIX as VECTORSTORE_PREFIX

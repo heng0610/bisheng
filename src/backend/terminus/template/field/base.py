@@ -1,6 +1,6 @@
 from typing import Any, Callable, Optional, Union
 
-from bisheng.field_typing.range_spec import RangeSpec
+from terminus.field_typing.range_spec import RangeSpec
 from pydantic import BaseModel, ConfigDict, Field
 
 

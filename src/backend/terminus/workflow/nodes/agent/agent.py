@@ -8,16 +8,16 @@ from langgraph.prebuilt import create_react_agent
 from loguru import logger
 from pydantic import BaseModel, field_validator, Field
 
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.llm.domain.services import LLMService
-from bisheng.tool.domain.services.executor import ToolExecutor
-from bisheng.workflow.callback.event import StreamMsgOverData
-from bisheng.workflow.callback.llm_callback import LLMNodeCallbackHandler
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.prompt_template import PromptTemplateParser
-from bisheng_langchain.gpts.assistant import ConfigurableAssistant
-from bisheng_langchain.gpts.load_tools import load_tools
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.llm.domain.services import LLMService
+from terminus.tool.domain.services.executor import ToolExecutor
+from terminus.workflow.callback.event import StreamMsgOverData
+from terminus.workflow.callback.llm_callback import LLMNodeCallbackHandler
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.prompt_template import PromptTemplateParser
+from terminus_langchain.gpts.assistant import ConfigurableAssistant
+from terminus_langchain.gpts.load_tools import load_tools
 
 agent_executor_dict = {
     'ReAct': 'get_react_agent_executor',

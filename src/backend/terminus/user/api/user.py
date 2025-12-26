@@ -13,22 +13,22 @@ from fastapi.security import OAuth2PasswordBearer
 from loguru import logger
 from sqlmodel import select
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.v1.schemas import resp_200, CreateUserReq
-from bisheng.common.errcode.http_error import UnAuthorizedError, NotFoundError
-from bisheng.common.errcode.user import (UserNotPasswordError, UserValidateError, UserPasswordError, UserForbiddenError)
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.redis_manager import get_redis_client, get_redis_client_sync
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.constants import AdminRole, DefaultRole
-from bisheng.database.models.group import GroupDao
-from bisheng.database.models.mark_task import MarkTaskDao
-from bisheng.database.models.role import Role, RoleCreate, RoleDao, RoleUpdate
-from bisheng.database.models.role_access import RoleRefresh, RoleAccessDao, AccessType
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.utils import generate_uuid
-from bisheng.utils import get_request_ip
-from bisheng.utils.constants import CAPTCHA_PREFIX, RSA_KEY, USER_PASSWORD_ERROR, USER_CURRENT_SESSION
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.v1.schemas import resp_200, CreateUserReq
+from terminus.common.errcode.http_error import UnAuthorizedError, NotFoundError
+from terminus.common.errcode.user import (UserNotPasswordError, UserValidateError, UserPasswordError, UserForbiddenError)
+from terminus.common.services.config_service import settings
+from terminus.core.cache.redis_manager import get_redis_client, get_redis_client_sync
+from terminus.core.database import get_sync_db_session
+from terminus.database.constants import AdminRole, DefaultRole
+from terminus.database.models.group import GroupDao
+from terminus.database.models.mark_task import MarkTaskDao
+from terminus.database.models.role import Role, RoleCreate, RoleDao, RoleUpdate
+from terminus.database.models.role_access import RoleRefresh, RoleAccessDao, AccessType
+from terminus.database.models.user_group import UserGroupDao
+from terminus.utils import generate_uuid
+from terminus.utils import get_request_ip
+from terminus.utils.constants import CAPTCHA_PREFIX, RSA_KEY, USER_PASSWORD_ERROR, USER_CURRENT_SESSION
 from ..domain.models.user import User, UserCreate, UserDao, UserLogin, UserRead, UserUpdate
 from ..domain.models.user_role import UserRole, UserRoleCreate, UserRoleDao
 from ..domain.services.auth import AuthJwt, LoginUser

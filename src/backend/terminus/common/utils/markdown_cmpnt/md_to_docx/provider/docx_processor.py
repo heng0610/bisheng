@@ -16,9 +16,9 @@ from docx.table import Table
 from docx.text.paragraph import Paragraph
 from docx.text.run import Run
 
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.provider.docx_plus import add_hyperlink
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.provider.style_manager import StyleManager
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.utils.style_enum import MDX_STYLE
+from terminus.common.utils.markdown_cmpnt.md_to_docx.provider.docx_plus import add_hyperlink
+from terminus.common.utils.markdown_cmpnt.md_to_docx.provider.style_manager import StyleManager
+from terminus.common.utils.markdown_cmpnt.md_to_docx.utils.style_enum import MDX_STYLE
 
 
 class DocxProcessor:

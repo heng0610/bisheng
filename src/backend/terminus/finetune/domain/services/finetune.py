@@ -6,16 +6,16 @@ from typing import Dict, List, Any
 from loguru import logger
 from pydantic import ValidationError
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.finetune import (CancelJobError, ChangeModelNameError, CreateFinetuneError,
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.finetune import (CancelJobError, ChangeModelNameError, CreateFinetuneError,
                                              DeleteJobError, ExportJobError, InvalidExtraParamsError, JobStatusError,
                                              ModelNameExistsError, NotFoundJobError,
                                              TrainDataNoneError, UnExportJobError, GetModelError)
-from bisheng.common.errcode.model_deploy import NotFoundModelError
-from bisheng.common.errcode.server import NoSftServerError
-from bisheng.common.schemas.api import UnifiedResponseModel
-from bisheng.core.cache import InMemoryCache
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
+from terminus.common.errcode.model_deploy import NotFoundModelError
+from terminus.common.errcode.server import NoSftServerError
+from terminus.common.schemas.api import UnifiedResponseModel
+from terminus.core.cache import InMemoryCache
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
 from ..models.finetune import (Finetune, FinetuneChangeModelName, FinetuneDao,
                                FinetuneExtraParams, FinetuneList, FinetuneStatus)
 from ..models.model_deploy import ModelDeploy, ModelDeployDao, ModelDeployInfo

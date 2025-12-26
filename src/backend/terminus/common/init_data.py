@@ -6,22 +6,22 @@ from typing import List
 from loguru import logger
 from sqlmodel import select, update, text
 
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.core.database import get_async_db_session, get_database_connection
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.database.constants import AdminRole, DefaultRole
-from bisheng.database.models.component import Component
-from bisheng.database.models.flow_version import FlowVersion
-from bisheng.database.models.group import Group, DefaultGroup
-from bisheng.database.models.role import Role
-from bisheng.database.models.role_access import RoleAccess, AccessType
-from bisheng.database.models.template import Template
-from bisheng.finetune.domain.models.sft_model import SftModel
-from bisheng.tool.domain.models.gpts_tools import GptsTools
-from bisheng.tool.domain.models.gpts_tools import GptsToolsType
-from bisheng.user.domain.models.user import User
-from bisheng.user.domain.models.user_role import UserRoleDao
+from terminus.common.services.config_service import settings
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.core.database import get_async_db_session, get_database_connection
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.database.constants import AdminRole, DefaultRole
+from terminus.database.models.component import Component
+from terminus.database.models.flow_version import FlowVersion
+from terminus.database.models.group import Group, DefaultGroup
+from terminus.database.models.role import Role
+from terminus.database.models.role_access import RoleAccess, AccessType
+from terminus.database.models.template import Template
+from terminus.finetune.domain.models.sft_model import SftModel
+from terminus.tool.domain.models.gpts_tools import GptsTools
+from terminus.tool.domain.models.gpts_tools import GptsToolsType
+from terminus.user.domain.models.user import User
+from terminus.user.domain.models.user_role import UserRoleDao
 
 
 async def init_default_data():

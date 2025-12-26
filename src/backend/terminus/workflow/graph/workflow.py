@@ -2,9 +2,9 @@ import json
 import time
 from typing import Dict
 
-from bisheng.workflow.callback.base_callback import BaseCallback
-from bisheng.workflow.common.workflow import WorkflowStatus
-from bisheng.workflow.graph.graph_engine import GraphEngine
+from terminus.workflow.callback.base_callback import BaseCallback
+from terminus.workflow.common.workflow import WorkflowStatus
+from terminus.workflow.graph.graph_engine import GraphEngine
 
 
 class Workflow:

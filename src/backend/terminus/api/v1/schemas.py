@@ -6,13 +6,13 @@ from langchain.docstore.document import Document
 from orjson import orjson
 from pydantic import BaseModel, Field, model_validator, field_validator
 
-from bisheng.database.models.assistant import AssistantBase
-from bisheng.database.models.flow import FlowCreate, FlowRead
-from bisheng.database.models.message import ChatMessageRead
-from bisheng.database.models.tag import Tag
-from bisheng.knowledge.domain.models.knowledge import KnowledgeRead
-from bisheng.knowledge.domain.schemas.knowledge_rag_schema import Metadata
-from bisheng.tool.domain.models.gpts_tools import GptsToolsRead
+from terminus.database.models.assistant import AssistantBase
+from terminus.database.models.flow import FlowCreate, FlowRead
+from terminus.database.models.message import ChatMessageRead
+from terminus.database.models.tag import Tag
+from terminus.knowledge.domain.models.knowledge import KnowledgeRead
+from terminus.knowledge.domain.schemas.knowledge_rag_schema import Metadata
+from terminus.tool.domain.models.gpts_tools import GptsToolsRead
 
 
 class CaptchaInput(BaseModel):
@@ -42,7 +42,7 @@ class GraphData(BaseModel):
 
 
 class ExportedFlow(BaseModel):
-    """Exported flow from bisheng."""
+    """Exported flow from terminus."""
 
     description: str
     name: str

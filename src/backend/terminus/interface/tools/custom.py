@@ -1,7 +1,7 @@
 from typing import Callable, Optional
 
-from bisheng.interface.importing.utils import get_function
-from bisheng.utils import validate
+from terminus.interface.importing.utils import get_function
+from terminus.utils import validate
 from langchain_community.tools import Tool
 from pydantic import field_validator, BaseModel
 

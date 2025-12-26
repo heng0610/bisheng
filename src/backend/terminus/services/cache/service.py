@@ -3,8 +3,8 @@ import threading
 import time
 from collections import OrderedDict
 
-from bisheng.services.base import Service
-from bisheng.services.cache.base import BaseCacheService
+from terminus.services.base import Service
+from terminus.services.cache.base import BaseCacheService
 from loguru import logger
 
 

@@ -5,12 +5,12 @@ from typing import Annotated
 from fastapi import APIRouter, Body
 from sqlmodel import select
 
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.errcode.qa import BackendProcessingError
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.models.recall_chunk import RecallChunk
-from bisheng.knowledge.domain.models.knowledge_file import KnowledgeFileDao
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.v1.schemas import resp_200
+from terminus.common.errcode.qa import BackendProcessingError
+from terminus.core.database import get_sync_db_session
+from terminus.database.models.recall_chunk import RecallChunk
+from terminus.knowledge.domain.models.knowledge_file import KnowledgeFileDao
 
 # build router
 router = APIRouter(prefix='/qa', tags=['QA'])

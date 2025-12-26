@@ -1,7 +1,7 @@
 from typing import Any, Callable
 
-from bisheng.services.task.backends.base import TaskBackend
-from bisheng.worker import celery_app
+from terminus.services.task.backends.base import TaskBackend
+from terminus.worker import celery_app
 from celery.result import AsyncResult  # type: ignore
 
 

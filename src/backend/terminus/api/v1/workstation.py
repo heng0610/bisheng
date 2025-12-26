@@ -14,39 +14,39 @@ from langchain_core.runnables import RunnableConfig
 from loguru import logger
 from sse_starlette import EventSourceResponse
 
-from bisheng.api.services import knowledge_imp
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.api.services.workstation import (SSECallbackClient, WorkstationConversation,
+from terminus.api.services import knowledge_imp
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.services.workflow import WorkFlowService
+from terminus.api.services.workstation import (SSECallbackClient, WorkstationConversation,
                                               WorkstationMessage, WorkStationService)
-from bisheng.api.v1.callback import AsyncStreamingLLMCallbackHandler
-from bisheng.api.v1.schema.chat_schema import APIChatCompletion, SSEResponse, delta
-from bisheng.api.v1.schemas import FrequentlyUsedChat
-from bisheng.api.v1.schemas import WorkstationConfig, resp_200, ExcelRule, UnifiedResponseModel
-from bisheng.chat.utils import SourceType, process_source_document
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode import BaseErrorCode
-from bisheng.common.errcode.http_error import ServerError, UnAuthorizedError
-from bisheng.common.errcode.workstation import WebSearchToolNotFoundError, ConversationNotFoundError, \
+from terminus.api.v1.callback import AsyncStreamingLLMCallbackHandler
+from terminus.api.v1.schema.chat_schema import APIChatCompletion, SSEResponse, delta
+from terminus.api.v1.schemas import FrequentlyUsedChat
+from terminus.api.v1.schemas import WorkstationConfig, resp_200, ExcelRule, UnifiedResponseModel
+from terminus.chat.utils import SourceType, process_source_document
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode import BaseErrorCode
+from terminus.common.errcode.http_error import ServerError, UnAuthorizedError
+from terminus.common.errcode.workstation import WebSearchToolNotFoundError, ConversationNotFoundError, \
     AgentAlreadyExistsError
-from bisheng.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationAliveEventData, \
+from terminus.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationAliveEventData, \
     ApplicationProcessEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings as bisheng_settings
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.core.cache.utils import file_download, save_download_file, save_uploaded_file
-from bisheng.core.logger import trace_id_var
-from bisheng.core.prompts.manager import get_prompt_manager
-from bisheng.database.models.flow import FlowType
-from bisheng.database.models.message import ChatMessage, ChatMessageDao
-from bisheng.database.models.session import MessageSession, MessageSessionDao
-from bisheng.llm.domain import LLMService
-from bisheng.llm.domain.llm import BishengLLM
-from bisheng.share_link.api.dependencies import header_share_token_parser
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.tool.domain.models.gpts_tools import GptsToolsDao
-from bisheng.tool.domain.services.executor import ToolExecutor
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings as bisheng_settings
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.core.cache.utils import file_download, save_download_file, save_uploaded_file
+from terminus.core.logger import trace_id_var
+from terminus.core.prompts.manager import get_prompt_manager
+from terminus.database.models.flow import FlowType
+from terminus.database.models.message import ChatMessage, ChatMessageDao
+from terminus.database.models.session import MessageSession, MessageSessionDao
+from terminus.llm.domain import LLMService
+from terminus.llm.domain.llm import BishengLLM
+from terminus.share_link.api.dependencies import header_share_token_parser
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.tool.domain.models.gpts_tools import GptsToolsDao
+from terminus.tool.domain.services.executor import ToolExecutor
 
 router = APIRouter(prefix='/workstation', tags=['WorkStation'])
 
@@ -169,7 +169,7 @@ def knowledgeUpload(request: Request,
                     file: UploadFile = File(...),
                     login_user: UserPayload = Depends(UserPayload.get_login_user)):
     file_byte = file.file.read()
-    file_path = save_download_file(file_byte, 'bisheng', file.filename)
+    file_path = save_download_file(file_byte, 'terminus'', file.filename)
     res = WorkStationService.uploadPersonalKnowledge(request,
                                                      login_user,
                                                      file_path=file_path,
@@ -207,7 +207,7 @@ async def upload_file(
     """
     # 读取文件内容
     # 保存文件
-    file_path = await save_uploaded_file(file, 'bisheng', unquote(file.filename))
+    file_path = await save_uploaded_file(file, 'terminus'', unquote(file.filename))
 
     # 返回文件路径
     return resp_200(

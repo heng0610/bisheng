@@ -1,6 +1,6 @@
 import markdown
 
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.parser.ext_md_syntax import ExtMdSyntax
+from terminus.common.utils.markdown_cmpnt.md_to_docx.parser.ext_md_syntax import ExtMdSyntax
 
 
 def md2html(in_md: str):

@@ -8,12 +8,12 @@ from langchain_core.callbacks import BaseCallbackHandler
 from langchain_core.outputs import ChatResult, GenerationChunk, ChatGenerationChunk
 from loguru import logger
 
-from bisheng.common.constants.enums.telemetry import StatusEnum, BaseTelemetryTypeEnum
-from bisheng.common.schemas.telemetry.event_data_schema import ModelInvokeEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.cache.redis_manager import get_redis_client, get_redis_client_sync
-from bisheng.core.logger import trace_id_var
-from bisheng.llm.domain.const import LLMModelStatus
+from terminus.common.constants.enums.telemetry import StatusEnum, BaseTelemetryTypeEnum
+from terminus.common.schemas.telemetry.event_data_schema import ModelInvokeEventData
+from terminus.common.services import telemetry_service
+from terminus.core.cache.redis_manager import get_redis_client, get_redis_client_sync
+from terminus.core.logger import trace_id_var
+from terminus.llm.domain.const import LLMModelStatus
 
 
 async def bisheng_model_limit_check(self: 'BishengBase'):

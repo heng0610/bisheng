@@ -1,7 +1,7 @@
 import logging
-from bisheng.core.context import BaseContextManager
-from bisheng.core.context.base import T
-from bisheng.core.external.http_client.client import AsyncHttpClient
+from terminus.core.context import BaseContextManager
+from terminus.core.context.base import T
+from terminus.core.external.http_client.client import AsyncHttpClient
 
 logger = logging.getLogger(__name__)
 
@@ -39,13 +39,13 @@ class HttpClientManager(BaseContextManager[AsyncHttpClient]):
 
 async def get_http_client() -> AsyncHttpClient:
     """获取 HTTP 客户端实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return await app_context.async_get_instance(HttpClientManager.name)
     except KeyError:
         logger.warning(f"HttpClientManager not found in context, registering new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(HttpClientManager())
             return await app_context.async_get_instance(HttpClientManager.name)
         except Exception as e:

@@ -1,8 +1,8 @@
 from typing import Dict, Optional, Tuple, Union
 from uuid import UUID
 
-from bisheng.core.cache.utils import memoize_dict
-from bisheng.graph import Graph
+from terminus.core.cache.utils import memoize_dict
+from terminus.graph import Graph
 from loguru import logger
 
 

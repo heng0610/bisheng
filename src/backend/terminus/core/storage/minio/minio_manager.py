@@ -2,9 +2,9 @@ import logging
 from abc import ABC
 from typing import Union
 
-from bisheng.core.config.settings import MinioConf
-from bisheng.core.context import BaseContextManager
-from bisheng.core.storage.minio.minio_storage import MinioStorage
+from terminus.core.config.settings import MinioConf
+from terminus.core.context import BaseContextManager
+from terminus.core.storage.minio.minio_storage import MinioStorage
 
 logger = logging.getLogger(__name__)
 
@@ -53,13 +53,13 @@ class MinioManager(BaseContextManager[MinioStorage]):
 
 async def get_minio_storage() -> MinioStorage:
     """获取 Minio 存储实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return await app_context.async_get_instance(MinioManager.name)
     except KeyError:
         logger.warning(f"MinioManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(MinioManager(
                 minio_config=settings.object_storage.minio
             ))
@@ -71,13 +71,13 @@ async def get_minio_storage() -> MinioStorage:
 
 def get_minio_storage_sync() -> MinioStorage:
     """同步获取 Minio 存储实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return app_context.sync_get_instance(MinioManager.name)
     except KeyError:
         logger.warning(f"MinioManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(MinioManager(
                 minio_config=settings.object_storage.minio
             ))

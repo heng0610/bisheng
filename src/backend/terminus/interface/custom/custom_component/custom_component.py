@@ -3,11 +3,11 @@ from typing import Any, Callable, ClassVar, List, Optional, Union
 from uuid import UUID
 
 import yaml
-from bisheng.database.models.flow import Flow, FlowDao
-from bisheng.interface.custom.code_parser.utils import (extract_inner_type_from_generic_alias,
+from terminus.database.models.flow import Flow, FlowDao
+from terminus.interface.custom.code_parser.utils import (extract_inner_type_from_generic_alias,
                                                         extract_union_types_from_generic_alias)
-from bisheng.interface.custom.custom_component.component import Component
-from bisheng.utils import validate
+from terminus.interface.custom.custom_component.component import Component
+from terminus.utils import validate
 from cachetools import TTLCache, cachedmethod
 from fastapi import HTTPException
 
@@ -164,7 +164,7 @@ class CustomComponent(Component):
         return validate.create_function(self.code, self.function_entrypoint_name)
 
     async def load_flow(self, flow_id: str, tweaks: Optional[dict] = None) -> Any:
-        from bisheng.processing.process import build_sorted_vertices, process_tweaks
+        from terminus.processing.process import build_sorted_vertices, process_tweaks
 
         flow = FlowDao.get_flow_by_id(flow_id)
         graph_data = flow.data if flow else None

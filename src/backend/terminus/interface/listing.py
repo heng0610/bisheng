@@ -1,22 +1,22 @@
-from bisheng.utils.lazy_load import LazyLoadDictBase
+from terminus.utils.lazy_load import LazyLoadDictBase
 
-# from bisheng.interface.agents.base import agent_creator
-# from bisheng.interface.autogenRole.base import autogenrole_creator
-# from bisheng.interface.chains.base import chain_creator
-# from bisheng.interface.document_loaders.base import documentloader_creator
-# from bisheng.interface.embeddings.base import embedding_creator
-# from bisheng.interface.inputoutput.base import input_output_creator
-# from bisheng.interface.llms.base import llm_creator
-# from bisheng.interface.memories.base import memory_creator
-# from bisheng.interface.output_parsers.base import output_parser_creator
-# from bisheng.interface.prompts.base import prompt_creator
-# from bisheng.interface.retrievers.base import retriever_creator
-# from bisheng.interface.text_splitters.base import textsplitter_creator
-# from bisheng.interface.toolkits.base import toolkits_creator
-# from bisheng.interface.tools.base import tool_creator
-# from bisheng.interface.utilities.base import utility_creator
-# from bisheng.interface.vector_store.base import vectorstore_creator
-# from bisheng.interface.wrappers.base import wrapper_creator
+# from terminus.interface.agents.base import agent_creator
+# from terminus.interface.autogenRole.base import autogenrole_creator
+# from terminus.interface.chains.base import chain_creator
+# from terminus.interface.document_loaders.base import documentloader_creator
+# from terminus.interface.embeddings.base import embedding_creator
+# from terminus.interface.inputoutput.base import input_output_creator
+# from terminus.interface.llms.base import llm_creator
+# from terminus.interface.memories.base import memory_creator
+# from terminus.interface.output_parsers.base import output_parser_creator
+# from terminus.interface.prompts.base import prompt_creator
+# from terminus.interface.retrievers.base import retriever_creator
+# from terminus.interface.text_splitters.base import textsplitter_creator
+# from terminus.interface.toolkits.base import toolkits_creator
+# from terminus.interface.tools.base import tool_creator
+# from terminus.interface.utilities.base import utility_creator
+# from terminus.interface.vector_store.base import vectorstore_creator
+# from terminus.interface.wrappers.base import wrapper_creator
 
 # def get_type_dict():
 #     return {
@@ -66,7 +66,7 @@ class AllTypesDict(LazyLoadDictBase):
         }
 
     def get_type_dict(self):
-        from bisheng.interface.types import get_all_types_dict
+        from terminus.interface.types import get_all_types_dict
 
         return get_all_types_dict()
 

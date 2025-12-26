@@ -4,7 +4,7 @@ from loguru import logger
 from pydantic import BaseModel, Field
 
 if TYPE_CHECKING:
-    from bisheng.graph.vertex.base import Vertex
+    from terminus.graph.vertex.base import Vertex
 
 
 class SourceHandle(BaseModel):

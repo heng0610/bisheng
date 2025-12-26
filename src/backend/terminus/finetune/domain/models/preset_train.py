@@ -4,9 +4,9 @@ from typing import List, Optional, Tuple
 from sqlalchemy import func
 from sqlmodel import Column, DateTime, Field, select, text, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_async_db_session
-from bisheng.utils import generate_uuid
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_async_db_session
+from terminus.utils import generate_uuid
 
 
 # Finetune任务的预置训练集

@@ -4,14 +4,14 @@ from typing import Optional
 from datasets import Dataset
 from fastapi import APIRouter, Depends, Query, UploadFile, Form, BackgroundTasks
 
-from bisheng.api.services.evaluation import EvaluationService, add_evaluation_task
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.server import UploadFileExtError
-from bisheng.core.cache.utils import convert_encoding_cchardet
-from bisheng.core.database import get_sync_db_session
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.database.models.evaluation import EvaluationCreate, Evaluation
+from terminus.api.services.evaluation import EvaluationService, add_evaluation_task
+from terminus.api.v1.schemas import resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.server import UploadFileExtError
+from terminus.core.cache.utils import convert_encoding_cchardet
+from terminus.core.database import get_sync_db_session
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.database.models.evaluation import EvaluationCreate, Evaluation
 
 router = APIRouter(prefix='/evaluation', tags=['Evaluation'], dependencies=[Depends(UserPayload.get_login_user)])
 

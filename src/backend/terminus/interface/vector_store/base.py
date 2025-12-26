@@ -1,13 +1,13 @@
 from typing import Any, Dict, List, Optional, Type
 
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.importing.utils import import_class
-from bisheng.interface.vector_store.constants import CUSTOM_VECTORSTORE
-from bisheng.common.services.config_service import settings
-from bisheng.template.frontend_node.vectorstores import VectorStoreFrontendNode
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.importing.utils import import_class
+from terminus.interface.vector_store.constants import CUSTOM_VECTORSTORE
+from terminus.common.services.config_service import settings
+from terminus.template.frontend_node.vectorstores import VectorStoreFrontendNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_method
-from bisheng_langchain import vectorstores as contribute_vectorstores
+from terminus.utils.util import build_template_from_method
+from terminus_langchain import vectorstores as contribute_vectorstores
 from langchain_community import vectorstores
 
 
@@ -29,7 +29,7 @@ class VectorstoreCreator(LangChainTypeCreator):
             }
             self.type_dict.update({
                 vectorstore_name:
-                import_class(f'bisheng_langchain.vectorstores.{vectorstore_name}')
+                import_class(f'terminus'_langchain.vectorstores.{vectorstore_name}')
                 for vectorstore_name in contribute_vectorstores.__all__
             })
             self.type_dict.update(CUSTOM_VECTORSTORE)

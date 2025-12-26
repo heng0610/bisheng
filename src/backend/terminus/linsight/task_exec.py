@@ -9,26 +9,26 @@ from typing import Optional, List, Dict, Callable
 from langchain_core.language_models import BaseChatModel
 from loguru import logger
 
-from bisheng.api.services.invite_code.invite_code import InviteCodeService
-from bisheng.api.services.linsight.workbench_impl import LinsightWorkbenchImpl
-from bisheng.api.v1.schema.linsight_schema import UserInputEventSchema
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.utils import create_cache_folder_async, CACHE_DIR
-from bisheng.core.external.http_client.http_client_manager import get_http_client
-from bisheng.core.logger import trace_id_var
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.database.models import LinsightExecuteTask
-from bisheng.database.models.linsight_execute_task import LinsightExecuteTaskDao, ExecuteTaskStatusEnum, \
+from terminus.api.services.invite_code.invite_code import InviteCodeService
+from terminus.api.services.linsight.workbench_impl import LinsightWorkbenchImpl
+from terminus.api.v1.schema.linsight_schema import UserInputEventSchema
+from terminus.common.services.config_service import settings
+from terminus.core.cache.utils import create_cache_folder_async, CACHE_DIR
+from terminus.core.external.http_client.http_client_manager import get_http_client
+from terminus.core.logger import trace_id_var
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.database.models import LinsightExecuteTask
+from terminus.database.models.linsight_execute_task import LinsightExecuteTaskDao, ExecuteTaskStatusEnum, \
     ExecuteTaskTypeEnum
-from bisheng.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum, \
+from terminus.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum, \
     LinsightSessionVersion
-from bisheng.linsight import utils as linsight_execute_utils
-from bisheng.linsight.state_message_manager import LinsightStateMessageManager, MessageData, MessageEventType
-from bisheng.llm.domain.services import LLMService
-from bisheng.tool.domain.services.tool import ToolServices
-from bisheng_langchain.linsight.agent import LinsightAgent
-from bisheng_langchain.linsight.const import TaskStatus, ExecConfig
-from bisheng_langchain.linsight.event import NeedUserInput, GenerateSubTask, ExecStep, TaskStart, TaskEnd, BaseEvent
+from terminus.linsight import utils as linsight_execute_utils
+from terminus.linsight.state_message_manager import LinsightStateMessageManager, MessageData, MessageEventType
+from terminus.llm.domain.services import LLMService
+from terminus.tool.domain.services.tool import ToolServices
+from terminus_langchain.linsight.agent import LinsightAgent
+from terminus_langchain.linsight.const import TaskStatus, ExecConfig
+from terminus_langchain.linsight.event import NeedUserInput, GenerateSubTask, ExecStep, TaskStart, TaskEnd, BaseEvent
 
 
 class TaskExecutionError(Exception):
@@ -153,7 +153,7 @@ class LinsightWorkflowTask:
         finally:
             # 清理代码解释器的沙盒
             for one in tools:
-                if one.name == "bisheng_code_interpreter":
+                if one.name == "terminus_code_interpreter":
                     one.close()
                     break
 

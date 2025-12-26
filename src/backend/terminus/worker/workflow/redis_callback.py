@@ -8,24 +8,24 @@ from typing import AsyncIterator, Iterator
 from langchain_core.documents import Document
 from loguru import logger
 
-from bisheng.api.v1.schema.workflow import WorkflowEventType
-from bisheng.api.v1.schemas import ChatResponse
-from bisheng.chat.utils import sync_judge_source, sync_process_source_document
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.errcode.flow import WorkFlowNodeRunMaxTimesError, WorkFlowWaitUserTimeoutError, \
+from terminus.api.v1.schema.workflow import WorkflowEventType
+from terminus.api.v1.schemas import ChatResponse
+from terminus.chat.utils import sync_judge_source, sync_process_source_document
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.errcode.flow import WorkFlowNodeRunMaxTimesError, WorkFlowWaitUserTimeoutError, \
     WorkFlowNodeUpdateError, WorkFlowVersionUpdateError, WorkFlowTaskBusyError, WorkFlowTaskOtherError
-from bisheng.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.redis_manager import get_redis_client_sync
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import FlowDao, FlowType
-from bisheng.database.models.message import ChatMessageDao, ChatMessage
-from bisheng.database.models.session import MessageSessionDao, MessageSession
-from bisheng.workflow.callback.base_callback import BaseCallback
-from bisheng.workflow.callback.event import NodeStartData, NodeEndData, UserInputData, GuideWordData, GuideQuestionData, \
+from terminus.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.cache.redis_manager import get_redis_client_sync
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import FlowDao, FlowType
+from terminus.database.models.message import ChatMessageDao, ChatMessage
+from terminus.database.models.session import MessageSessionDao, MessageSession
+from terminus.workflow.callback.base_callback import BaseCallback
+from terminus.workflow.callback.event import NodeStartData, NodeEndData, UserInputData, GuideWordData, GuideQuestionData, \
     OutputMsgData, StreamMsgData, StreamMsgOverData, OutputMsgChooseData, OutputMsgInputData
-from bisheng.workflow.common.workflow import WorkflowStatus
+from terminus.workflow.common.workflow import WorkflowStatus
 
 
 class RedisCallback(BaseCallback):
@@ -325,12 +325,12 @@ class RedisCallback(BaseCallback):
         return ret
 
     def set_workflow_stop(self):
-        from bisheng.worker.workflow.tasks import stop_workflow
+        from terminus.worker.workflow.tasks import stop_workflow
         self.redis_client.set(self.workflow_stop_key, 1, expiration=3600 * 24)
         stop_workflow.delay(self.unique_id, self.workflow_id, self.chat_id, self.user_id)
 
     async def async_set_workflow_stop(self):
-        from bisheng.worker.workflow.tasks import stop_workflow
+        from terminus.worker.workflow.tasks import stop_workflow
         await self.redis_client.aset(self.workflow_stop_key, 1, expiration=3600 * 24)
         stop_workflow.delay(self.unique_id, self.workflow_id, self.chat_id, self.user_id)
 

@@ -4,14 +4,14 @@ import os
 from langchain_community.chat_models import ChatTongyi
 from pydantic import SecretStr
 
-from bisheng.api.services.linsight.workbench_impl import LinsightWorkbenchImpl
-from bisheng.api.services.workstation import WorkStationService
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.tool.domain.services.executor import ToolExecutor
-from bisheng.tool.domain.services.tool import ToolServices
-from bisheng_langchain.linsight.agent import LinsightAgent
-from bisheng_langchain.linsight.const import TaskMode, ExecConfig
-from bisheng_langchain.linsight.event import NeedUserInput, TaskStart, TaskEnd, ExecStep
+from terminus.api.services.linsight.workbench_impl import LinsightWorkbenchImpl
+from terminus.api.services.workstation import WorkStationService
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.tool.domain.services.executor import ToolExecutor
+from terminus.tool.domain.services.tool import ToolServices
+from terminus_langchain.linsight.agent import LinsightAgent
+from terminus_langchain.linsight.const import TaskMode, ExecConfig
+from terminus_langchain.linsight.event import NeedUserInput, TaskStart, TaskEnd, ExecStep
 
 
 async def get_linsight_agent():

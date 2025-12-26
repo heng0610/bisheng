@@ -1,8 +1,8 @@
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.template.base import Template
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.template.base import Template
 from langchain.agents import types
 
 NON_CHAT_AGENTS = {

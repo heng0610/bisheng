@@ -2,15 +2,15 @@ from typing import List
 
 from fastapi import APIRouter, Depends, BackgroundTasks, Body
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.schemas.api import UnifiedResponseModel, resp_200
-from bisheng.knowledge.domain.schemas.knowledge_schema import AddKnowledgeMetadataFieldsReq, \
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.schemas.api import UnifiedResponseModel, resp_200
+from terminus.knowledge.domain.schemas.knowledge_schema import AddKnowledgeMetadataFieldsReq, \
     UpdateKnowledgeMetadataFieldsReq, ModifyKnowledgeFileMetaDataReq
-from bisheng.knowledge.domain.services.knowledge_file_service import KnowledgeFileService
-from bisheng.knowledge.domain.services.knowledge_service import KnowledgeService
-from bisheng.open_endpoints.api.dependencies import get_knowledge_service, get_knowledge_file_service
-from bisheng.open_endpoints.domain.schemas.knowledge import DeleteUserMetadataReq
-from bisheng.open_endpoints.domain.utils import get_default_operator_async
+from terminus.knowledge.domain.services.knowledge_file_service import KnowledgeFileService
+from terminus.knowledge.domain.services.knowledge_service import KnowledgeService
+from terminus.open_endpoints.api.dependencies import get_knowledge_service, get_knowledge_file_service
+from terminus.open_endpoints.domain.schemas.knowledge import DeleteUserMetadataReq
+from terminus.open_endpoints.domain.utils import get_default_operator_async
 
 router = APIRouter(prefix='/knowledge', tags=['OpenAPI', 'Knowledge'])
 

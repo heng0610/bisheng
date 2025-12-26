@@ -7,12 +7,12 @@ from sqlalchemy import JSON
 from sqlmodel import Column, DateTime, Field, delete, func, or_, select, text, update
 from sqlmodel.sql.expression import Select, SelectOfScalar, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.database.models.role_access import AccessType, RoleAccessDao
-from bisheng.knowledge.domain.models.knowledge_file import KnowledgeFile, KnowledgeFileDao
-from bisheng.user.domain.models.user import UserDao
-from bisheng.user.domain.models.user_role import UserRoleDao
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.database.models.role_access import AccessType, RoleAccessDao
+from terminus.knowledge.domain.models.knowledge_file import KnowledgeFile, KnowledgeFileDao
+from terminus.user.domain.models.user import UserDao
+from terminus.user.domain.models.user_role import UserRoleDao
 
 
 class KnowledgeTypeEnum(Enum):

@@ -4,7 +4,7 @@ import operator
 import traceback
 from typing import Any, Dict, List, Type, Union
 
-from bisheng.interface.custom.schema import CallableCodeDetails, ClassCodeDetails
+from terminus.interface.custom.schema import CallableCodeDetails, ClassCodeDetails
 from cachetools import TTLCache, cachedmethod, keys
 from fastapi import HTTPException
 
@@ -14,7 +14,7 @@ class CodeSyntaxError(HTTPException):
 
 
 def get_data_type():
-    from bisheng.field_typing import Data
+    from terminus.field_typing import Data
 
     return Data
 

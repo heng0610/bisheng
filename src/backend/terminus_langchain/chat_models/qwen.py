@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING, Any, Callable, Dict, List, Mapping, Optional, 
 
 from pydantic import ConfigDict, model_validator, Field
 
-from bisheng_langchain.utils.requests import Requests
+from terminus_langchain.utils.requests import Requests
 # import requests
 from langchain.callbacks.manager import AsyncCallbackManagerForLLMRun, CallbackManagerForLLMRun
 from langchain.chat_models.base import BaseChatModel
@@ -126,7 +126,7 @@ class ChatQWen(BaseChatModel):
     Example:
         .. code-block:: python
 
-            from bisheng_langchain.chat_models import ChatQWen
+            from terminus_langchain.chat_models import ChatQWen
             chat_qwen = ChatQWen(model_name="qwen-turbo")
     """
 

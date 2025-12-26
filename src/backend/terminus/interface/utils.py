@@ -8,8 +8,8 @@ import yaml
 from PIL.Image import Image
 from langchain.base_language import BaseLanguageModel
 
-from bisheng.chat.config import ChatConfig
-from bisheng.common.services.config_service import settings
+from terminus.chat.config import ChatConfig
+from terminus.common.services.config_service import settings
 
 
 def load_file_into_dict(file_path: str) -> dict:

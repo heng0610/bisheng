@@ -5,8 +5,8 @@ from typing import Any, List, Optional, Sequence, Tuple, Union
 
 from pydantic import model_validator
 
-from bisheng_langchain.chat_models.host_llm import HostQwenChat
-from bisheng_langchain.chat_models.proxy_llm import ProxyChatLLM
+from terminus_langchain.chat_models.host_llm import HostQwenChat
+from terminus_langchain.chat_models.proxy_llm import ProxyChatLLM
 from langchain.agents import BaseSingleActionAgent
 from langchain.callbacks.base import BaseCallbackManager
 from langchain.callbacks.manager import Callbacks

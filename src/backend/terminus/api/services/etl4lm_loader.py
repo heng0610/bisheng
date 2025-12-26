@@ -15,8 +15,8 @@ from aiohttp import ClientTimeout
 from langchain_community.docstore.document import Document
 from langchain_community.document_loaders.pdf import BasePDFLoader
 
-from bisheng.core.external.http_client.http_client_manager import get_http_client
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.core.external.http_client.http_client_manager import get_http_client
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
 
 logger = logging.getLogger(__name__)
 
@@ -59,9 +59,9 @@ def crop_image(image_file, item, cropped_imag_base_dir):
 
 
 def extract_pdf_images(file_name, page_dict, doc_id, knowledge_id):
-    from bisheng.api.services.knowledge_imp import put_images_to_minio
-    from bisheng.api.services.knowledge_imp import KnowledgeUtils
-    from bisheng.core.cache.utils import CACHE_DIR
+    from terminus.api.services.knowledge_imp import put_images_to_minio
+    from terminus.api.services.knowledge_imp import KnowledgeUtils
+    from terminus.core.cache.utils import CACHE_DIR
 
     result = {}
     base_dir = f"{CACHE_DIR}/{doc_id}"

@@ -1,10 +1,10 @@
 from typing import Optional, List
 
-from bisheng.api.v1.schema.chat_schema import ChatMessageHistoryResponse
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.database.models.message import ChatMessageDao
-from bisheng.database.models.session import MessageSessionDao
-from bisheng.user.domain.models.user import UserDao
+from terminus.api.v1.schema.chat_schema import ChatMessageHistoryResponse
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.database.models.message import ChatMessageDao
+from terminus.database.models.session import MessageSessionDao
+from terminus.user.domain.models.user import UserDao
 
 
 class ChatSessionService:

@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from mcp.client.streamable_http import streamablehttp_client
 
-from bisheng.mcp_manage.clients.base import BaseMcpClient
+from terminus.mcp_manage.clients.base import BaseMcpClient
 
 
 class StreamableClient(BaseMcpClient):

@@ -2,8 +2,8 @@ import logging
 
 from elasticsearch import AsyncElasticsearch, Elasticsearch
 
-from bisheng.core.context import BaseContextManager
-from bisheng.core.search.elasticsearch.es_connection import ESConnection
+from terminus.core.context import BaseContextManager
+from terminus.core.search.elasticsearch.es_connection import ESConnection
 
 logger = logging.getLogger(__name__)
 
@@ -43,13 +43,13 @@ class EsConnManager((BaseContextManager[ESConnection])):
 
 async def get_es_connection() -> AsyncElasticsearch:
     """获取 Elasticsearch 连接实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return (await app_context.async_get_instance(EsConnManager.name)).es_connection
     except KeyError:
         logger.warning(f"EsConnManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(
                 EsConnManager(es_hosts=settings.get_search_conf().elasticsearch_url
                                        ** settings.get_search_conf().ssl_verify
@@ -62,13 +62,13 @@ async def get_es_connection() -> AsyncElasticsearch:
 
 async def get_statistics_es_connection() -> AsyncElasticsearch:
     """获取统计 Elasticsearch 连接实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return (await app_context.async_get_instance(statistics_es_name)).es_connection
     except KeyError:
         logger.warning(f"Statistics EsConnManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
 
             app_context.register_context(
                 EsConnManager(es_hosts=settings.get_telemetry_conf().elasticsearch_url,
@@ -83,13 +83,13 @@ async def get_statistics_es_connection() -> AsyncElasticsearch:
 
 def get_es_connection_sync() -> Elasticsearch:
     """同步获取 Elasticsearch 连接实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return app_context.sync_get_instance(EsConnManager.name).sync_es_connection
     except KeyError:
         logger.warning(f"EsConnManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(
                 EsConnManager(es_hosts=settings.get_search_conf().elasticsearch_url,
                               **settings.get_search_conf().ssl_verify
@@ -102,13 +102,13 @@ def get_es_connection_sync() -> Elasticsearch:
 
 def get_statistics_es_connection_sync() -> Elasticsearch:
     """同步获取统计 Elasticsearch 连接实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return app_context.sync_get_instance(statistics_es_name).sync_es_connection
     except KeyError:
         logger.warning(f"Statistics EsConnManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
 
             app_context.register_context(
                 EsConnManager(es_hosts=settings.get_telemetry_conf().elasticsearch_url,

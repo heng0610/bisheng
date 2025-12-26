@@ -101,7 +101,7 @@ class ChatMinimaxAI(BaseChatModel):
     Example:
         .. code-block:: python
 
-            from bisheng_langchain.chat_models import ChatMinimaxAI
+            from terminus_langchain.chat_models import ChatMinimaxAI
             chat_miniamaxai = ChatMinimaxAI(model_name="abab5.5-chat")
     """
 

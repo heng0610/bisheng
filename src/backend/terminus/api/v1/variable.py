@@ -4,10 +4,10 @@ from loguru import logger
 from fastapi import APIRouter, HTTPException
 from sqlmodel import delete, select
 
-from bisheng.api.v1.schemas import UnifiedResponseModel, resp_200
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.models.flow_version import FlowVersionDao
-from bisheng.database.models.variable_value import Variable, VariableCreate, VariableRead, VariableDao
+from terminus.api.v1.schemas import UnifiedResponseModel, resp_200
+from terminus.core.database import get_sync_db_session
+from terminus.database.models.flow_version import FlowVersionDao
+from terminus.database.models.variable_value import Variable, VariableCreate, VariableRead, VariableDao
 
 # build router
 router = APIRouter(prefix='/variable', tags=['variable'])

@@ -3,8 +3,8 @@ from typing import TYPE_CHECKING, List
 import httpx
 
 if TYPE_CHECKING:
-    from bisheng.services.store.schema import ListComponentResponse
-    from bisheng.services.store.service import StoreService
+    from terminus.services.store.schema import ListComponentResponse
+    from terminus.services.store.service import StoreService
 
 
 def process_tags_for_post(component_dict):

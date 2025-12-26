@@ -1,9 +1,9 @@
 from typing import List
 
-from bisheng.api.v1.schemas import UnifiedResponseModel, resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.component import ComponentExistError, ComponentNotExistError
-from bisheng.database.models.component import Component, ComponentDao
+from terminus.api.v1.schemas import UnifiedResponseModel, resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.component import ComponentExistError, ComponentNotExistError
+from terminus.database.models.component import Component, ComponentDao
 
 
 class ComponentService:

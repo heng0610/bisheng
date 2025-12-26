@@ -4,8 +4,8 @@ from typing import Optional, List
 from sqlalchemy import Column, DateTime, String, UniqueConstraint, delete, text
 from sqlmodel import Field, select, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_async_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_async_db_session
 
 
 class ModelDeployBase(SQLModelSerializable):

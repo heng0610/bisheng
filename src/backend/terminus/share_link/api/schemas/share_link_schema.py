@@ -2,7 +2,7 @@ from typing import Optional, Dict
 
 from pydantic import BaseModel, Field
 
-from bisheng.share_link.domain.models.share_link import ResourceTypeEnum, ShareMode
+from terminus.share_link.domain.models.share_link import ResourceTypeEnum, ShareMode
 
 
 class GenerateShareLinkRequest(BaseModel):

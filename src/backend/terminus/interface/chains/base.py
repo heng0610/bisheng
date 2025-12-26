@@ -1,15 +1,15 @@
 from typing import Any, ClassVar, Dict, List, Optional, Type
 
-from bisheng.custom.customs import get_custom_nodes
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.importing.utils import import_class
-from bisheng.common.services.config_service import settings
-from bisheng.template.frontend_node.chains import ChainFrontendNode
+from terminus.custom.customs import get_custom_nodes
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.importing.utils import import_class
+from terminus.common.services.config_service import settings
+from terminus.template.frontend_node.chains import ChainFrontendNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_class, build_template_from_method
-from bisheng_langchain import chains as bisheng_chains
-from bisheng_langchain import sql as bisheng_sql
-from bisheng_langchain.rag.bisheng_rag_chain import BishengRetrievalQA
+from terminus.utils.util import build_template_from_class, build_template_from_method
+from terminus_langchain import chains as bisheng_chains
+from terminus_langchain import sql as bisheng_sql
+from terminus_langchain.rag.bisheng_rag_chain import BishengRetrievalQA
 from langchain import chains
 from langchain_experimental import sql
 
@@ -45,7 +45,7 @@ class ChainCreator(LangChainTypeCreator):
             }
             # bisheng-langchain
             bisheng = {
-                chain_name: import_class(f'bisheng_langchain.chains.{chain_name}')
+                chain_name: import_class(f'terminus'_langchain.chains.{chain_name}')
                 for chain_name in bisheng_chains.__all__
             }
             # 若配置在custom_chains里，则不会从method初始化的方式，导致报错
@@ -61,12 +61,12 @@ class ChainCreator(LangChainTypeCreator):
 
             # sql community
             bisheng_sql_add = {
-                chain_name: import_class(f'bisheng_langchain.sql.{chain_name}')
+                chain_name: import_class(f'terminus'_langchain.sql.{chain_name}')
                 for chain_name in bisheng_sql.__all__
             }
             self.type_dict.update(bisheng_sql_add)
 
-            from bisheng.interface.chains.custom import CUSTOM_CHAINS
+            from terminus.interface.chains.custom import CUSTOM_CHAINS
 
             self.type_dict.update(CUSTOM_CHAINS)
             # Filter according to settings.chains

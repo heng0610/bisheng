@@ -10,22 +10,22 @@ from loguru import logger
 from openai import BaseModel
 from pydantic import field_validator
 
-from bisheng.api.services.base import BaseService
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.v1.schema.chat_schema import UseKnowledgeBaseParam
-from bisheng.api.v1.schemas import KnowledgeFileOne, KnowledgeFileProcess, WorkstationConfig
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.server import EmbeddingModelStatusError
-from bisheng.common.models.config import Config, ConfigDao, ConfigKeyEnum
-from bisheng.database.constants import MessageCategory
-from bisheng.database.models.message import ChatMessage, ChatMessageDao
-from bisheng.database.models.session import MessageSession, MessageSessionDao
-from bisheng.core.vectorstore.ensemble_retriever import RRFMultiVectorRetriever, VectorRetrieverParams
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.models.knowledge import KnowledgeCreate, KnowledgeDao, KnowledgeTypeEnum
-from bisheng.llm.domain.services import LLMService
-from bisheng.tool.domain.models.gpts_tools import GptsToolsDao
-from bisheng.user.domain.models.user import UserDao
+from terminus.api.services.base import BaseService
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.v1.schema.chat_schema import UseKnowledgeBaseParam
+from terminus.api.v1.schemas import KnowledgeFileOne, KnowledgeFileProcess, WorkstationConfig
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.server import EmbeddingModelStatusError
+from terminus.common.models.config import Config, ConfigDao, ConfigKeyEnum
+from terminus.database.constants import MessageCategory
+from terminus.database.models.message import ChatMessage, ChatMessageDao
+from terminus.database.models.session import MessageSession, MessageSessionDao
+from terminus.core.vectorstore.ensemble_retriever import RRFMultiVectorRetriever, VectorRetrieverParams
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.models.knowledge import KnowledgeCreate, KnowledgeDao, KnowledgeTypeEnum
+from terminus.llm.domain.services import LLMService
+from terminus.tool.domain.models.gpts_tools import GptsToolsDao
+from terminus.user.domain.models.user import UserDao
 
 
 class WorkStationService(BaseService):

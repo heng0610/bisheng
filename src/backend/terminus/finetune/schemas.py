@@ -2,7 +2,7 @@ from typing import Dict, Optional, List
 
 from pydantic import BaseModel, Field
 
-from bisheng.finetune.domain.models.finetune import TrainMethod
+from terminus.finetune.domain.models.finetune import TrainMethod
 
 
 class FinetuneCreateReq(BaseModel):

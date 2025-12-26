@@ -6,8 +6,8 @@ from sqlalchemy import text, and_, delete
 from sqlalchemy.exc import IntegrityError
 from sqlmodel import Field, Column, DateTime, select
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session
 
 
 class UserLinkBase(SQLModelSerializable):

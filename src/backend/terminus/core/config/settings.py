@@ -109,7 +109,7 @@ class MinioConf(BaseModel):
     share_cert_check: Optional[bool] = Field(default=False, description="minio 公开访问地址是否校验证书")
     access_key: Optional[str] = Field(default="minioadmin", description="minio 用户名")
     secret_key: Optional[str] = Field(default="minioadmin", description="minio 密码")
-    public_bucket: Optional[str] = Field(default="bisheng",
+    public_bucket: Optional[str] = Field(default="terminus",
                                          description="默认存储永久文件的bucket。文件可被匿名用户永久访问")
     tmp_bucket: Optional[str] = Field(default="tmp-dir", description="临时bucket，存储的文件会设置有效期")
 
@@ -135,27 +135,27 @@ class CeleryConf(BaseModel):
     def validate(self):
         if not self.task_routers:
             self.task_routers = {
-                "bisheng.worker.knowledge.*": {"queue": "knowledge_celery"},  # 知识库相关任务
-                "bisheng.worker.workflow.*": {"queue": "workflow_celery"},  # 工作流执行相关任务
+                "terminus.worker.knowledge.*": {"queue": "knowledge_celery"},  # 知识库相关任务
+                "terminus.worker.workflow.*": {"queue": "workflow_celery"},  # 工作流执行相关任务
             }
         if 'telemetry_mid_user_increment' not in self.beat_schedule:
             self.beat_schedule['telemetry_mid_user_increment'] = {
-                'task': 'bisheng.worker.telemetry.mid_table.sync_mid_user_increment',
+                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_user_increment',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
         if 'telemetry_mid_knowledge_increment' not in self.beat_schedule:
             self.beat_schedule['telemetry_mid_knowledge_increment'] = {
-                'task': 'bisheng.worker.telemetry.mid_table.sync_mid_knowledge_increment',
+                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_knowledge_increment',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
         if 'telemetry_sync_mid_app_increment' not in self.beat_schedule:
             self.beat_schedule['telemetry_sync_mid_app_increment'] = {
-                'task': 'bisheng.worker.telemetry.mid_table.sync_mid_app_increment',
+                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_app_increment',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
         if 'telemetry_sync_mid_user_interact_dtl' not in self.beat_schedule:
             self.beat_schedule['telemetry_sync_mid_user_interact_dtl'] = {
-                'task': 'bisheng.worker.telemetry.mid_table.sync_mid_user_interact_dtl',
+                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_user_interact_dtl',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
 
@@ -192,7 +192,7 @@ class CookieConf(BaseModel):
     samesite: str = Field(default=None, description="SameSite 属性，可选值为 'lax', 'strict', 'none'")
 
     jwt_token_expire_time: int = Field(default=86400, description="JwtToken的的过期时间，单位为秒")
-    jwt_iss: str = Field(default='bisheng', description="JwtToken的签发者")
+    jwt_iss: str = Field(default='terminus'', description="JwtToken的签发者")
 
 
 class Etl4lmConf(BaseModel):
@@ -262,7 +262,7 @@ class Settings(BaseModel):
     def set_database_url(cls, value):
         if not value:
             logger.debug('No database_url provided, trying bisheng_DATABASE_URL env variable')
-            if bisheng_database_url := os.getenv('bisheng_DATABASE_URL'):
+            if bisheng_database_url := os.getenv('terminus'_DATABASE_URL'):
                 value = bisheng_database_url
             else:
                 logger.debug('No DATABASE_URL env variable, using sqlite database')

@@ -15,7 +15,7 @@ from typing import List, Tuple, Optional, Any
 import matplotlib
 from loguru import logger
 
-from bisheng_langchain.gpts.tools.code_interpreter.base_executor import BaseExecutor
+from terminus_langchain.gpts.tools.code_interpreter.base_executor import BaseExecutor
 
 CODE_BLOCK_PATTERN = r"```(\w*)\n(.*?)\n```"
 DEFAULT_TIMEOUT = 600

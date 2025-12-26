@@ -1,6 +1,6 @@
 from typing import Dict, List, Optional, Type
 
-from bisheng.interface.utils import extract_input_variables_from_prompt
+from terminus.interface.utils import extract_input_variables_from_prompt
 from langchain.prompts import PromptTemplate
 from pydantic import model_validator
 

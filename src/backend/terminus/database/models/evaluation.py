@@ -5,8 +5,8 @@ from typing import List, Optional, Dict
 from sqlalchemy import Column, DateTime, Text, text, func, and_, JSON
 from sqlmodel import Field, select
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session
 
 
 class ExecType(Enum):

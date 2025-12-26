@@ -16,9 +16,9 @@ import argparse
 import logging
 from pathlib import Path
 
-from bisheng.pptx2md.entry import convert
-from bisheng.pptx2md.log import setup_logging
-from bisheng.pptx2md.types import ConversionConfig
+from terminus.pptx2md.entry import convert
+from terminus.pptx2md.log import setup_logging
+from terminus.pptx2md.types import ConversionConfig
 
 setup_logging(compat_tqdm=True)
 logger = logging.getLogger(__name__)

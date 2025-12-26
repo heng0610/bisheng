@@ -8,35 +8,35 @@ import yaml
 from fastapi import APIRouter, Body, Depends, HTTPException, Path, Request, UploadFile
 from loguru import logger
 
-from bisheng.api.v1.schemas import (ProcessResponse, UploadFileResponse,
+from terminus.api.v1.schemas import (ProcessResponse, UploadFileResponse,
                                     resp_200)
-from bisheng.chat.utils import judge_source, process_source_document
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.common.errcode.server import SystemConfigEmptyError, SystemConfigInvalidError, UploadFileEmptyError, \
+from terminus.chat.utils import judge_source, process_source_document
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.common.errcode.server import SystemConfigEmptyError, SystemConfigInvalidError, UploadFileEmptyError, \
     UploadFileExtError
-from bisheng.common.models.config import Config, ConfigDao, ConfigKeyEnum
-from bisheng.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationAliveEventData, \
+from terminus.common.models.config import Config, ConfigDao, ConfigKeyEnum
+from terminus.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationAliveEventData, \
     ApplicationProcessEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings as bisheng_settings
-from bisheng.core.cache.redis_manager import get_redis_client_sync
-from bisheng.core.cache.utils import save_uploaded_file, upload_file_to_minio
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import FlowDao, FlowType
-from bisheng.database.models.message import ChatMessage, ChatMessageDao
-from bisheng.database.models.session import MessageSession, MessageSessionDao
-from bisheng.interface.types import get_all_types_dict
-from bisheng.open_endpoints.domain.utils import get_default_operator_async
-from bisheng.processing.process import process_graph_cached, process_tweaks
-from bisheng.services.deps import get_session_service, get_task_service
-from bisheng.services.task.service import TaskService
-from bisheng.utils import generate_uuid
-from bisheng.utils import get_request_ip
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings as bisheng_settings
+from terminus.core.cache.redis_manager import get_redis_client_sync
+from terminus.core.cache.utils import save_uploaded_file, upload_file_to_minio
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import FlowDao, FlowType
+from terminus.database.models.message import ChatMessage, ChatMessageDao
+from terminus.database.models.session import MessageSession, MessageSessionDao
+from terminus.interface.types import get_all_types_dict
+from terminus.open_endpoints.domain.utils import get_default_operator_async
+from terminus.processing.process import process_graph_cached, process_tweaks
+from terminus.services.deps import get_session_service, get_task_service
+from terminus.services.task.service import TaskService
+from terminus.utils import generate_uuid
+from terminus.utils import get_request_ip
 
 try:
-    from bisheng.worker import process_graph_cached_task
+    from terminus.worker import process_graph_cached_task
 except ImportError:
 
     def process_graph_cached_task(*args, **kwargs):
@@ -70,7 +70,7 @@ def get_all():
 
 @router.get('/env')
 def get_env():
-    from bisheng import __version__
+    from terminus import __version__
     """获取环境变量参数"""
     uns_support = ['doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'txt', 'md', 'html', 'pdf', 'csv']
 
@@ -411,5 +411,5 @@ async def create_upload_file(file: UploadFile, flow_id: str):
 # get endpoint to return version of bisheng
 @router.get('/version')
 def get_version():
-    from bisheng import __version__
+    from terminus import __version__
     return resp_200({'version': __version__})

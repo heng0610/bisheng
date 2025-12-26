@@ -2,7 +2,7 @@ import json
 from typing import Any, Dict, List, Optional
 from venv import logger
 
-from bisheng_langchain.chains import LoaderOutputChain
+from terminus_langchain.chains import LoaderOutputChain
 from langchain.callbacks.manager import AsyncCallbackManagerForChainRun, CallbackManagerForChainRun
 from langchain.chains.base import Chain
 from pydantic import ConfigDict, BaseModel

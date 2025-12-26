@@ -4,8 +4,8 @@ from typing import Dict, List, Optional
 from sqlalchemy import Column, DateTime, delete, text, update
 from sqlmodel import Field, select
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session
 
 # 默认用户组的ID
 DefaultGroup = 2

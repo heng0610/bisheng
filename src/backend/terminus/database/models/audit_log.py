@@ -4,9 +4,9 @@ from typing import List, Optional
 
 from sqlmodel import Field, select, Column, DateTime, text, Text, func, or_, JSON
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.utils import generate_uuid
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.utils import generate_uuid
 
 
 # 系统模块枚举

@@ -2,8 +2,8 @@ import secrets
 from pathlib import Path
 from typing import Optional
 
-from bisheng.services.settings.constants import DEFAULT_SUPERUSER, DEFAULT_SUPERUSER_PASSWORD
-from bisheng.services.settings.utils import read_secret_from_file, write_secret_to_file
+from terminus.services.settings.constants import DEFAULT_SUPERUSER, DEFAULT_SUPERUSER_PASSWORD
+from terminus.services.settings.utils import read_secret_from_file, write_secret_to_file
 from loguru import logger
 from passlib.context import CryptContext
 from pydantic import Field, field_validator
@@ -35,7 +35,7 @@ class AuthSettings(BaseSettings):
     SUPERUSER_PASSWORD: str = DEFAULT_SUPERUSER_PASSWORD
 
     pwd_context: CryptContext = CryptContext(schemes=['bcrypt'], deprecated='auto')
-    model_config = SettingsConfigDict(validate_assignment=True, extra='ignore', env_prefix='bisheng_')
+    model_config = SettingsConfigDict(validate_assignment=True, extra='ignore', env_prefix='terminus'_')
 
     def reset_credentials(self):
         self.SUPERUSER = DEFAULT_SUPERUSER

@@ -4,17 +4,17 @@ from typing import Optional
 from fastapi import APIRouter, Depends, Request
 from loguru import logger
 
-from bisheng.api.v1.schema.mark_schema import MarkData, MarkTaskCreate
-from bisheng.api.v1.schemas import resp_200, resp_500
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.database.models.mark_app_user import MarkAppUser, MarkAppUserDao
-from bisheng.database.models.mark_record import MarkRecord, MarkRecordDao
-from bisheng.database.models.mark_task import MarkTask, MarkTaskDao, MarkTaskRead, MarkTaskStatus
-from bisheng.database.models.message import ChatMessageDao
-from bisheng.database.models.session import MessageSessionDao
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.user.domain.models.user import UserDao
-from bisheng.utils.linked_list import DoubleLinkList
+from terminus.api.v1.schema.mark_schema import MarkData, MarkTaskCreate
+from terminus.api.v1.schemas import resp_200, resp_500
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.database.models.mark_app_user import MarkAppUser, MarkAppUserDao
+from terminus.database.models.mark_record import MarkRecord, MarkRecordDao
+from terminus.database.models.mark_task import MarkTask, MarkTaskDao, MarkTaskRead, MarkTaskStatus
+from terminus.database.models.message import ChatMessageDao
+from terminus.database.models.session import MessageSessionDao
+from terminus.database.models.user_group import UserGroupDao
+from terminus.user.domain.models.user import UserDao
+from terminus.utils.linked_list import DoubleLinkList
 
 router = APIRouter(prefix='/mark', tags=['Mark'])
 

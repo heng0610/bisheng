@@ -9,14 +9,14 @@ from langchain_core.prompts import (ChatPromptTemplate, HumanMessagePromptTempla
 from langchain_core.runnables import RunnableConfig
 from loguru import logger
 
-from bisheng.chat.types import IgnoreException
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.llm.domain.services import LLMService
-from bisheng.workflow.callback.event import OutputMsgData, StreamMsgOverData
-from bisheng.workflow.callback.llm_callback import LLMNodeCallbackHandler
-from bisheng.workflow.common.knowledge import RagUtils
-from bisheng.workflow.nodes.prompt_template import PromptTemplateParser
+from terminus.chat.types import IgnoreException
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.llm.domain.services import LLMService
+from terminus.workflow.callback.event import OutputMsgData, StreamMsgOverData
+from terminus.workflow.callback.llm_callback import LLMNodeCallbackHandler
+from terminus.workflow.common.knowledge import RagUtils
+from terminus.workflow.nodes.prompt_template import PromptTemplateParser
 
 
 class RagNode(RagUtils):

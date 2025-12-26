@@ -1,10 +1,10 @@
 from typing import Any
 
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.tool.domain.models.gpts_tools import GptsToolsDao
-from bisheng.tool.domain.services.executor import ToolExecutor
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.prompt_template import PromptTemplateParser
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.tool.domain.models.gpts_tools import GptsToolsDao
+from terminus.tool.domain.services.executor import ToolExecutor
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.prompt_template import PromptTemplateParser
 
 
 class ToolNode(BaseNode):

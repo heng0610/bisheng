@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from fastapi.params import Body
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.schemas.api import resp_200, UnifiedResponseModel
-from bisheng.share_link.api.dependencies import get_share_link_service
-from bisheng.share_link.api.schemas.share_link_schema import GenerateShareLinkRequest
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.schemas.api import resp_200, UnifiedResponseModel
+from terminus.share_link.api.dependencies import get_share_link_service
+from terminus.share_link.api.schemas.share_link_schema import GenerateShareLinkRequest
 
 router = APIRouter()
 

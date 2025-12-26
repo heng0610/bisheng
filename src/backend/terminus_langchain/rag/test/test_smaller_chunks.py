@@ -4,7 +4,7 @@ import uuid
 from typing import Any, Dict, Iterable, List, Optional
 
 import httpx
-from bisheng_langchain.vectorstores.milvus import Milvus
+from terminus_langchain.vectorstores.milvus import Milvus
 from langchain_core.documents import Document
 from pydantic import Field
 from langchain_core.retrievers import BaseRetriever

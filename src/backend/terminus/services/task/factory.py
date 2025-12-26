@@ -1,5 +1,5 @@
-from bisheng.services.factory import ServiceFactory
-from bisheng.services.task.service import TaskService
+from terminus.services.factory import ServiceFactory
+from terminus.services.task.service import TaskService
 
 
 class TaskServiceFactory(ServiceFactory):

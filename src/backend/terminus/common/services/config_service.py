@@ -4,12 +4,12 @@ from typing import List, Dict
 import yaml
 from loguru import logger
 
-from bisheng.common.models.config import ConfigKeyEnum, Config
-from bisheng.common.repositories.implementations.config_repository_impl import ConfigRepositoryImpl
-from bisheng.core.cache.redis_manager import get_redis_client_sync
-from bisheng.core.config.settings import Settings, PasswordConf, SystemLoginMethod, \
+from terminus.common.models.config import ConfigKeyEnum, Config
+from terminus.common.repositories.implementations.config_repository_impl import ConfigRepositoryImpl
+from terminus.core.cache.redis_manager import get_redis_client_sync
+from terminus.core.config.settings import Settings, PasswordConf, SystemLoginMethod, \
     WorkflowConf, LinsightConf, KnowledgeConf
-from bisheng.core.database import get_sync_db_session, get_async_db_session
+from terminus.core.database import get_sync_db_session, get_async_db_session
 
 config_file = os.getenv('config', 'config.yaml')
 

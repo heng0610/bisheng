@@ -9,37 +9,37 @@ from typing import Any, Dict, List
 from fastapi import Request, WebSocket, WebSocketDisconnect, status
 from loguru import logger
 
-from bisheng.api.services.assistant import AssistantService
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.api.utils import build_flow_no_yield
-from bisheng.api.v1.schemas import ChatMessage, ChatResponse, FileResponse
-from bisheng.chat.client import ChatClient
-from bisheng.chat.clients.workflow_client import WorkflowClient
-from bisheng.chat.types import IgnoreException, WorkType
-from bisheng.chat.utils import process_node_data
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.base import BaseErrorCode
-from bisheng.common.errcode.chat import (DocumentParseError, InputDataParseError,
+from terminus.api.services.assistant import AssistantService
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.services.workflow import WorkFlowService
+from terminus.api.utils import build_flow_no_yield
+from terminus.api.v1.schemas import ChatMessage, ChatResponse, FileResponse
+from terminus.chat.client import ChatClient
+from terminus.chat.clients.workflow_client import WorkflowClient
+from terminus.chat.types import IgnoreException, WorkType
+from terminus.chat.utils import process_node_data
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.base import BaseErrorCode
+from terminus.common.errcode.chat import (DocumentParseError, InputDataParseError,
                                          LLMExecutionError, SkillDeletedError,
                                          SkillNotOnlineError)
-from bisheng.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationAliveEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.cache.flow import InMemoryCache
-from bisheng.core.cache.manager import Subject, cache_manager
-from bisheng.core.database import get_sync_db_session
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import Flow, FlowType, FlowDao
-from bisheng.database.models.session import MessageSession, MessageSessionDao
-from bisheng.graph.utils import find_next_node
-from bisheng.processing.process import process_tweaks
-from bisheng.user.domain.models.user import User, UserDao
-from bisheng.utils import generate_uuid
-from bisheng.utils import get_request_ip
-from bisheng.utils.threadpool import ThreadPoolManager, thread_pool
-from bisheng.utils.util import get_cache_key
-from bisheng_langchain.input_output.output import Report
+from terminus.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationAliveEventData
+from terminus.common.services import telemetry_service
+from terminus.core.cache.flow import InMemoryCache
+from terminus.core.cache.manager import Subject, cache_manager
+from terminus.core.database import get_sync_db_session
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import Flow, FlowType, FlowDao
+from terminus.database.models.session import MessageSession, MessageSessionDao
+from terminus.graph.utils import find_next_node
+from terminus.processing.process import process_tweaks
+from terminus.user.domain.models.user import User, UserDao
+from terminus.utils import generate_uuid
+from terminus.utils import get_request_ip
+from terminus.utils.threadpool import ThreadPoolManager, thread_pool
+from terminus.utils.util import get_cache_key
+from terminus_langchain.input_output.output import Report
 
 
 class ChatHistory(Subject):
@@ -56,7 +56,7 @@ class ChatHistory(Subject):
     ):
         """Add a message to the chat history."""
         t1 = time.time()
-        from bisheng.database.models.message import ChatMessage
+        from terminus.database.models.message import ChatMessage
         message.flow_id = client_id
         message.chat_id = chat_id
         db_message = None
@@ -539,8 +539,8 @@ class ChatManager:
                 # async_task = asyncio.create_task(
                 #     task_service.launch_task(Handler().dispatch_task, self, client_id,
                 #                              chat_id, action, payload, user_id))
-                from bisheng_langchain.chains.autogen.auto_gen import AutoGenChain
-                from bisheng.chat.handlers import Handler
+                from terminus_langchain.chains.autogen.auto_gen import AutoGenChain
+                from terminus.chat.handlers import Handler
                 params = {
                     'session': self,
                     'client_id': flow_id,

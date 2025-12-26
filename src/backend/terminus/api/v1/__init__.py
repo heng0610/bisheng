@@ -1,23 +1,23 @@
-from bisheng.api.v1.assistant import router as assistant_router
-from bisheng.api.v1.audit import router as audit_router
-from bisheng.api.v1.chat import router as chat_router
-from bisheng.api.v1.component import router as component_router
-from bisheng.api.v1.endpoints import router as endpoints_router
-from bisheng.api.v1.evaluation import router as evaluation_router
-from bisheng.api.v1.flows import router as flows_router
-from bisheng.api.v1.invite_code import router as invite_code_router
-from bisheng.api.v1.linsight import router as linsight_router
-from bisheng.api.v1.mark_task import router as mark_router
-from bisheng.api.v1.report import router as report_router
-from bisheng.api.v1.skillcenter import router as skillcenter_router
-from bisheng.api.v1.tag import router as tag_router
-from bisheng.api.v1.usergroup import router as group_router
-from bisheng.api.v1.validate import router as validate_router
-from bisheng.api.v1.variable import router as variable_router
-from bisheng.api.v1.workflow import router as workflow_router
-from bisheng.api.v1.workstation import router as workstation_router
-from bisheng.tool.api.tool import router as tool_router
-from bisheng.user.api.user import router as user_router
+from terminus.api.v1.assistant import router as assistant_router
+from terminus.api.v1.audit import router as audit_router
+from terminus.api.v1.chat import router as chat_router
+from terminus.api.v1.component import router as component_router
+from terminus.api.v1.endpoints import router as endpoints_router
+from terminus.api.v1.evaluation import router as evaluation_router
+from terminus.api.v1.flows import router as flows_router
+from terminus.api.v1.invite_code import router as invite_code_router
+from terminus.api.v1.linsight import router as linsight_router
+from terminus.api.v1.mark_task import router as mark_router
+from terminus.api.v1.report import router as report_router
+from terminus.api.v1.skillcenter import router as skillcenter_router
+from terminus.api.v1.tag import router as tag_router
+from terminus.api.v1.usergroup import router as group_router
+from terminus.api.v1.validate import router as validate_router
+from terminus.api.v1.variable import router as variable_router
+from terminus.api.v1.workflow import router as workflow_router
+from terminus.api.v1.workstation import router as workstation_router
+from terminus.tool.api.tool import router as tool_router
+from terminus.user.api.user import router as user_router
 
 __all__ = [
     'chat_router',

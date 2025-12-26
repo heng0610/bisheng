@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from bisheng.services.factory import ServiceFactory
-from bisheng.services.settings.service import SettingsService
+from terminus.services.factory import ServiceFactory
+from terminus.services.settings.service import SettingsService
 
 
 class SettingsServiceFactory(ServiceFactory):

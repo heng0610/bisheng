@@ -2,11 +2,11 @@ import re
 from collections import defaultdict
 from typing import ClassVar, Dict, List, Optional, Union
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.constants import CLASSES_TO_REMOVE, FORCE_SHOW_FIELDS
-from bisheng.template.frontend_node.formatter import field_formatters
-from bisheng.template.template.base import Template
-from bisheng.utils import constants
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.constants import CLASSES_TO_REMOVE, FORCE_SHOW_FIELDS
+from terminus.template.frontend_node.formatter import field_formatters
+from terminus.template.template.base import Template
+from terminus.utils import constants
 from pydantic import BaseModel, Field
 
 

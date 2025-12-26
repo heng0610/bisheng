@@ -6,14 +6,14 @@ from typing import List, Dict, Any, Optional
 from loguru import logger
 from pydantic import BaseModel, Field
 
-from bisheng.api.v1.schema.linsight_schema import UserInputEventSchema
-from bisheng.common.errcode.http_error import ServerError
-from bisheng.core.cache.redis_manager import get_redis_client_sync, get_redis_client
-from bisheng.database.models import LinsightExecuteTask
-from bisheng.database.models.linsight_execute_task import ExecuteTaskStatusEnum, LinsightExecuteTaskDao
-from bisheng.database.models.linsight_session_version import LinsightSessionVersion, LinsightSessionVersionDao
-from bisheng.utils.util import retry_async
-from bisheng_langchain.linsight.event import BaseEvent
+from terminus.api.v1.schema.linsight_schema import UserInputEventSchema
+from terminus.common.errcode.http_error import ServerError
+from terminus.core.cache.redis_manager import get_redis_client_sync, get_redis_client
+from terminus.database.models import LinsightExecuteTask
+from terminus.database.models.linsight_execute_task import ExecuteTaskStatusEnum, LinsightExecuteTaskDao
+from terminus.database.models.linsight_session_version import LinsightSessionVersion, LinsightSessionVersionDao
+from terminus.utils.util import retry_async
+from terminus_langchain.linsight.event import BaseEvent
 
 
 class MessageEventType(str, Enum):

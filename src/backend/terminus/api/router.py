@@ -1,22 +1,22 @@
 # Router for base api
 from fastapi import APIRouter
 
-from bisheng.api.v1 import (assistant_router, audit_router, chat_router, component_router,
+from terminus.api.v1 import (assistant_router, audit_router, chat_router, component_router,
                             endpoints_router, evaluation_router, flows_router,
                             group_router, mark_router,
                             report_router, skillcenter_router, tag_router,
                             user_router, validate_router, variable_router, workflow_router,
                             workstation_router, linsight_router, tool_router, invite_code_router)
-from bisheng.chat_session.api.router import router as session_router
-from bisheng.finetune.api.finetune import router as finetune_router
-from bisheng.finetune.api.server import router as server_router
-from bisheng.knowledge.api.router import qa_router, knowledge_router
-from bisheng.llm.api.router import router as llm_router
-from bisheng.open_endpoints.api.endpoints.llm import router as llm_router_rpc
-from bisheng.open_endpoints.api.router import (assistant_router_rpc, chat_router_rpc, flow_router,
+from terminus.chat_session.api.router import router as session_router
+from terminus.finetune.api.finetune import router as finetune_router
+from terminus.finetune.api.server import router as server_router
+from terminus.knowledge.api.router import qa_router, knowledge_router
+from terminus.llm.api.router import router as llm_router
+from terminus.open_endpoints.api.endpoints.llm import router as llm_router_rpc
+from terminus.open_endpoints.api.router import (assistant_router_rpc, chat_router_rpc, flow_router,
                                                knowledge_router_rpc, workflow_router_rpc,
                                                filelib_router_rpc)
-from bisheng.share_link.api.router import router as share_link_router
+from terminus.share_link.api.router import router as share_link_router
 
 router = APIRouter(prefix='/api/v1', )
 router.include_router(chat_router)

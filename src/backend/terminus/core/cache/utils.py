@@ -17,12 +17,12 @@ from appdirs import user_cache_dir
 from fastapi import UploadFile
 from urllib3.util import parse_url
 
-from bisheng.core.external.http_client.http_client_manager import get_http_client
-from bisheng.core.storage.minio.minio_manager import get_minio_storage, get_minio_storage_sync
+from terminus.core.external.http_client.http_client_manager import get_http_client
+from terminus.core.storage.minio.minio_manager import get_minio_storage, get_minio_storage_sync
 
 CACHE: Dict[str, Any] = {}
 
-CACHE_DIR = user_cache_dir('bisheng', 'bisheng')
+CACHE_DIR = user_cache_dir('terminus'', 'terminus'')
 
 
 def create_cache_folder(func):
@@ -79,7 +79,7 @@ def memoize_dict(maxsize=128):
     return decorator
 
 
-PREFIX = 'bisheng_cache'
+PREFIX = 'terminus'_cache'
 
 
 @create_cache_folder
@@ -324,7 +324,7 @@ def file_download(file_path: str):
                 filename = unquote(content_disposition).split('filename=')[-1].strip("\"'")
             file_content = r.content
 
-        file_path = save_download_file(file_content, 'bisheng', filename)
+        file_path = save_download_file(file_content, 'terminus'', filename)
         return file_path, filename
 
     # 处理 MinIO 相对路径 (以 / 开头且包含签名参数)
@@ -346,7 +346,7 @@ def file_download(file_path: str):
                 file_content = minio_client.get_object_sync(bucket_name, object_name)
 
                 filename = unquote(object_name.split('/')[-1])
-                file_path = save_download_file(file_content, 'bisheng', filename)
+                file_path = save_download_file(file_content, 'terminus'', filename)
                 return file_path, filename
         except Exception as e:
             # 解析失败则打印日志，让程序继续向下抛出 ValueError
@@ -393,7 +393,7 @@ async def async_file_download(file_path: str):
             if content_disposition:
                 filename = unquote(content_disposition).split('filename=')[-1].strip("\"'")
             file_content = r.body
-        file_path = save_download_file(file_content, 'bisheng', filename)
+        file_path = save_download_file(file_content, 'terminus'', filename)
         return file_path, filename
 
     # 处理 MinIO 相对路径 (以 / 开头且包含签名参数)
@@ -412,7 +412,7 @@ async def async_file_download(file_path: str):
                 file_content = await minio_client.get_object(bucket_name, object_name)
 
                 filename = unquote(object_name.split('/')[-1])
-                file_path = save_download_file(file_content, 'bisheng', filename)
+                file_path = save_download_file(file_content, 'terminus'', filename)
                 return file_path, filename
         except Exception as e:
             # 如果解析或下载失败，记录日志或让其落入下方的 ValueError

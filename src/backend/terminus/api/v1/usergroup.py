@@ -3,15 +3,15 @@ from typing import Annotated, List, Optional
 
 from fastapi import APIRouter, Body, Depends, Query, Request
 
-from bisheng.api.services.role_group_service import RoleGroupService
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.errcode.user import UserGroupEmptyError
-from bisheng.database.models.group import Group, GroupCreate
-from bisheng.database.models.group_resource import ResourceTypeEnum
-from bisheng.database.models.role import RoleDao
-from bisheng.database.models.user_group import UserGroupDao
+from terminus.api.services.role_group_service import RoleGroupService
+from terminus.api.v1.schemas import resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.errcode.user import UserGroupEmptyError
+from terminus.database.models.group import Group, GroupCreate
+from terminus.database.models.group_resource import ResourceTypeEnum
+from terminus.database.models.role import RoleDao
+from terminus.database.models.user_group import UserGroupDao
 
 router = APIRouter(prefix='/group', tags=['User'], dependencies=[Depends(UserPayload.get_login_user)])
 

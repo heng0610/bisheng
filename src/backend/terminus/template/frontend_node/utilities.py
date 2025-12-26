@@ -2,8 +2,8 @@ import ast
 import json
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
 
 
 class UtilitiesFrontendNode(FrontendNode):

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Request, UploadFile, Body
 
-from bisheng.common.schemas.api import resp_200
-from bisheng.llm.domain import LLMService
-from bisheng.open_endpoints.domain.utils import get_default_operator
+from terminus.common.schemas.api import resp_200
+from terminus.llm.domain import LLMService
+from terminus.open_endpoints.domain.utils import get_default_operator
 
 router = APIRouter(prefix='/llm', tags=['OpenAPI', 'llm'])
 

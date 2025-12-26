@@ -3,7 +3,7 @@ import json
 from fastapi import WebSocket
 from fastapi.exceptions import HTTPException
 
-from bisheng.common.schemas.api import UnifiedResponseModel
+from terminus.common.schemas.api import UnifiedResponseModel
 
 
 class BaseErrorCode(Exception):

@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
 
 
 class VectorStoreFrontendNode(FrontendNode):

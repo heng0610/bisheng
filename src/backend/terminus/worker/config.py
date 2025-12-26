@@ -1,4 +1,4 @@
-from bisheng.common.services.config_service import settings
+from terminus.common.services.config_service import settings
 
 broker_url = settings.celery_redis_url
 

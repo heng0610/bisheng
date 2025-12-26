@@ -3,20 +3,20 @@ from typing import List
 
 from loguru import logger
 
-from bisheng.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.errcode.knowledge import KnowledgeFileNotExistError, KnowledgeMetadataFieldNotExistError, \
+from terminus.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.errcode.knowledge import KnowledgeFileNotExistError, KnowledgeMetadataFieldNotExistError, \
     KnowledgeMetadataFieldExistError, KnowledgeMetadataValueTypeConvertError
-from bisheng.database.models.role_access import AccessType
-from bisheng.knowledge.domain import utils
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
-from bisheng.knowledge.domain.repositories.interfaces.knowledge_repository import KnowledgeRepository
-from bisheng.knowledge.domain.schemas.knowledge_file_schema import KnowledgeFileInfoRes
-from bisheng.knowledge.domain.schemas.knowledge_schema import ModifyKnowledgeFileMetaDataReq, MetadataField
-from bisheng.open_endpoints.domain.schemas.knowledge import DeleteUserMetadataReq
-from bisheng.user.domain.models.user import UserDao
+from terminus.database.models.role_access import AccessType
+from terminus.knowledge.domain import utils
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
+from terminus.knowledge.domain.repositories.interfaces.knowledge_repository import KnowledgeRepository
+from terminus.knowledge.domain.schemas.knowledge_file_schema import KnowledgeFileInfoRes
+from terminus.knowledge.domain.schemas.knowledge_schema import ModifyKnowledgeFileMetaDataReq, MetadataField
+from terminus.open_endpoints.domain.schemas.knowledge import DeleteUserMetadataReq
+from terminus.user.domain.models.user import UserDao
 
 
 class KnowledgeFileService:

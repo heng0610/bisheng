@@ -1,7 +1,7 @@
 from abc import ABC
 
-from bisheng.common.repositories.interfaces.base_repository import BaseRepository
-from bisheng.knowledge.domain.models.knowledge import Knowledge
+from terminus.common.repositories.interfaces.base_repository import BaseRepository
+from terminus.knowledge.domain.models.knowledge import Knowledge
 
 
 class KnowledgeRepository(BaseRepository[Knowledge, int], ABC):

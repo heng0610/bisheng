@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING
 
-from bisheng.services.cache.service import BaseCacheService, InMemoryCache, RedisCache
-from bisheng.services.factory import ServiceFactory
+from terminus.services.cache.service import BaseCacheService, InMemoryCache, RedisCache
+from terminus.services.factory import ServiceFactory
 from loguru import logger
 
 if TYPE_CHECKING:
-    from bisheng.services.settings.service import SettingsService
+    from terminus.services.settings.service import SettingsService
 
 
 class CacheServiceFactory(ServiceFactory):

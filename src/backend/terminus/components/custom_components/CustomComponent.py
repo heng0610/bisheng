@@ -1,5 +1,5 @@
-from bisheng import CustomComponent
-from bisheng.field_typing import Data
+from terminus import CustomComponent
+from terminus.field_typing import Data
 
 
 class Component(CustomComponent):

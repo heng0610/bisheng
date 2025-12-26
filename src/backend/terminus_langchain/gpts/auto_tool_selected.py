@@ -1,4 +1,4 @@
-from bisheng_langchain.gpts.prompts.select_tools_prompt import HUMAN_MSG, SYS_MSG
+from terminus_langchain.gpts.prompts.select_tools_prompt import HUMAN_MSG, SYS_MSG
 from langchain.prompts import (
     ChatPromptTemplate,
     HumanMessagePromptTemplate,

@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, Body, Request
 from loguru import logger
 
-from bisheng.api.services.invite_code.invite_code import InviteCodeService
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.utils import get_request_ip
+from terminus.api.services.invite_code.invite_code import InviteCodeService
+from terminus.api.v1.schemas import resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.utils import get_request_ip
 
 router = APIRouter(prefix='/invite', tags=['InviteCode'])
 

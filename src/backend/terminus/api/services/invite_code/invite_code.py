@@ -1,10 +1,10 @@
 from loguru import logger
 
-from bisheng.api.services.invite_code.code_validator import VoucherGenerator
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.linsight import InviteCodeBindError, InviteCodeInvalidError
-from bisheng.database.models.invite_code import InviteCode, InviteCodeDao
-from bisheng.utils import generate_uuid
+from terminus.api.services.invite_code.code_validator import VoucherGenerator
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.linsight import InviteCodeBindError, InviteCodeInvalidError
+from terminus.database.models.invite_code import InviteCode, InviteCodeDao
+from terminus.utils import generate_uuid
 
 
 class InviteCodeService:

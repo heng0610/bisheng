@@ -1,9 +1,9 @@
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.frontend_node.constants import QA_CHAIN_TYPES, SUMMARIZE_CHAIN_TYPES
-from bisheng.template.template.base import Template
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.frontend_node.constants import QA_CHAIN_TYPES, SUMMARIZE_CHAIN_TYPES
+from terminus.template.template.base import Template
 
 
 class ChainFrontendNode(FrontendNode):

@@ -8,7 +8,7 @@ from langchain_core.tools import BaseTool
 from pydantic import BaseModel, Field
 from urllib3.util.url import parse_url
 
-from bisheng_langchain.gpts.tools.bing_search.tool import BingSearchResults
+from terminus_langchain.gpts.tools.bing_search.tool import BingSearchResults
 
 
 class SearchInput(BaseModel):

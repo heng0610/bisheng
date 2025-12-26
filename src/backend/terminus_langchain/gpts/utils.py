@@ -33,7 +33,7 @@ def import_class(class_path: str) -> Any:
 
 
 def import_by_type(_type: str, name: str) -> Any:
-    from bisheng_langchain import chat_models
+    from terminus_langchain import chat_models
     """Import class by type and name"""
     if _type is None:
         raise ValueError(f'Type cannot be None. Check if {name} is in the config file.')
@@ -75,7 +75,7 @@ def import_by_type(_type: str, name: str) -> Any:
 
 def import_inputoutput(input_output: str) -> Any:
     """Import output parser from output parser name"""
-    return import_module(f'from bisheng_langchain.input_output import {input_output}')
+    return import_module(f'from terminus_langchain.input_output import {input_output}')
 
 
 def import_output_parser(output_parser: str) -> Any:
@@ -90,7 +90,7 @@ def import_chat_llm(llm: str) -> BaseChatModel:
 
 def import_chain_contribute_llm(llm: str) -> BaseChatModel:
     """Import chat llm from llm name"""
-    return import_class(f'bisheng_langchain.chat_models.{llm}')
+    return import_class(f'terminus'_langchain.chat_models.{llm}')
 
 
 def import_retriever(retriever: str) -> Any:
@@ -99,7 +99,7 @@ def import_retriever(retriever: str) -> Any:
 
 
 def import_autogenRoles(autogen: str) -> Any:
-    return import_module(f'from bisheng_langchain.autogen_role import {autogen}')
+    return import_module(f'from terminus_langchain.autogen_role import {autogen}')
 
 
 def import_memory(memory: str) -> Any:
@@ -116,17 +116,17 @@ def import_prompt(prompt: str) -> Type[PromptTemplate]:
 
 def import_toolkit(toolkit: str) -> Any:
     """Import toolkit from toolkit name"""
-    from bisheng.interface.toolkits.base import toolkits_creator
+    from terminus.interface.toolkits.base import toolkits_creator
     return toolkits_creator[toolkit]
 
 
 def import_agent(agent: str) -> Agent:
     """Import agent from agent name"""
     # check for custom agent
-    from bisheng_langchain import agents
+    from terminus_langchain import agents
 
     if agent in agents.__all__:
-        return import_class(f'bisheng_langchain.agents.{agent}')
+        return import_class(f'terminus'_langchain.agents.{agent}')
     return import_class(f'langchain.agents.{agent}')
 
 
@@ -147,46 +147,46 @@ def import_tool(tool: str) -> BaseTool:
 
 def import_chain(chain: str) -> Type[Chain]:
     """Import chain from chain name"""
-    from bisheng_langchain import chains
+    from terminus_langchain import chains
 
     if chain in chains.__all__:
-        return import_class(f'bisheng_langchain.chains.{chain}')
+        return import_class(f'terminus'_langchain.chains.{chain}')
     return import_class(f'langchain.chains.{chain}')
 
 
 def import_embedding(embedding: str) -> Any:
     """Import embedding from embedding name"""
-    from bisheng_langchain import embeddings
+    from terminus_langchain import embeddings
 
     if embedding in embeddings.__all__:
-        return import_class(f'bisheng_langchain.embeddings.{embedding}')
+        return import_class(f'terminus'_langchain.embeddings.{embedding}')
     return import_class(f'langchain.embeddings.{embedding}')
 
 
 def import_vectorstore(vectorstore: str) -> Any:
     """Import vectorstore from vectorstore name"""
-    from bisheng_langchain import vectorstores
+    from terminus_langchain import vectorstores
 
     if vectorstore in vectorstores.__all__:
-        return import_class(f'bisheng_langchain.vectorstores.{vectorstore}')
+        return import_class(f'terminus'_langchain.vectorstores.{vectorstore}')
     return import_class(f'langchain.vectorstores.{vectorstore}')
 
 
 def import_documentloader(documentloader: str) -> Any:
     """Import documentloader from documentloader name"""
-    from bisheng_langchain import document_loaders
+    from terminus_langchain import document_loaders
 
     if documentloader in document_loaders.__all__:
-        return import_class(f'bisheng_langchain.document_loaders.{documentloader}')
+        return import_class(f'terminus'_langchain.document_loaders.{documentloader}')
     return import_class(f'langchain.document_loaders.{documentloader}')
 
 
 def import_textsplitter(textsplitter: str) -> Any:
     """Import textsplitter from textsplitter name"""
-    from bisheng_langchain import text_splitter
+    from terminus_langchain import text_splitter
 
     if textsplitter in dir(text_splitter):
-        return import_class(f'bisheng_langchain.text_splitter.{textsplitter}')
+        return import_class(f'terminus'_langchain.text_splitter.{textsplitter}')
     return import_class(f'langchain.text_splitter.{textsplitter}')
 
 

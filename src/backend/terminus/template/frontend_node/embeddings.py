@@ -1,8 +1,8 @@
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.template.base import Template
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.template.base import Template
 
 
 class EmbeddingFrontendNode(FrontendNode):
@@ -58,7 +58,7 @@ class EmbeddingFrontendNode(FrontendNode):
             if field.name == 'model_id':
                 field.show = True
                 field.display_name = 'Model Name'
-                field.field_type = 'bisheng_embedding'
+                field.field_type = 'terminus'_embedding'
                 field.advanced = False
             elif field.name in ['model', 'llm_node_type', "app_type", "app_id", "app_name", "user_id"]:
                 field.show = False

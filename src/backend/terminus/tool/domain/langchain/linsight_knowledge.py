@@ -4,13 +4,13 @@ from typing import Optional, Type
 from langchain_core.tools import BaseTool
 from pydantic import BaseModel, Field
 
-from bisheng.api.services.knowledge_imp import decide_vectorstores
-from bisheng.database.models.linsight_session_version import LinsightSessionVersionDao
-from bisheng.interface.importing.utils import import_vectorstore
-from bisheng.interface.initialize.loading import instantiate_vectorstore
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao
-from bisheng.llm.domain import LLMService
-from bisheng.llm.domain.models import LLMDao
+from terminus.api.services.knowledge_imp import decide_vectorstores
+from terminus.database.models.linsight_session_version import LinsightSessionVersionDao
+from terminus.interface.importing.utils import import_vectorstore
+from terminus.interface.initialize.loading import instantiate_vectorstore
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao
+from terminus.llm.domain import LLMService
+from terminus.llm.domain.models import LLMDao
 
 
 class ToolInput(BaseModel):

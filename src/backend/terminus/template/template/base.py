@@ -1,7 +1,7 @@
 from typing import Callable, Optional, Union
 
-from bisheng.template.field.base import TemplateField
-from bisheng.utils.constants import DIRECT_TYPES
+from terminus.template.field.base import TemplateField
+from terminus.utils.constants import DIRECT_TYPES
 from pydantic import BaseModel
 
 

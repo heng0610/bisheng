@@ -12,8 +12,8 @@ from functools import wraps
 from typing import Dict, Optional, Union, List, Tuple
 from urllib.parse import urlparse
 
-from bisheng.template.frontend_node.constants import FORCE_SHOW_FIELDS
-from bisheng.utils import constants
+from terminus.template.frontend_node.constants import FORCE_SHOW_FIELDS
+from terminus.utils import constants
 from docstring_parser import parse  # type: ignore
 
 logger = logging.getLogger(__name__)

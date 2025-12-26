@@ -101,7 +101,7 @@ class ChatWenxin(BaseChatModel):
     Example:
         .. code-block:: python
 
-            from bisheng_langchain.chat_models import ChatWenxin
+            from terminus_langchain.chat_models import ChatWenxin
             chat_miniamaxai = ChatWenxin(model_name="ernie-bot")
     """
 

@@ -4,36 +4,36 @@ from typing import Any, List, Optional, Union
 from fastapi import Request
 from loguru import logger
 
-from bisheng.api.services.assistant_agent import AssistantAgent
-from bisheng.api.services.assistant_base import AssistantUtils
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.services.base import BaseService
-from bisheng.api.v1.schemas import (AssistantInfo, AssistantSimpleInfo, AssistantUpdateReq,
+from terminus.api.services.assistant_agent import AssistantAgent
+from terminus.api.services.assistant_base import AssistantUtils
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.services.base import BaseService
+from terminus.api.v1.schemas import (AssistantInfo, AssistantSimpleInfo, AssistantUpdateReq,
                                     StreamData)
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.assistant import (AssistantInitError, AssistantNameRepeatError,
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.assistant import (AssistantInitError, AssistantNameRepeatError,
                                               AssistantNotEditError, AssistantNotExistsError)
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.schemas.telemetry.event_data_schema import NewApplicationEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.cache import InMemoryCache
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.assistant import (Assistant, AssistantDao, AssistantLinkDao,
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.schemas.telemetry.event_data_schema import NewApplicationEventData
+from terminus.common.services import telemetry_service
+from terminus.core.cache import InMemoryCache
+from terminus.core.logger import trace_id_var
+from terminus.database.models.assistant import (Assistant, AssistantDao, AssistantLinkDao,
                                                AssistantStatus)
-from bisheng.database.models.flow import Flow, FlowDao, FlowType
-from bisheng.database.models.group_resource import GroupResourceDao, GroupResource, ResourceTypeEnum
-from bisheng.database.models.role_access import AccessType, RoleAccessDao
-from bisheng.database.models.session import MessageSessionDao
-from bisheng.database.models.tag import TagDao
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao
-from bisheng.llm.domain.services import LLMService
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.tool.domain.models.gpts_tools import GptsToolsDao, GptsTools
-from bisheng.user.domain.models.user import UserDao
-from bisheng.user.domain.models.user_role import UserRoleDao
-from bisheng.utils import get_request_ip
+from terminus.database.models.flow import Flow, FlowDao, FlowType
+from terminus.database.models.group_resource import GroupResourceDao, GroupResource, ResourceTypeEnum
+from terminus.database.models.role_access import AccessType, RoleAccessDao
+from terminus.database.models.session import MessageSessionDao
+from terminus.database.models.tag import TagDao
+from terminus.database.models.user_group import UserGroupDao
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao
+from terminus.llm.domain.services import LLMService
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.tool.domain.models.gpts_tools import GptsToolsDao, GptsTools
+from terminus.user.domain.models.user import UserDao
+from terminus.user.domain.models.user_role import UserRoleDao
+from terminus.utils import get_request_ip
 
 
 class AssistantService(BaseService, AssistantUtils):

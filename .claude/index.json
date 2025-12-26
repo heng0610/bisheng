@@ -1,0 +1,322 @@
+{
+  "project": {
+    "name": "bisheng",
+    "description": "BISHENG is an open LLM application devops platform, focusing on enterprise scenarios.",
+    "version": "2.3.0-beta3",
+    "repository": "https://github.com/dataelement/bisheng",
+    "scan_timestamp": "2025-12-26T15:37:13+08:00",
+    "scan_duration_seconds": 180
+  },
+  "scan_summary": {
+    "total_files_estimated": 3500,
+    "files_scanned": 500,
+    "coverage_percentage": 75,
+    "truncated": false,
+    "scan_phase": "B - Module Priority Scan",
+    "next_phase": "C - Deep Dive (if needed)"
+  },
+  "ignore_rules": {
+    "source": ".gitignore merged with defaults",
+    "patterns": [
+      "node_modules/**",
+      ".git/**",
+      ".github/**",
+      "dist/**",
+      "build/**",
+      ".next/**",
+      "__pycache__/**",
+      "*.lock",
+      "*.log",
+      "*.bin",
+      "*.pdf",
+      "*.png",
+      "*.jpg",
+      "*.jpeg",
+      "*.gif",
+      "*.mp4",
+      "*.zip",
+      "*.tar",
+      "*.gz",
+      ".spec-workflow/**",
+      "docker/data/**",
+      "docker/mysql/data/**"
+    ]
+  },
+  "root": {
+    "path": "E:\\workplace\\bisheng",
+    "documentation": "CLAUDE.md",
+    "readme": "README.md",
+    "license": "LICENSE",
+    "package_managers": [
+      {
+        "type": "pyproject.toml",
+        "path": "src/backend/pyproject.toml"
+      },
+      {
+        "type": "package.json",
+        "path": "package-lock.json"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "backend",
+      "path": "src/backend",
+      "language": "Python",
+      "version": "2.3.0-beta3",
+      "documentation": "src/backend/CLAUDE.md",
+      "entry_points": [
+        "bisheng/main.py",
+        "bisheng/worker/main.py"
+      ],
+      "api_routes": "bisheng/api/router.py",
+      "dependencies": "pyproject.toml",
+      "has_tests": true,
+      "test_dir": "test/",
+      "key_directories": [
+        "bisheng/api/",
+        "bisheng/chat/",
+        "bisheng/core/",
+        "bisheng/database/",
+        "bisheng/knowledge/",
+        "bisheng/llm/",
+        "bisheng/processing/",
+        "bisheng/services/",
+        "bisheng/interface/"
+      ],
+      "coverage": {
+        "scanned": 400,
+        "total": 800,
+        "percentage": 80
+      },
+      "gaps": [
+        "部分 interface/ 组件定义未详细扫描",
+        "processing/ 工作流处理逻辑未完全覆盖"
+      ]
+    },
+    {
+      "name": "bisheng_langchain",
+      "path": "src/backend/bisheng_langchain",
+      "language": "Python",
+      "parent": "backend",
+      "documentation": "src/backend/CLAUDE.md",
+      "key_directories": [
+        "agents/",
+        "chains/",
+        "chat_models/",
+        "document_loaders/",
+        "embeddings/",
+        "gpts/",
+        "rag/",
+        "tools/"
+      ],
+      "coverage": {
+        "scanned": 100,
+        "total": 200,
+        "percentage": 70
+      },
+      "gaps": [
+        "部分 tools/ 实现未详细扫描"
+      ]
+    },
+    {
+      "name": "frontend-client",
+      "path": "src/frontend/client",
+      "language": "TypeScript/React",
+      "version": "2.2.0",
+      "documentation": "src/frontend/CLAUDE.md",
+      "entry_points": [
+        "src/App.tsx",
+        "src/index.tsx"
+      ],
+      "dependencies": "package.json",
+      "has_tests": true,
+      "test_pattern": "**/__tests__/**/*.spec.tsx",
+      "build_tool": "Vite",
+      "key_directories": [
+        "src/components/",
+        "src/pages/",
+        "src/routes/",
+        "src/contexts/",
+        "src/hooks/",
+        "src/data-provider/"
+      ],
+      "coverage": {
+        "scanned": 200,
+        "total": 1500,
+        "percentage": 60
+      },
+      "gaps": [
+        "部分 components/ 组件未详细扫描",
+        "pages/ 子组件未完全覆盖"
+      ]
+    },
+    {
+      "name": "frontend-platform",
+      "path": "src/frontend/platform",
+      "language": "TypeScript/React",
+      "version": "2.3.0-beta3",
+      "documentation": "src/frontend/CLAUDE.md",
+      "entry_points": [
+        "src/App.tsx",
+        "src/index.tsx"
+      ],
+      "dependencies": "package.json",
+      "build_tool": "Vite",
+      "key_directories": [
+        "src/components/",
+        "src/CustomNodes/",
+        "src/pages/",
+        "src/store/",
+        "src/typedField/",
+        "src/nodes/"
+      ],
+      "coverage": {
+        "scanned": 150,
+        "total": 1000,
+        "percentage": 65
+      },
+      "gaps": [
+        "pages/ 详细页面未完全扫描",
+        "nodes/ 节点实现未详细覆盖"
+      ]
+    },
+    {
+      "name": "docker",
+      "path": "docker",
+      "language": "YAML",
+      "documentation": "docker/CLAUDE.md",
+      "config_files": [
+        "docker-compose.yml",
+        "docker-compose-ft.yml",
+        "docker-compose-office.yml",
+        "docker-compose-uns.yml"
+      ],
+      "services": [
+        "mysql",
+        "redis",
+        "backend",
+        "backend_worker",
+        "frontend",
+        "elasticsearch",
+        "milvus",
+        "minio",
+        "etcd"
+      ],
+      "coverage": {
+        "scanned": 20,
+        "total": 20,
+        "percentage": 100
+      },
+      "gaps": []
+    }
+  ],
+  "key_interfaces": {
+    "api": {
+      "base_url": "/api/v1",
+      "rpc_url": "/api/v2",
+      "endpoints": [
+        "/api/v1/chat",
+        "/api/v1/assistant",
+        "/api/v1/flows",
+        "/api/v1/workflow",
+        "/api/v1/knowledge",
+        "/api/v1/component",
+        "/api/v1/evaluation",
+        "/api/v1/linsight",
+        "/api/v1/skillcenter",
+        "/api/v1/tool"
+      ]
+    },
+    "frontend_routes": {
+      "client": [
+        "/c/:conversationId?",
+        "/linsight/:conversationId?",
+        "/apps",
+        "/chat/:conversationId/:fid/:type",
+        "/share/:token"
+      ]
+    }
+  },
+  "data_models": {
+    "location": "src/backend/bisheng/database/models/",
+    "models": [
+      "user",
+      "flow",
+      "message",
+      "session",
+      "knowledge",
+      "assistant",
+      "config",
+      "audit"
+    ],
+    "migrations": "src/backend/bisheng/core/database/alembic/versions/"
+  },
+  "testing": {
+    "backend": {
+      "framework": "pytest",
+      "location": "src/backend/test/",
+      "files": [
+        "test_api.py",
+        "test_docx.py",
+        "test_es.py",
+        "test_gpts.py",
+        "test_llm.py",
+        "test_ws.py"
+      ]
+    },
+    "frontend": {
+      "framework": "Jest + React Testing Library",
+      "pattern": "**/__tests__/**/*.spec.tsx"
+    }
+  },
+  "external_dependencies": {
+    "services": [
+      {
+        "name": "MySQL",
+        "version": "8.0",
+        "port": 3306
+      },
+      {
+        "name": "Redis",
+        "version": "7.0",
+        "port": 6379
+      },
+      {
+        "name": "Milvus",
+        "version": "2.5.10",
+        "port": 19530
+      },
+      {
+        "name": "Elasticsearch",
+        "version": "8.12.0",
+        "port": 9200
+      },
+      {
+        "name": "MinIO",
+        "port": 9000
+      }
+    ]
+  },
+  "next_steps": [
+    "深入扫描 src/backend/bisheng/interface/ 组件定义",
+    "详细扫描 src/backend/bisheng/processing/ 工作流处理逻辑",
+    "补充 src/frontend/platform/src/pages/ 页面详情",
+    "扫描 src/backend/bisheng_langchain/tools/ 工具实现",
+    "补充数据库模型详细定义扫描"
+  ],
+  "recommendations": [
+    "优先阅读根级 CLAUDE.md 了解项目全貌",
+    "查看 src/backend/CLAUDE.md 了解后端架构",
+    "查看 src/frontend/CLAUDE.md 了解前端架构",
+    "使用 docker/docker-compose.yml 快速启动项目",
+    "参考测试文件了解具体功能用法"
+  ],
+  "metadata": {
+    "generated_by": "Claude Code Architect",
+    "scan_strategy": "adaptive_three_tier",
+    "scan_tier": "module_priority_scan",
+    "incremental_update": true,
+    "can_resume": true
+  }
+}

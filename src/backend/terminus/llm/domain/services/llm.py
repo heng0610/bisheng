@@ -8,23 +8,23 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 from loguru import logger
 
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import NotFoundError, ServerError
-from bisheng.common.errcode.llm import ServerExistError, ModelNameRepeatError, ServerAddError, ServerAddAllError
-from bisheng.common.errcode.server import NoAsrModelConfigError, AsrModelConfigDeletedError, NoTtsModelConfigError, \
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import NotFoundError, ServerError
+from terminus.common.errcode.llm import ServerExistError, ModelNameRepeatError, ServerAddError, ServerAddAllError
+from terminus.common.errcode.server import NoAsrModelConfigError, AsrModelConfigDeletedError, NoTtsModelConfigError, \
     TtsModelConfigDeletedError
-from bisheng.common.models.config import ConfigDao, ConfigKeyEnum, Config
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao, KnowledgeTypeEnum
-from bisheng.knowledge.domain.models.knowledge import KnowledgeState
-from bisheng.llm.domain.const import LLMModelType
-from bisheng.llm.domain.models import LLMDao, LLMServer, LLMModel
-from bisheng.llm.domain.schemas import LLMServerInfo, LLMModelInfo, KnowledgeLLMConfig, AssistantLLMConfig, \
+from terminus.common.models.config import ConfigDao, ConfigKeyEnum, Config
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao, KnowledgeTypeEnum
+from terminus.knowledge.domain.models.knowledge import KnowledgeState
+from terminus.llm.domain.const import LLMModelType
+from terminus.llm.domain.models import LLMDao, LLMServer, LLMModel
+from terminus.llm.domain.schemas import LLMServerInfo, LLMModelInfo, KnowledgeLLMConfig, AssistantLLMConfig, \
     EvaluationLLMConfig, AssistantLLMItem, LLMServerCreateReq, WorkbenchModelConfig, WSModel
-from bisheng.utils import generate_uuid, md5_hash
-from bisheng.utils.mask_data import JsonFieldMasker
+from terminus.utils import generate_uuid, md5_hash
+from terminus.utils.mask_data import JsonFieldMasker
 from ..llm import BishengASR, BishengLLM, BishengTTS, BishengEmbedding
 from ..llm.rerank import BishengRerank
 
@@ -585,7 +585,7 @@ class LLMService:
         :return:
         """
         # 延迟导入以避免循环导入
-        from bisheng.worker.knowledge.rebuild_knowledge_worker import rebuild_knowledge_celery
+        from terminus.worker.knowledge.rebuild_knowledge_worker import rebuild_knowledge_celery
 
         config = await ConfigDao.aget_config(ConfigKeyEnum.LINSIGHT_LLM)
         if not config:
@@ -605,7 +605,7 @@ class LLMService:
                     await embeddings.aembed_query("test")
                 except Exception as e:
                     raise Exception(f"Embedding模型初始化失败: {str(e)}")
-                from bisheng.api.services.linsight.sop_manage import SOPManageService
+                from terminus.api.services.linsight.sop_manage import SOPManageService
 
                 background_tasks.add_task(SOPManageService.rebuild_sop_vector_store_task, embeddings)
 

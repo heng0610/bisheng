@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request, Depends, Body, Query, BackgroundTasks, UploadFile
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.schemas.api import resp_200, UnifiedResponseModel
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.schemas.api import resp_200, UnifiedResponseModel
 from ..domain import LLMService
 from ..domain.schemas import KnowledgeLLMConfig, AssistantLLMConfig, EvaluationLLMConfig, LLMServerCreateReq, \
     WorkbenchModelConfig

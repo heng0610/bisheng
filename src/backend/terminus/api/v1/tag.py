@@ -2,10 +2,10 @@ from typing import List
 
 from fastapi import APIRouter, Request, Depends, Query, Body
 
-from bisheng.api.services.tag import TagService
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.database.models.group_resource import ResourceTypeEnum
+from terminus.api.services.tag import TagService
+from terminus.api.v1.schemas import resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.database.models.group_resource import ResourceTypeEnum
 
 router = APIRouter(prefix='/tag', tags=['Tag'])
 

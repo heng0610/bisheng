@@ -30,8 +30,8 @@ from pptx.util import lazyproperty
 from rapidfuzz import process as fuze_process
 from tqdm import tqdm
 
-from bisheng.pptx2md.multi_column import get_multi_column_slide_if_present
-from bisheng.pptx2md.types import (
+from terminus.pptx2md.multi_column import get_multi_column_slide_if_present
+from terminus.pptx2md.types import (
     ConversionConfig,
     GeneralSlide,
     ImageElement,

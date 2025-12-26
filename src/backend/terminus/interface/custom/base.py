@@ -1,9 +1,9 @@
 from typing import Any, Dict, List, Optional, Type
 
-from bisheng.interface.base import LangChainTypeCreator
+from terminus.interface.base import LangChainTypeCreator
 # from langflow.interface.custom.custom import CustomComponent
-from bisheng.interface.custom.custom_component import CustomComponent
-from bisheng.template.frontend_node.custom_components import CustomComponentFrontendNode
+from terminus.interface.custom.custom_component import CustomComponent
+from terminus.template.frontend_node.custom_components import CustomComponentFrontendNode
 from loguru import logger
 
 # Assuming necessary imports for Field, Template, and FrontendNode classes
@@ -25,7 +25,7 @@ class CustomComponentCreator(LangChainTypeCreator):
         return self.type_dict
 
     def get_signature(self, name: str) -> Optional[Dict]:
-        from bisheng.custom.customs import get_custom_nodes
+        from terminus.custom.customs import get_custom_nodes
 
         try:
             if name in get_custom_nodes(self.type_name).keys():

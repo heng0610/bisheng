@@ -1,15 +1,15 @@
 from typing import TYPE_CHECKING, Optional, Union
 from uuid import UUID
 
-from bisheng.services.auth import utils as auth_utils
-from bisheng.services.base import Service
-from bisheng.services.database.models.credential.model import Credential
-from bisheng.services.deps import get_session
+from terminus.services.auth import utils as auth_utils
+from terminus.services.base import Service
+from terminus.services.database.models.credential.model import Credential
+from terminus.services.deps import get_session
 from fastapi import Depends
 from sqlmodel import Session, select
 
 if TYPE_CHECKING:
-    from bisheng.services.settings.service import SettingsService
+    from terminus.services.settings.service import SettingsService
 
 
 class CredentialService(Service):

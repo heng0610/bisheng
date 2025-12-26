@@ -19,8 +19,8 @@ from typing import List
 
 from rapidfuzz import fuzz
 
-from bisheng.pptx2md.types import ConversionConfig, ElementType, ParsedPresentation, SlideElement, SlideType, TextRun
-from bisheng.pptx2md.utils import rgb_to_hex
+from terminus.pptx2md.types import ConversionConfig, ElementType, ParsedPresentation, SlideElement, SlideType, TextRun
+from terminus.pptx2md.utils import rgb_to_hex
 
 
 class Formatter:

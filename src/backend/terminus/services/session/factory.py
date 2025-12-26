@@ -1,8 +1,8 @@
-from bisheng.services.factory import ServiceFactory
-from bisheng.services.session.service import SessionService
+from terminus.services.factory import ServiceFactory
+from terminus.services.session.service import SessionService
 
 # if TYPE_CHECKING:
-#     from bisheng.services.cache.service import BaseCacheService
+#     from terminus.services.cache.service import BaseCacheService
 
 
 class SessionServiceFactory(ServiceFactory):

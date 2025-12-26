@@ -6,9 +6,9 @@ from typing import List, Dict, Optional
 from sqlalchemy import Column, Text, JSON, Boolean, Enum as SQLEnum, DateTime, text, ForeignKey, CHAR, func
 from sqlmodel import Field, select, col, update
 
-from bisheng.core.database import get_async_db_session
-from bisheng.database.base import uuid_hex
-from bisheng.common.models.base import SQLModelSerializable
+from terminus.core.database import get_async_db_session
+from terminus.database.base import uuid_hex
+from terminus.common.models.base import SQLModelSerializable
 
 logger = logging.getLogger(__name__)
 

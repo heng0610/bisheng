@@ -5,15 +5,15 @@ from typing import List, Dict, Any
 
 from loguru import logger
 
-from bisheng.api.services.invite_code.invite_code import InviteCodeService
-from bisheng.common.services.config_service import settings
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.database.models import LinsightSessionVersion, LinsightExecuteTask
-from bisheng.database.models.linsight_execute_task import LinsightExecuteTaskDao, ExecuteTaskStatusEnum
-from bisheng.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum
-from bisheng.linsight.state_message_manager import LinsightStateMessageManager
-from bisheng.utils import util
-from bisheng_langchain.linsight.event import ExecStep
+from terminus.api.services.invite_code.invite_code import InviteCodeService
+from terminus.common.services.config_service import settings
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.database.models import LinsightSessionVersion, LinsightExecuteTask
+from terminus.database.models.linsight_execute_task import LinsightExecuteTaskDao, ExecuteTaskStatusEnum
+from terminus.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum
+from terminus.linsight.state_message_manager import LinsightStateMessageManager
+from terminus.utils import util
+from terminus_langchain.linsight.event import ExecStep
 
 # 灵思文件处理工具对应文件参数名
 local_file_tool_dict = {

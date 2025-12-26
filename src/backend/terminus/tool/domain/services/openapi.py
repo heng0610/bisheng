@@ -1,7 +1,7 @@
 import json
 from typing import Dict
 
-from bisheng.tool.domain.const import AuthMethod, AuthType
+from terminus.tool.domain.const import AuthMethod, AuthType
 
 
 class OpenApiSchema:

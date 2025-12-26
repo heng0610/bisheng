@@ -6,10 +6,10 @@ from pydantic import model_validator
 from sqlalchemy import JSON, Column, DateTime, String, text, func
 from sqlmodel import Field, or_, select, Text, update, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.utils import md5_hash, generate_uuid
-from bisheng.utils.mask_data import JsonFieldMasker
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.utils import md5_hash, generate_uuid
+from terminus.utils.mask_data import JsonFieldMasker
 from ..const import AuthType, ToolPresetType
 
 

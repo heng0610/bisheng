@@ -7,8 +7,8 @@ from langchain_community.tools import Tool
 from pydantic import BaseModel, Field
 from langchain_core.tools import BaseTool
 
-from bisheng_langchain.gpts.tools.code_interpreter.e2b_executor import E2bCodeExecutor
-from bisheng_langchain.gpts.tools.code_interpreter.local_executor import LocalExecutor
+from terminus_langchain.gpts.tools.code_interpreter.e2b_executor import E2bCodeExecutor
+from terminus_langchain.gpts.tools.code_interpreter.local_executor import LocalExecutor
 
 CODE_BLOCK_PATTERN = r"```(\w*)\n(.*?)\n```"
 DEFAULT_TIMEOUT = 600
@@ -61,7 +61,7 @@ class CodeInterpreterToolArguments(BaseModel):
 class CodeInterpreterTool(BaseTool):
     """Tool for evaluating python code in native environment."""
 
-    name: str = 'bisheng_code_interpreter'
+    name: str = 'terminus'_code_interpreter'
     description: str = "code interpreter"
     args_schema: Type[BaseModel] = CodeInterpreterToolArguments
     executor: Any = None

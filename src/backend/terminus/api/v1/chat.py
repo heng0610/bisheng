@@ -7,43 +7,43 @@ from fastapi.params import Depends
 from fastapi.responses import StreamingResponse
 from loguru import logger
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.services.base import BaseService
-from bisheng.api.services.chat_imp import comment_answer
-from bisheng.api.services.knowledge_imp import delete_es, delete_vector
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.api.utils import build_flow, build_input_keys_response
-from bisheng.api.v1.schema.base_schema import PageList
-from bisheng.api.v1.schema.chat_schema import AppChatList
-from bisheng.api.v1.schema.workflow import WorkflowEventType
-from bisheng.api.v1.schemas import (AddChatMessages, BuildStatus, BuiltResponse, ChatInput,
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.services.base import BaseService
+from terminus.api.services.chat_imp import comment_answer
+from terminus.api.services.knowledge_imp import delete_es, delete_vector
+from terminus.api.services.workflow import WorkFlowService
+from terminus.api.utils import build_flow, build_input_keys_response
+from terminus.api.v1.schema.base_schema import PageList
+from terminus.api.v1.schema.chat_schema import AppChatList
+from terminus.api.v1.schema.workflow import WorkflowEventType
+from terminus.api.v1.schemas import (AddChatMessages, BuildStatus, BuiltResponse, ChatInput,
                                     ChatList, InitResponse, StreamData,
                                     UnifiedResponseModel, resp_200)
-from bisheng.chat.manager import ChatManager
-from bisheng.chat_session.domain.chat import ChatSessionService
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.chat import ChatServiceError, SkillDeletedError, SkillNotBuildError, SkillNotOnlineError
-from bisheng.common.errcode.http_error import NotFoundError, UnAuthorizedError, ServerError
-from bisheng.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, DeleteMessageSessionEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.core.database import get_sync_db_session
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.assistant import AssistantDao
-from bisheng.database.models.flow import Flow, FlowDao, FlowStatus, FlowType
-from bisheng.database.models.flow_version import FlowVersionDao
-from bisheng.database.models.mark_record import MarkRecordDao, MarkRecordStatus
-from bisheng.database.models.mark_task import MarkTaskDao
-from bisheng.database.models.message import ChatMessage, ChatMessageDao, LikedType
-from bisheng.database.models.session import MessageSession, MessageSessionDao, SensitiveStatus
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.graph.graph.base import Graph
-from bisheng.share_link.api.dependencies import header_share_token_parser
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.user.domain.models.user import UserDao
-from bisheng.utils import get_request_ip
-from bisheng.utils.util import get_cache_key
+from terminus.chat.manager import ChatManager
+from terminus.chat_session.domain.chat import ChatSessionService
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.chat import ChatServiceError, SkillDeletedError, SkillNotBuildError, SkillNotOnlineError
+from terminus.common.errcode.http_error import NotFoundError, UnAuthorizedError, ServerError
+from terminus.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, DeleteMessageSessionEventData
+from terminus.common.services import telemetry_service
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.core.database import get_sync_db_session
+from terminus.core.logger import trace_id_var
+from terminus.database.models.assistant import AssistantDao
+from terminus.database.models.flow import Flow, FlowDao, FlowStatus, FlowType
+from terminus.database.models.flow_version import FlowVersionDao
+from terminus.database.models.mark_record import MarkRecordDao, MarkRecordStatus
+from terminus.database.models.mark_task import MarkTaskDao
+from terminus.database.models.message import ChatMessage, ChatMessageDao, LikedType
+from terminus.database.models.session import MessageSession, MessageSessionDao, SensitiveStatus
+from terminus.database.models.user_group import UserGroupDao
+from terminus.graph.graph.base import Graph
+from terminus.share_link.api.dependencies import header_share_token_parser
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.user.domain.models.user import UserDao
+from terminus.utils import get_request_ip
+from terminus.utils.util import get_cache_key
 
 router = APIRouter(tags=['Chat'])
 chat_manager = ChatManager()

@@ -14,12 +14,12 @@ from langchain_core.vectorstores import VectorStoreRetriever
 from loguru import logger
 from pydantic import BaseModel, Field
 
-from bisheng_langchain.rag.extract_info import extract_title
-from bisheng_langchain.rag.init_retrievers import (BaselineVectorRetriever, KeywordRetriever,
+from terminus_langchain.rag.extract_info import extract_title
+from terminus_langchain.rag.init_retrievers import (BaselineVectorRetriever, KeywordRetriever,
                                                    MixRetriever, SmallerChunksVectorRetriever)
-from bisheng_langchain.rag.utils import import_by_type, import_class
-from bisheng_langchain.retrievers import EnsembleRetriever
-from bisheng_langchain.vectorstores import ElasticKeywordsSearch, Milvus
+from terminus_langchain.rag.utils import import_by_type, import_class
+from terminus_langchain.retrievers import EnsembleRetriever
+from terminus_langchain.vectorstores import ElasticKeywordsSearch, Milvus
 
 
 class MultArgsSchemaTool(Tool):
@@ -107,7 +107,7 @@ class BishengRAGTool:
         else:
             if self.params['elasticsearch'].get('extract_key_by_llm', False):
                 extract_key_prompt = import_class(
-                    'bisheng_langchain.rag.prompts.EXTRACT_KEY_PROMPT')
+                    'terminus'_langchain.rag.prompts.EXTRACT_KEY_PROMPT')
                 llm_chain = LLMChain(llm=self.llm, prompt=extract_key_prompt)
             else:
                 llm_chain = None
@@ -139,7 +139,7 @@ class BishengRAGTool:
         else:
             if 'prompt_type' in self.params['generate']:
                 prompt_type = self.params['generate']['prompt_type']
-                prompt = import_class(f'bisheng_langchain.rag.prompts.{prompt_type}')
+                prompt = import_class(f'terminus'_langchain.rag.prompts.{prompt_type}')
             else:
                 prompt = None
         self.prompt_inputs = prompt.input_variables

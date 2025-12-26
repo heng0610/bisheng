@@ -8,47 +8,47 @@ from fastapi import BackgroundTasks, Request
 from loguru import logger
 from pymilvus import Collection
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.services.knowledge_imp import (
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.services.knowledge_imp import (
     KnowledgeUtils,
     decide_vectorstores,
     delete_knowledge_file_vectors,
     process_file_task,
     async_read_chunk_text,
 )
-from bisheng.api.v1.schema.knowledge import KnowledgeFileResp
-from bisheng.api.v1.schemas import (
+from terminus.api.v1.schema.knowledge import KnowledgeFileResp
+from terminus.api.v1.schemas import (
     FileChunk,
     FileProcessBase,
     KnowledgeFileOne,
     KnowledgeFileProcess,
     UpdatePreviewFileChunk, ExcelRule, KnowledgeFileReProcess,
 )
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import NotFoundError, UnAuthorizedError, ServerError
-from bisheng.common.errcode.knowledge import (
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import NotFoundError, UnAuthorizedError, ServerError
+from terminus.common.errcode.knowledge import (
     KnowledgeChunkError,
     KnowledgeExistError,
     KnowledgeNoEmbeddingError, KnowledgeNotQAError, KnowledgeFileFailedError,
 )
-from bisheng.common.schemas.telemetry.event_data_schema import NewKnowledgeBaseEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.cache.redis_manager import get_redis_client_sync, get_redis_client
-from bisheng.core.cache.utils import file_download, async_file_download
-from bisheng.core.logger import trace_id_var
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
-from bisheng.database.models.group_resource import (
+from terminus.common.schemas.telemetry.event_data_schema import NewKnowledgeBaseEventData
+from terminus.common.services import telemetry_service
+from terminus.core.cache.redis_manager import get_redis_client_sync, get_redis_client
+from terminus.core.cache.utils import file_download, async_file_download
+from terminus.core.logger import trace_id_var
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
+from terminus.database.models.group_resource import (
     GroupResource,
     GroupResourceDao,
     ResourceTypeEnum,
 )
-from bisheng.database.models.role_access import AccessType, RoleAccessDao
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.interface.embeddings.custom import FakeEmbedding
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.models.knowledge import (
+from terminus.database.models.role_access import AccessType, RoleAccessDao
+from terminus.database.models.user_group import UserGroupDao
+from terminus.interface.embeddings.custom import FakeEmbedding
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.models.knowledge import (
     Knowledge,
     KnowledgeCreate,
     KnowledgeDao,
@@ -56,17 +56,17 @@ from bisheng.knowledge.domain.models.knowledge import (
     KnowledgeTypeEnum,
     KnowledgeUpdate, KnowledgeState,
 )
-from bisheng.knowledge.domain.models.knowledge_file import (
+from terminus.knowledge.domain.models.knowledge_file import (
     KnowledgeFile,
     KnowledgeFileDao,
     KnowledgeFileStatus, ParseType,
 )
-from bisheng.llm.domain.const import LLMModelType
-from bisheng.llm.domain.models import LLMDao
-from bisheng.user.domain.models.user import UserDao
-from bisheng.user.domain.models.user_role import UserRoleDao
-from bisheng.utils import generate_uuid, generate_knowledge_index_name
-from bisheng.utils import get_request_ip
+from terminus.llm.domain.const import LLMModelType
+from terminus.llm.domain.models import LLMDao
+from terminus.user.domain.models.user import UserDao
+from terminus.user.domain.models.user_role import UserRoleDao
+from terminus.utils import generate_uuid, generate_knowledge_index_name
+from terminus.utils import get_request_ip
 
 
 class KnowledgeService(KnowledgeUtils):
@@ -549,7 +549,7 @@ class KnowledgeService(KnowledgeUtils):
             background_tasks: BackgroundTasks,
             req_data: KnowledgeFileProcess,
     ) -> List[KnowledgeFile]:
-        from bisheng.worker.knowledge import file_worker
+        from terminus.worker.knowledge import file_worker
 
         """处理上传的文件"""
         knowledge, failed_files, process_files, preview_cache_keys = (
@@ -601,7 +601,7 @@ class KnowledgeService(KnowledgeUtils):
         :param req_data:
         :return:
         """
-        from bisheng.worker.knowledge import file_worker
+        from terminus.worker.knowledge import file_worker
 
         knowledge = await KnowledgeDao.async_query_by_id(req_data.knowledge_id)
         if not knowledge:
@@ -638,7 +638,7 @@ class KnowledgeService(KnowledgeUtils):
             background_tasks: BackgroundTasks,
             req_data: dict,
     ):
-        from bisheng.worker.knowledge import file_worker
+        from terminus.worker.knowledge import file_worker
 
         db_file_retry = req_data.get("file_objs")
         if not db_file_retry:
@@ -886,7 +886,7 @@ class KnowledgeService(KnowledgeUtils):
     def delete_knowledge_file(
             cls, request: Request, login_user: UserPayload, file_ids: List[int]
     ):
-        from bisheng.worker.knowledge import file_worker
+        from terminus.worker.knowledge import file_worker
 
         knowledge_file = KnowledgeFileDao.select_list(file_ids)
         if not knowledge_file:
@@ -1224,7 +1224,7 @@ class KnowledgeService(KnowledgeUtils):
             knowledge: Knowledge,
             knowledge_name: str = None,
     ) -> Any:
-        from bisheng.worker.knowledge import file_worker
+        from terminus.worker.knowledge import file_worker
 
         await KnowledgeDao.async_update_state(knowledge.id, KnowledgeState.COPYING, update_time=knowledge.update_time)
         knowldge_dict = knowledge.model_dump()
@@ -1273,7 +1273,7 @@ class KnowledgeService(KnowledgeUtils):
 
         cls.create_knowledge_hook(request, login_user, target_qa_knowlege)
 
-        from bisheng.worker.knowledge.qa import copy_qa_knowledge_celery
+        from terminus.worker.knowledge.qa import copy_qa_knowledge_celery
         copy_qa_knowledge_celery.delay(source_knowledge_id=qa_knowledge.id, target_knowledge_id=target_qa_knowlege.id,
                                        login_user_id=login_user.user_id)
 

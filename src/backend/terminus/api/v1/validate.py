@@ -1,9 +1,9 @@
-from bisheng.api.v1.base import (Code, CodeValidationResponse, PromptValidationResponse,
+from terminus.api.v1.base import (Code, CodeValidationResponse, PromptValidationResponse,
                                  ValidatePromptRequest, validate_prompt)
-from bisheng.api.v1.schemas import UnifiedResponseModel, resp_200
-from bisheng.template.field.base import TemplateField
+from terminus.api.v1.schemas import UnifiedResponseModel, resp_200
+from terminus.template.field.base import TemplateField
 from loguru import logger
-from bisheng.utils.validate import validate_code
+from terminus.utils.validate import validate_code
 from fastapi import APIRouter, HTTPException
 
 # build router

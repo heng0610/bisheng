@@ -13,22 +13,22 @@ from langchain_core.utils.function_calling import format_tool_to_openai_tool
 from langgraph.prebuilt import create_react_agent
 from loguru import logger
 
-from bisheng.api.services.assistant_base import AssistantUtils
-from bisheng.api.utils import build_flow_no_yield
-from bisheng.api.v1.schemas import InputRequest
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.common.errcode.assistant import AssistantModelEmptyError, AssistantModelNotConfigError, \
+from terminus.api.services.assistant_base import AssistantUtils
+from terminus.api.utils import build_flow_no_yield
+from terminus.api.v1.schemas import InputRequest
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.common.errcode.assistant import AssistantModelEmptyError, AssistantModelNotConfigError, \
     AssistantAutoLLMError
-from bisheng.database.models.assistant import Assistant, AssistantLink, AssistantLinkDao
-from bisheng.database.models.flow import FlowDao, FlowStatus
-from bisheng.llm.domain.services import LLMService
-from bisheng.tool.domain.services.executor import ToolExecutor
-from bisheng_langchain.gpts.assistant import ConfigurableAssistant
-from bisheng_langchain.gpts.auto_optimization import (generate_breif_description,
+from terminus.database.models.assistant import Assistant, AssistantLink, AssistantLinkDao
+from terminus.database.models.flow import FlowDao, FlowStatus
+from terminus.llm.domain.services import LLMService
+from terminus.tool.domain.services.executor import ToolExecutor
+from terminus_langchain.gpts.assistant import ConfigurableAssistant
+from terminus_langchain.gpts.auto_optimization import (generate_breif_description,
                                                       generate_opening_dialog,
                                                       optimize_assistant_prompt)
-from bisheng_langchain.gpts.auto_tool_selected import ToolInfo, ToolSelector
-from bisheng_langchain.gpts.prompts import ASSISTANT_PROMPT_OPT
+from terminus_langchain.gpts.auto_tool_selected import ToolInfo, ToolSelector
+from terminus_langchain.gpts.prompts import ASSISTANT_PROMPT_OPT
 
 
 class AssistantAgent(AssistantUtils):

@@ -4,7 +4,7 @@ from typing import Any
 import requests
 from pydantic import BaseModel, Field
 
-from bisheng_langchain.gpts.tools.api_tools.base import (MultArgsSchemaTool)
+from terminus_langchain.gpts.tools.api_tools.base import (MultArgsSchemaTool)
 
 
 class InputArgs(BaseModel):

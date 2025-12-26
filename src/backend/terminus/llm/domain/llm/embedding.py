@@ -7,8 +7,8 @@ from loguru import logger
 from pydantic import Field
 from typing_extensions import Self
 
-from bisheng.core.ai import OllamaEmbeddings, OpenAIEmbeddings, AzureOpenAIEmbeddings, DashScopeEmbeddings
-from bisheng.llm.domain.const import LLMServerType, LLMModelType
+from terminus.core.ai import OllamaEmbeddings, OpenAIEmbeddings, AzureOpenAIEmbeddings, DashScopeEmbeddings
+from terminus.llm.domain.const import LLMServerType, LLMModelType
 from .base import BishengBase
 from ..models import LLMModel, LLMServer
 from ..utils import wrapper_bisheng_model_limit_check

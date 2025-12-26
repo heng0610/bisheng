@@ -103,7 +103,7 @@ class ChatXunfeiAI(BaseChatModel):
     Example:
         .. code-block:: python
 
-            from bisheng_langchain.chat_models import ChatXunfeiAI
+            from terminus_langchain.chat_models import ChatXunfeiAI
             chat_miniamaxai = ChatXunfeiAI(model_name="spark")
     """
 

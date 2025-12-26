@@ -12,40 +12,40 @@ from fastapi import UploadFile
 from langchain_core.tools import BaseTool
 from loguru import logger
 
-from bisheng.api.services.knowledge_imp import decide_vectorstores, async_read_chunk_text
-from bisheng.api.services.linsight.sop_manage import SOPManageService
-from bisheng.api.services.workstation import WorkStationService
-from bisheng.api.v1.schema.linsight_schema import LinsightQuestionSubmitSchema, DownloadFilesSchema, \
+from terminus.api.services.knowledge_imp import decide_vectorstores, async_read_chunk_text
+from terminus.api.services.linsight.sop_manage import SOPManageService
+from terminus.api.services.workstation import WorkStationService
+from terminus.api.v1.schema.linsight_schema import LinsightQuestionSubmitSchema, DownloadFilesSchema, \
     SubmitFileSchema
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode import BaseErrorCode
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.errcode.linsight import LinsightToolInitError, LinsightBishengLLMError, LinsightGenerateSopError
-from bisheng.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.core.cache.utils import save_file_to_folder, CACHE_DIR
-from bisheng.core.logger import trace_id_var
-from bisheng.core.prompts.manager import get_prompt_manager
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.database.models import LinsightSessionVersion
-from bisheng.database.models.flow import FlowType
-from bisheng.database.models.linsight_execute_task import LinsightExecuteTaskDao
-from bisheng.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum
-from bisheng.database.models.linsight_sop import LinsightSOPRecord
-from bisheng.database.models.session import MessageSessionDao, MessageSession
-from bisheng.interface.embeddings.custom import FakeEmbedding
-from bisheng.knowledge.domain.models.knowledge import KnowledgeRead, KnowledgeTypeEnum
-from bisheng.llm.domain.llm import BishengLLM
-from bisheng.llm.domain.services import LLMService
-from bisheng.tool.domain.models.gpts_tools import GptsToolsDao
-from bisheng.tool.domain.services.executor import ToolExecutor
-from bisheng.tool.domain.services.tool import ToolServices
-from bisheng.utils import util
-from bisheng.utils.util import async_calculate_md5
-from bisheng_langchain.linsight.const import ExecConfig
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode import BaseErrorCode
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.errcode.linsight import LinsightToolInitError, LinsightBishengLLMError, LinsightGenerateSopError
+from terminus.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.core.cache.utils import save_file_to_folder, CACHE_DIR
+from terminus.core.logger import trace_id_var
+from terminus.core.prompts.manager import get_prompt_manager
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.database.models import LinsightSessionVersion
+from terminus.database.models.flow import FlowType
+from terminus.database.models.linsight_execute_task import LinsightExecuteTaskDao
+from terminus.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum
+from terminus.database.models.linsight_sop import LinsightSOPRecord
+from terminus.database.models.session import MessageSessionDao, MessageSession
+from terminus.interface.embeddings.custom import FakeEmbedding
+from terminus.knowledge.domain.models.knowledge import KnowledgeRead, KnowledgeTypeEnum
+from terminus.llm.domain.llm import BishengLLM
+from terminus.llm.domain.services import LLMService
+from terminus.tool.domain.models.gpts_tools import GptsToolsDao
+from terminus.tool.domain.services.executor import ToolExecutor
+from terminus.tool.domain.services.tool import ToolServices
+from terminus.utils import util
+from terminus.utils.util import async_calculate_md5
+from terminus_langchain.linsight.const import ExecConfig
 
 
 @dataclass
@@ -525,7 +525,7 @@ class LinsightWorkbenchImpl:
                                      llm: BishengLLM, tools: List[BaseTool],
                                      workbench_conf):
         """创建Linsight代理"""
-        from bisheng_langchain.linsight.agent import LinsightAgent
+        from terminus_langchain.linsight.agent import LinsightAgent
 
         root_path = os.path.join(CACHE_DIR, "linsight", session_version.id[:8])
         linsight_conf = settings.get_linsight_conf()
@@ -867,7 +867,7 @@ class LinsightWorkbenchImpl:
         特殊处理初始化毕昇的代码解释器工具
         """
         tools = []
-        bisheng_code_tool = await GptsToolsDao.aget_tool_by_tool_key(tool_key='bisheng_code_interpreter')
+        bisheng_code_tool = await GptsToolsDao.aget_tool_by_tool_key(tool_key='terminus'_code_interpreter')
         if not bisheng_code_tool or bisheng_code_tool.id not in config_tool_ids:
             return tools
         # 单独初始化代码解释器工具

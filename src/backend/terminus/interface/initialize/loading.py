@@ -16,36 +16,36 @@ from loguru import logger
 from pydantic import SecretStr, ValidationError, create_model
 from pydantic.fields import FieldInfo
 
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.utils import file_download
-from bisheng.interface.agents.base import agent_creator
-from bisheng.interface.chains.base import chain_creator
-from bisheng.interface.custom_lists import CUSTOM_NODES
-from bisheng.interface.embeddings.custom import FakeEmbedding
-from bisheng.interface.importing.utils import (eval_custom_component_code, get_function,
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.common.services.config_service import settings
+from terminus.core.cache.utils import file_download
+from terminus.interface.agents.base import agent_creator
+from terminus.interface.chains.base import chain_creator
+from terminus.interface.custom_lists import CUSTOM_NODES
+from terminus.interface.embeddings.custom import FakeEmbedding
+from terminus.interface.importing.utils import (eval_custom_component_code, get_function,
                                                import_by_type)
-from bisheng.interface.initialize.llm import initialize_vertexai
-from bisheng.interface.initialize.utils import (handle_format_kwargs, handle_node_type,
+from terminus.interface.initialize.llm import initialize_vertexai
+from terminus.interface.initialize.utils import (handle_format_kwargs, handle_node_type,
                                                 handle_partial_variables, langchain_bug_openv1)
-from bisheng.interface.initialize.vector_store import vecstore_initializer
-from bisheng.interface.output_parsers.base import output_parser_creator
-from bisheng.interface.retrievers.base import retriever_creator
-from bisheng.interface.toolkits.base import toolkits_creator
-from bisheng.interface.utils import load_file_into_dict
-from bisheng.interface.wrappers.base import wrapper_creator
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao
-from bisheng.llm.domain import LLMService
-from bisheng.utils import validate
-from bisheng.utils.constants import NODE_ID_DICT, PRESET_QUESTION
-from bisheng_langchain.vectorstores import VectorStoreFilterRetriever
+from terminus.interface.initialize.vector_store import vecstore_initializer
+from terminus.interface.output_parsers.base import output_parser_creator
+from terminus.interface.retrievers.base import retriever_creator
+from terminus.interface.toolkits.base import toolkits_creator
+from terminus.interface.utils import load_file_into_dict
+from terminus.interface.wrappers.base import wrapper_creator
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao
+from terminus.llm.domain import LLMService
+from terminus.utils import validate
+from terminus.utils.constants import NODE_ID_DICT, PRESET_QUESTION
+from terminus_langchain.vectorstores import VectorStoreFilterRetriever
 
 if TYPE_CHECKING:
-    from bisheng import CustomComponent
+    from terminus import CustomComponent
 
 
 def build_vertex_in_params(params: Dict) -> Dict:
-    from bisheng.graph.vertex.base import Vertex
+    from terminus.graph.vertex.base import Vertex
 
     # If any of the values in params is a Vertex, we will build it
     return {
@@ -54,7 +54,7 @@ def build_vertex_in_params(params: Dict) -> Dict:
     }
 
 
-# from bisheng_langchain.document_loaders.elem_unstrcutured_loader import ElemUnstructuredLoaderV0
+# from terminus_langchain.document_loaders.elem_unstrcutured_loader import ElemUnstructuredLoaderV0
 async def instantiate_class(node_type: str, base_type: str, params: Dict, user_id=None) -> Any:
     """Instantiate class from module type and key, and params"""
     params = convert_params_to_sets(params)

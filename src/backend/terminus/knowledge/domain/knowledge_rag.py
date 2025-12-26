@@ -5,11 +5,11 @@ from langchain_core.vectorstores import VectorStore
 from langchain_elasticsearch import AsyncElasticsearchStore, ElasticsearchStore
 from langchain_milvus import Milvus
 
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao
-from bisheng.knowledge.rag.elasticsearch_factory import ElasticsearchFactory
-from bisheng.knowledge.rag.milvus_factory import MilvusFactory
-from bisheng.llm.domain import LLMService
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao
+from terminus.knowledge.rag.elasticsearch_factory import ElasticsearchFactory
+from terminus.knowledge.rag.milvus_factory import MilvusFactory
+from terminus.llm.domain import LLMService
 
 
 class KnowledgeRag:

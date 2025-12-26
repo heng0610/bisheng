@@ -2,7 +2,7 @@ import copy
 from collections import deque
 from typing import Any, Dict, List, Union
 
-from bisheng.interface.utils import extract_input_variables_from_prompt
+from terminus.interface.utils import extract_input_variables_from_prompt
 
 
 class UnbuiltObject:

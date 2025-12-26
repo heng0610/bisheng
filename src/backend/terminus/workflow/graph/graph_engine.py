@@ -7,16 +7,16 @@ from langgraph.graph import StateGraph
 from loguru import logger
 from typing_extensions import TypedDict
 
-from bisheng.utils.exceptions import IgnoreException
-from bisheng.workflow.callback.base_callback import BaseCallback
-from bisheng.workflow.callback.event import UserInputData
-from bisheng.workflow.common.node import BaseNodeData, NodeType
-from bisheng.workflow.common.workflow import WorkflowStatus
-from bisheng.workflow.edges.edges import EdgeManage
-from bisheng.workflow.graph.graph_state import GraphState
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.node_manage import NodeFactory
-from bisheng.workflow.nodes.output.output_fake import OutputFakeNode
+from terminus.utils.exceptions import IgnoreException
+from terminus.workflow.callback.base_callback import BaseCallback
+from terminus.workflow.callback.event import UserInputData
+from terminus.workflow.common.node import BaseNodeData, NodeType
+from terminus.workflow.common.workflow import WorkflowStatus
+from terminus.workflow.edges.edges import EdgeManage
+from terminus.workflow.graph.graph_state import GraphState
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.node_manage import NodeFactory
+from terminus.workflow.nodes.output.output_fake import OutputFakeNode
 
 
 class TempState(TypedDict):

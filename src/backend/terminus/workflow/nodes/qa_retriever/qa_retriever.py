@@ -1,11 +1,11 @@
 import json
 from typing import Any
 
-from bisheng.interface.initialize.loading import instantiate_vectorstore
-from bisheng.interface.vector_store.custom import MilvusWithPermissionCheck
-from bisheng.user.domain.models.user import UserDao
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng_langchain.chains.retrieval.retrieval_chain import RetrievalChain
+from terminus.interface.initialize.loading import instantiate_vectorstore
+from terminus.interface.vector_store.custom import MilvusWithPermissionCheck
+from terminus.user.domain.models.user import UserDao
+from terminus.workflow.nodes.base import BaseNode
+from terminus_langchain.chains.retrieval.retrieval_chain import RetrievalChain
 
 
 class QARetrieverNode(BaseNode):

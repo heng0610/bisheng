@@ -1,7 +1,7 @@
-from bisheng.common.services.config_service import settings
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao
-from bisheng.llm.domain.const import LLMServerType, LLMModelType
-from bisheng.llm.domain.models import LLMServer, LLMDao, LLMModel
+from terminus.common.services.config_service import settings
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao
+from terminus.llm.domain.const import LLMServerType, LLMModelType
+from terminus.llm.domain.models import LLMServer, LLMDao, LLMModel
 
 
 def parse_openai_embedding_conf(name, model_name, embedding_conf):

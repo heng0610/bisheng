@@ -1,11 +1,11 @@
 from typing import Any, Dict, List, Optional
 
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.importing.utils import import_class
-from bisheng.template.frontend_node.autogenrole import AutogenRoleFrontNode
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.importing.utils import import_class
+from terminus.template.frontend_node.autogenrole import AutogenRoleFrontNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_class
-from bisheng_langchain import autogen_role
+from terminus.utils.util import build_template_from_class
+from terminus_langchain import autogen_role
 
 
 class AutogenRole(LangChainTypeCreator):
@@ -19,7 +19,7 @@ class AutogenRole(LangChainTypeCreator):
     def type_to_loader_dict(self) -> Dict:
         if self.type_dict is None:
             self.type_dict: dict[str, Any] = {
-                role_name: import_class(f'bisheng_langchain.autogen_role.{role_name}')
+                role_name: import_class(f'terminus'_langchain.autogen_role.{role_name}')
                 for role_name in autogen_role.__all__
             }
         return self.type_dict

@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 import jwt
 from pydantic import ConfigDict, model_validator, Field
 
-from bisheng_langchain.utils.requests import Requests
+from terminus_langchain.utils.requests import Requests
 from langchain.callbacks.manager import AsyncCallbackManagerForLLMRun, CallbackManagerForLLMRun
 from langchain.chat_models.base import BaseChatModel
 from langchain.schema import ChatGeneration, ChatResult

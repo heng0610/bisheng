@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from mcp.client.sse import sse_client
 
-from bisheng.mcp_manage.clients.base import BaseMcpClient
+from terminus.mcp_manage.clients.base import BaseMcpClient
 
 
 class SseClient(BaseMcpClient):

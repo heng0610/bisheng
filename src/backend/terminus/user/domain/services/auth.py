@@ -10,13 +10,13 @@ from pydantic import BaseModel, Field
 from starlette.websockets import WebSocket
 from typing_extensions import Self
 
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.exceptions.auth import JWTDecodeError
-from bisheng.common.services.config_service import settings
-from bisheng.database.constants import AdminRole
-from bisheng.database.models.group import GroupDao
-from bisheng.database.models.role_access import AccessType, RoleAccessDao
-from bisheng.database.models.user_group import UserGroupDao
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.exceptions.auth import JWTDecodeError
+from terminus.common.services.config_service import settings
+from terminus.database.constants import AdminRole
+from terminus.database.models.group import GroupDao
+from terminus.database.models.role_access import AccessType, RoleAccessDao
+from terminus.database.models.user_group import UserGroupDao
 from ..models.user import User
 from ..models.user_role import UserRoleDao
 

@@ -1,5 +1,5 @@
-from bisheng.services.chat.service import ChatService
-from bisheng.services.factory import ServiceFactory
+from terminus.services.chat.service import ChatService
+from terminus.services.factory import ServiceFactory
 
 
 class ChatServiceFactory(ServiceFactory):

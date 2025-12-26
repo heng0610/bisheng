@@ -1,9 +1,9 @@
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.frontend_node.constants import INPUT_KEY_INFO, OUTPUT_KEY_INFO
-from bisheng.template.template.base import Template
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.frontend_node.constants import INPUT_KEY_INFO, OUTPUT_KEY_INFO
+from terminus.template.template.base import Template
 from langchain_community.chat_message_histories.mongodb import (DEFAULT_COLLECTION_NAME,
                                                                 DEFAULT_DBNAME)
 from langchain_community.chat_message_histories.postgres import DEFAULT_CONNECTION_STRING

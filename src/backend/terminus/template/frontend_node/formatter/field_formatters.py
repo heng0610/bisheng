@@ -1,10 +1,10 @@
 import re
 from typing import ClassVar, Dict, Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.constants import FORCE_SHOW_FIELDS
-from bisheng.template.frontend_node.formatter.base import FieldFormatter
-from bisheng.utils.constants import ANTHROPIC_MODELS, CHAT_OPENAI_MODELS, OPENAI_MODELS
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.constants import FORCE_SHOW_FIELDS
+from terminus.template.frontend_node.formatter.base import FieldFormatter
+from terminus.utils.constants import ANTHROPIC_MODELS, CHAT_OPENAI_MODELS, OPENAI_MODELS
 
 
 class OpenAIAPIKeyFormatter(FieldFormatter):

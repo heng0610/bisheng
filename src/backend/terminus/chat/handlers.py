@@ -9,25 +9,25 @@ from langchain_core.prompts.prompt import PromptTemplate
 from loguru import logger
 from sqlmodel import select
 
-from bisheng.api.utils import build_input_keys_response
-from bisheng.api.v1.schemas import ChatMessage, ChatResponse
-from bisheng.chat.manager import ChatManager
-from bisheng.chat.utils import judge_source, process_graph, process_source_document
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.schemas.telemetry.event_data_schema import ApplicationProcessEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.database import get_sync_db_session
-from bisheng.core.logger import trace_id_var
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.database.models.message import ChatMessage as ChatMessageDB, ChatMessageDao
-from bisheng.database.models.report import Report
-from bisheng.interface.importing.utils import import_by_type
-from bisheng.interface.initialize.loading import instantiate_llm
-from bisheng.utils.docx_temp import test_replace_string
-from bisheng.utils.threadpool import thread_pool
-from bisheng.utils.util import get_cache_key
-from bisheng_langchain.chains.autogen.auto_gen import AutoGenChain
+from terminus.api.utils import build_input_keys_response
+from terminus.api.v1.schemas import ChatMessage, ChatResponse
+from terminus.chat.manager import ChatManager
+from terminus.chat.utils import judge_source, process_graph, process_source_document
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.schemas.telemetry.event_data_schema import ApplicationProcessEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.database import get_sync_db_session
+from terminus.core.logger import trace_id_var
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.database.models.message import ChatMessage as ChatMessageDB, ChatMessageDao
+from terminus.database.models.report import Report
+from terminus.interface.importing.utils import import_by_type
+from terminus.interface.initialize.loading import instantiate_llm
+from terminus.utils.docx_temp import test_replace_string
+from terminus.utils.threadpool import thread_pool
+from terminus.utils.util import get_cache_key
+from terminus_langchain.chains.autogen.auto_gen import AutoGenChain
 
 
 class Handler:

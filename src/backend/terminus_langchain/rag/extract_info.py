@@ -1,4 +1,4 @@
-from bisheng_langchain.chat_models import ChatQWen
+from terminus_langchain.chat_models import ChatQWen
 from langchain.chains.llm import LLMChain
 from langchain.prompts.chat import (
     ChatPromptTemplate,

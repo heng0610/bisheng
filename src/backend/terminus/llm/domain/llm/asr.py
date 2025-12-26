@@ -4,12 +4,12 @@ import httpx
 from pydantic import Field
 from typing_extensions import Self
 
-from bisheng.common.errcode.server import NoAsrModelConfigError, AsrModelConfigDeletedError, AsrModelTypeError, \
+from terminus.common.errcode.server import NoAsrModelConfigError, AsrModelConfigDeletedError, AsrModelTypeError, \
     AsrProviderDeletedError, \
     AsrModelOfflineError
-from bisheng.core.ai import BaseASRClient, OpenAIASRClient, AliyunASRClient, AzureOpenAIASRClient
-from bisheng.llm.domain.const import LLMModelType, LLMServerType
-from bisheng.llm.domain.models import LLMModel, LLMServer
+from terminus.core.ai import BaseASRClient, OpenAIASRClient, AliyunASRClient, AzureOpenAIASRClient
+from terminus.llm.domain.const import LLMModelType, LLMServerType
+from terminus.llm.domain.models import LLMModel, LLMServer
 from .base import BishengBase
 from ..utils import wrapper_bisheng_model_limit_check_async
 

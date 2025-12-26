@@ -5,19 +5,19 @@ from typing import Dict, Optional
 from fastapi import Request, WebSocket
 from loguru import logger
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.v1.schema.workflow import WorkflowEventType
-from bisheng.chat.clients.base import BaseClient
-from bisheng.chat.types import WorkType
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.chat import WorkflowOfflineError
-from bisheng.database.models.flow import FlowDao, FlowStatus
-from bisheng.database.models.message import ChatMessageDao, ChatMessage
-from bisheng.utils import generate_uuid
-from bisheng.utils import get_request_ip
-from bisheng.worker.workflow.redis_callback import RedisCallback
-from bisheng.worker.workflow.tasks import execute_workflow, continue_workflow
-from bisheng.workflow.common.workflow import WorkflowStatus
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.v1.schema.workflow import WorkflowEventType
+from terminus.chat.clients.base import BaseClient
+from terminus.chat.types import WorkType
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.chat import WorkflowOfflineError
+from terminus.database.models.flow import FlowDao, FlowStatus
+from terminus.database.models.message import ChatMessageDao, ChatMessage
+from terminus.utils import generate_uuid
+from terminus.utils import get_request_ip
+from terminus.worker.workflow.redis_callback import RedisCallback
+from terminus.worker.workflow.tasks import execute_workflow, continue_workflow
+from terminus.workflow.common.workflow import WorkflowStatus
 
 
 class WorkflowClient(BaseClient):

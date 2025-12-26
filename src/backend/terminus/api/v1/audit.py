@@ -3,9 +3,9 @@ from typing import Optional, List
 
 from fastapi import APIRouter, Query, Depends
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.v1.schemas import resp_200
+from terminus.common.dependencies.user_deps import UserPayload
 
 router = APIRouter(prefix='/audit', tags=['AuditLog'])
 

@@ -1,7 +1,7 @@
-from bisheng.services import ServiceType, service_manager
+from terminus.services import ServiceType, service_manager
 
-from bisheng.services.session.service import SessionService
-from bisheng.services.task.service import TaskService
+from terminus.services.session.service import SessionService
+from terminus.services.task.service import TaskService
 
 
 # from sqlmodel import Session

@@ -6,12 +6,12 @@ from typing import List
 import openpyxl
 from pymilvus import Collection
 
-from bisheng.api.services.knowledge_imp import decide_vectorstores, QA_save_knowledge, delete_vector_data
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge, KnowledgeTypeEnum
-from bisheng.knowledge.domain.models.knowledge_file import QAKnoweldgeDao, KnowledgeFileDao, QAKnowledge, KnowledgeFile, \
+from terminus.api.services.knowledge_imp import decide_vectorstores, QA_save_knowledge, delete_vector_data
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge, KnowledgeTypeEnum
+from terminus.knowledge.domain.models.knowledge_file import QAKnoweldgeDao, KnowledgeFileDao, QAKnowledge, KnowledgeFile, \
     QAStatus, KnowledgeFileStatus
-from bisheng.llm.domain import LLMService
-from bisheng.worker.knowledge.file_worker import insert_milvus
+from terminus.llm.domain import LLMService
+from terminus.worker.knowledge.file_worker import insert_milvus
 
 _output_path = os.path.join(os.path.dirname(__file__), 'output')
 os.makedirs(_output_path, exist_ok=True)

@@ -4,7 +4,7 @@ from langchain.embeddings.base import Embeddings
 from langchain_community.embeddings.dashscope import BATCH_SIZE
 from pydantic import Field
 
-from bisheng.llm.domain.llm.embedding import BishengEmbedding
+from terminus.llm.domain.llm.embedding import BishengEmbedding
 
 BATCH_SIZE["text-embedding-v4"] = 10  # 设置DashScope的批处理大小为1
 
@@ -14,7 +14,7 @@ class OpenAIProxyEmbedding(Embeddings):
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
-        from bisheng.llm.domain.services import LLMService
+        from terminus.llm.domain.services import LLMService
         self.embeddings = LLMService.get_knowledge_default_embedding(0)
 
     def embed_documents(self, texts: List[str]) -> List[List[float]]:

@@ -2,7 +2,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, StatusEnum, ApplicationTypeEnum
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, StatusEnum, ApplicationTypeEnum
 
 
 class BaseEventData(BaseModel):

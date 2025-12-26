@@ -1,10 +1,10 @@
 from typing import TYPE_CHECKING
 
-from bisheng.services.credentials.service import CredentialService
-from bisheng.services.factory import ServiceFactory
+from terminus.services.credentials.service import CredentialService
+from terminus.services.factory import ServiceFactory
 
 if TYPE_CHECKING:
-    from bisheng.services.settings.service import SettingsService
+    from terminus.services.settings.service import SettingsService
 
 
 class CredentialServiceFactory(ServiceFactory):

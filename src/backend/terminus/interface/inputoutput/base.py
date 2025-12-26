@@ -1,13 +1,13 @@
 from typing import Dict, List, Optional, Type
 
-from bisheng.custom.customs import get_custom_nodes
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.importing.utils import import_class
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.frontend_node.input_output import InputOutputNode
+from terminus.custom.customs import get_custom_nodes
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.importing.utils import import_class
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.frontend_node.input_output import InputOutputNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_class
-from bisheng_langchain import input_output
+from terminus.utils.util import build_template_from_class
+from terminus_langchain import input_output
 
 
 class IOutputCreator(LangChainTypeCreator):
@@ -23,7 +23,7 @@ class IOutputCreator(LangChainTypeCreator):
             self.type_dict = {}
             # bisheng-langchain
             bisheng = {
-                node_name: import_class(f'bisheng_langchain.input_output.{node_name}')
+                node_name: import_class(f'terminus'_langchain.input_output.{node_name}')
                 for node_name in input_output.__all__
             }
             self.type_dict.update(bisheng)

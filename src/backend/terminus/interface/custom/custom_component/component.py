@@ -4,8 +4,8 @@ import warnings
 from typing import Any, ClassVar, Optional
 
 import emoji
-from bisheng.interface.custom.code_parser import CodeParser
-from bisheng.utils import validate
+from terminus.interface.custom.code_parser import CodeParser
+from terminus.utils import validate
 from cachetools import TTLCache, cachedmethod
 from fastapi import HTTPException
 

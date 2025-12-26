@@ -10,13 +10,13 @@ from fastapi import UploadFile
 from platformdirs import user_cache_dir
 
 if TYPE_CHECKING:
-    from bisheng.api.v1.schemas import BuildStatus
+    from terminus.api.v1.schemas import BuildStatus
 
 CACHE: Dict[str, Any] = {}
 
-CACHE_DIR = user_cache_dir('bisheng', 'bisheng')
+CACHE_DIR = user_cache_dir('terminus'', 'terminus'')
 
-PREFIX = 'bisheng_cache'
+PREFIX = 'terminus'_cache'
 
 
 def create_cache_folder(func):

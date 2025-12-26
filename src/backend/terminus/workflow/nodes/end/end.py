@@ -1,4 +1,4 @@
-from bisheng.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.base import BaseNode
 
 
 class EndNode(BaseNode):

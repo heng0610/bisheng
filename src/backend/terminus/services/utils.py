@@ -1,21 +1,21 @@
-# from bisheng.services.auth.utils import create_super_user, verify_password
-# from bisheng.services.database.utils import initialize_database
-from bisheng.services.manager import service_manager
-# from bisheng.services.settings.constants import DEFAULT_SUPERUSER, DEFAULT_SUPERUSER_PASSWORD
+# from terminus.services.auth.utils import create_super_user, verify_password
+# from terminus.services.database.utils import initialize_database
+from terminus.services.manager import service_manager
+# from terminus.services.settings.constants import DEFAULT_SUPERUSER, DEFAULT_SUPERUSER_PASSWORD
 from loguru import logger
 
 
 def get_factories_and_deps():
-    # from bisheng.services.auth import factory as auth_factory
-    # from bisheng.services.cache import factory as cache_factory
-    # from bisheng.services.chat import factory as chat_factory
-    # from bisheng.services.credentials import factory as credentials_factory
-    # from bisheng.services.database import factory as database_factory
-    # from bisheng.services.plugins import factory as plugins_factory
-    from bisheng.services.session import factory as session_service_factory  # type: ignore
-    # from bisheng.services.settings import factory as settings_factory
-    # from bisheng.services.store import factory as store_factory
-    from bisheng.services.task import factory as task_factory
+    # from terminus.services.auth import factory as auth_factory
+    # from terminus.services.cache import factory as cache_factory
+    # from terminus.services.chat import factory as chat_factory
+    # from terminus.services.credentials import factory as credentials_factory
+    # from terminus.services.database import factory as database_factory
+    # from terminus.services.plugins import factory as plugins_factory
+    from terminus.services.session import factory as session_service_factory  # type: ignore
+    # from terminus.services.settings import factory as settings_factory
+    # from terminus.services.store import factory as store_factory
+    from terminus.services.task import factory as task_factory
 
     return [
         # (settings_factory.SettingsServiceFactory(), []),
@@ -44,7 +44,7 @@ def get_factories_and_deps():
 
 
 # def get_or_create_super_user(session: Session, username, password, is_default):
-#     from bisheng.services.database.models.user.model import User
+#     from terminus.services.database.models.user.model import User
 
 #     user = session.exec(select(User).where(User.username == username)).first()
 
@@ -125,7 +125,7 @@ def get_factories_and_deps():
 #         try:
 #             logger.debug("AUTO_LOGIN is set to False. Removing default superuser if exists.")
 #             username = DEFAULT_SUPERUSER
-#             from bisheng.services.database.models.user.model import User
+#             from terminus.services.database.models.user.model import User
 
 #             user = session.exec(select(User).where(User.username == username)).first()
 #             if user and user.is_superuser is True:
@@ -157,7 +157,7 @@ def teardown_services():
 #     """
 #     Initialize the settings manager.
 #     """
-#     from bisheng.services.settings import factory as settings_factory
+#     from terminus.services.settings import factory as settings_factory
 
 #     service_manager.register_factory(settings_factory.SettingsServiceFactory())
 
@@ -166,8 +166,8 @@ def initialize_session_service():
     """
     Initialize the session manager.
     """
-    # from bisheng.services.cache import factory as cache_factory
-    from bisheng.services.session import factory as session_service_factory  # type: ignore
+    # from terminus.services.cache import factory as cache_factory
+    from terminus.services.session import factory as session_service_factory  # type: ignore
 
     # initialize_settings_service()
 

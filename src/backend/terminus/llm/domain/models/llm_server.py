@@ -4,9 +4,9 @@ from typing import Dict, List, Optional
 from sqlalchemy import CHAR, JSON, Column, DateTime, Text, UniqueConstraint, delete, text, update
 from sqlmodel import Field, select, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.llm.domain.const import LLMModelType
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.llm.domain.const import LLMModelType
 
 
 class LLMServerBase(SQLModelSerializable):

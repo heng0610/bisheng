@@ -5,15 +5,15 @@ from typing import Optional
 from fastapi import APIRouter, Body, Depends, File, Query, UploadFile
 from loguru import logger
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.schemas.api import resp_200, PageData
-from bisheng.core.cache.utils import async_file_download
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.finetune.domain.models.finetune import Finetune, FinetuneChangeModelName, FinetuneList
-from bisheng.finetune.domain.services.finetune import FinetuneService
-from bisheng.finetune.domain.services.finetune_file import FinetuneFileService
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao
-from bisheng.knowledge.domain.models.knowledge_file import QAKnoweldgeDao
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.schemas.api import resp_200, PageData
+from terminus.core.cache.utils import async_file_download
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.finetune.domain.models.finetune import Finetune, FinetuneChangeModelName, FinetuneList
+from terminus.finetune.domain.services.finetune import FinetuneService
+from terminus.finetune.domain.services.finetune_file import FinetuneFileService
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao
+from terminus.knowledge.domain.models.knowledge_file import QAKnoweldgeDao
 from ..schemas import FinetuneCreateReq
 
 router = APIRouter(prefix='/finetune', tags=['Finetune'], dependencies=[Depends(UserPayload.get_login_user)])

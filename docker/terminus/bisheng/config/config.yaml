@@ -33,24 +33,24 @@ celery_task:
 # 知识库的milvus和es配置  支持使用 !env ${PATH} 填写环境变量的值, 若环境变量不存在则会报错
 vector_stores:
   milvus:
-    connection_args: !env ${BS_MILVUS_CONNECTION_ARGS}
-    is_partition: !env ${BS_MILVUS_IS_PARTITION}
-    partition_suffix: !env ${BS_MILVUS_PARTITION_SUFFIX}
+    connection_args: !env ${TS_MILVUS_CONNECTION_ARGS}
+    is_partition: !env ${TS_MILVUS_IS_PARTITION}
+    partition_suffix: !env ${TS_MILVUS_PARTITION_SUFFIX}
   elasticsearch:
-    url: !env ${BS_ELASTICSEARCH_URL}
-    ssl_verify: !env ${BS_ELASTICSEARCH_SSL_VERIFY}
+    url: !env ${TS_ELASTICSEARCH_URL}
+    ssl_verify: !env ${TS_ELASTICSEARCH_SSL_VERIFY}
 
 
 # 对象存储， 目前只支持minio
 object_storage:
   type: minio
   minio:
-    schema: !env ${BS_MINIO_SCHEMA}
-    cert_check: !env ${BS_MINIO_CERT_CHECK}
-    endpoint: !env ${BS_MINIO_ENDPOINT}
-    sharepoint: !env ${BS_MINIO_SHAREPOINT}
-    access_key: !env ${BS_MINIO_ACCESS_KEY}
-    secret_key: !env ${BS_MINIO_SECRET_KEY}
+    schema: !env ${TS_MINIO_SCHEMA}
+    cert_check: !env ${TS_MINIO_CERT_CHECK}
+    endpoint: !env ${TS_MINIO_ENDPOINT}
+    sharepoint: !env ${TS_MINIO_SHAREPOINT}
+    access_key: !env ${TS_MINIO_ACCESS_KEY}
+    secret_key: !env ${TS_MINIO_SECRET_KEY}
     public_bucket: 'bisheng'  # 公共bucket，存储平台上一些需要持久化的文件。会设置为可公开访问
     tmp_bucket: 'tmp-dir'  # 临时bucket，会对传到此bucket内的文件设置有效期
 

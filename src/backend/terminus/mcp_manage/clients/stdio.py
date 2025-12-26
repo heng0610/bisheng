@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from mcp.client.stdio import stdio_client, StdioServerParameters
 
-from bisheng.mcp_manage.clients.base import BaseMcpClient
+from terminus.mcp_manage.clients.base import BaseMcpClient
 
 
 class StdioClient(BaseMcpClient):

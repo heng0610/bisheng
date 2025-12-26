@@ -11,7 +11,7 @@ from typing import List, Optional, Union
 
 import fitz
 import numpy as np
-from bisheng_langchain.document_loaders.parsers import LayoutParser
+from terminus_langchain.document_loaders.parsers import LayoutParser
 from langchain_community.docstore.document import Document
 from langchain_community.document_loaders.blob_loaders import Blob
 from langchain_community.document_loaders.pdf import BasePDFLoader

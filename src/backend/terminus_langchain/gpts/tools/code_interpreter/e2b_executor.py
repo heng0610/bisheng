@@ -7,7 +7,7 @@ from typing import List
 from e2b.sandbox.filesystem.filesystem import WriteEntry, EntryInfo, FileType
 from e2b_code_interpreter import Sandbox, Result
 
-from bisheng_langchain.gpts.tools.code_interpreter.base_executor import BaseExecutor
+from terminus_langchain.gpts.tools.code_interpreter.base_executor import BaseExecutor
 
 
 class E2bCodeExecutor(BaseExecutor):

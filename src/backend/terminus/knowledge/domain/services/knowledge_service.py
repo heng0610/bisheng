@@ -3,19 +3,19 @@ from datetime import datetime
 
 from fastapi import BackgroundTasks
 
-from bisheng.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.errcode.knowledge import KnowledgeNotExistError, KnowledgeMetadataFieldConflictError, \
+from terminus.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.errcode.knowledge import KnowledgeNotExistError, KnowledgeMetadataFieldConflictError, \
     KnowledgeMetadataFieldExistError, KnowledgeMetadataFieldNotExistError, KnowledgeMetadataFieldImmutableError
-from bisheng.database.models.role_access import AccessType
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge
-from bisheng.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
-from bisheng.knowledge.domain.repositories.interfaces.knowledge_repository import KnowledgeRepository
-from bisheng.knowledge.domain.schemas.knowledge_schema import AddKnowledgeMetadataFieldsReq, \
+from terminus.database.models.role_access import AccessType
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge
+from terminus.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
+from terminus.knowledge.domain.repositories.interfaces.knowledge_repository import KnowledgeRepository
+from terminus.knowledge.domain.schemas.knowledge_schema import AddKnowledgeMetadataFieldsReq, \
     UpdateKnowledgeMetadataFieldsReq
-from bisheng.utils.util import retry_async
+from terminus.utils.util import retry_async
 
 
 class KnowledgeService:

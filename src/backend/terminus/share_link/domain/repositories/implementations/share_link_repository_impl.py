@@ -1,8 +1,8 @@
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from bisheng.common.repositories.implementations.base_repository_impl import BaseRepositoryImpl
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.share_link.domain.repositories.interfaces.share_link_repository import ShareLinkRepository
+from terminus.common.repositories.implementations.base_repository_impl import BaseRepositoryImpl
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.share_link.domain.repositories.interfaces.share_link_repository import ShareLinkRepository
 
 
 class ShareLinkRepositoryImpl(BaseRepositoryImpl[ShareLink, str], ShareLinkRepository):

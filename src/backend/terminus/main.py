@@ -6,16 +6,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, ORJSONResponse
 from loguru import logger
 
-from bisheng.api import router, router_rpc
-from bisheng.common.errcode import BaseErrorCode
-from bisheng.common.exceptions.auth import AuthJWTException
-from bisheng.common.init_data import init_default_data
-from bisheng.common.services.config_service import settings
-from bisheng.core.context import initialize_app_context, close_app_context
-from bisheng.core.logger import set_logger_config
-from bisheng.services.utils import initialize_services, teardown_services
-from bisheng.utils.http_middleware import CustomMiddleware, WebSocketLoggingMiddleware
-from bisheng.utils.threadpool import thread_pool
+from terminus.api import router, router_rpc
+from terminus.common.errcode import BaseErrorCode
+from terminus.common.exceptions.auth import AuthJWTException
+from terminus.common.init_data import init_default_data
+from terminus.common.services.config_service import settings
+from terminus.core.context import initialize_app_context, close_app_context
+from terminus.core.logger import set_logger_config
+from terminus.services.utils import initialize_services, teardown_services
+from terminus.utils.http_middleware import CustomMiddleware, WebSocketLoggingMiddleware
+from terminus.utils.threadpool import thread_pool
 
 
 def handle_http_exception(req: Request, exc: Exception) -> ORJSONResponse:

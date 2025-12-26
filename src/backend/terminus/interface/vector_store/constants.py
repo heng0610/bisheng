@@ -1,4 +1,4 @@
-from bisheng.interface.vector_store.custom import MilvusWithPermissionCheck, ElasticsearchWithPermissionCheck
+from terminus.interface.vector_store.custom import MilvusWithPermissionCheck, ElasticsearchWithPermissionCheck
 
 CUSTOM_VECTORSTORE = {
     'MilvusWithPermissionCheck': MilvusWithPermissionCheck,

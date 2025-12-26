@@ -1,7 +1,7 @@
 from typing import Any, Dict, Optional, List, Union
 
-from bisheng.workflow.callback.base_callback import BaseCallback
-from bisheng.workflow.callback.event import OutputMsgData, StreamMsgData, StreamMsgOverData
+from terminus.workflow.callback.base_callback import BaseCallback
+from terminus.workflow.callback.event import OutputMsgData, StreamMsgData, StreamMsgOverData
 from langchain_core.callbacks.base import BaseCallbackHandler
 from langchain_core.outputs import LLMResult
 from loguru import logger

@@ -8,7 +8,7 @@ from langchain_core.retrievers import BaseRetriever
 from langchain_core.tools import BaseTool
 from pydantic import BaseModel, Field
 
-from bisheng.core.ai.rerank.rrf_rerank import RRFRerank
+from terminus.core.ai.rerank.rrf_rerank import RRFRerank
 
 system_template = """# 任务
 你是一位知识库问答助手，遵守以下规则回答问题：

@@ -1,9 +1,9 @@
 from importlib import metadata
 
-from bisheng.core.cache import cache_manager
-from bisheng.interface.custom.custom_component import CustomComponent
+from terminus.core.cache import cache_manager
+from terminus.interface.custom.custom_component import CustomComponent
 
-# from bisheng.processing.process import load_flow_from_json  # noqa: E402
+# from terminus.processing.process import load_flow_from_json  # noqa: E402
 
 try:
     # 通过ci去自动修改

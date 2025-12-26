@@ -3,11 +3,11 @@ from typing import Annotated, Union
 from fastapi import Depends, Header
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from bisheng.common.dependencies.core_deps import get_db_session
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.share_link.domain.repositories.implementations.share_link_repository_impl import ShareLinkRepositoryImpl
-from bisheng.share_link.domain.repositories.interfaces.share_link_repository import ShareLinkRepository
-from bisheng.share_link.domain.services.share_link_service import ShareLinkService
+from terminus.common.dependencies.core_deps import get_db_session
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.share_link.domain.repositories.implementations.share_link_repository_impl import ShareLinkRepositoryImpl
+from terminus.share_link.domain.repositories.interfaces.share_link_repository import ShareLinkRepository
+from terminus.share_link.domain.services.share_link_service import ShareLinkService
 
 
 async def get_share_link_repository(

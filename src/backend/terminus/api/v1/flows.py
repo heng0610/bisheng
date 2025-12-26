@@ -5,22 +5,22 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from loguru import logger
 from starlette.responses import StreamingResponse
 
-from bisheng.api.services.flow import FlowService
-from bisheng.api.utils import build_flow_no_yield, remove_api_keys
-from bisheng.api.v1.schemas import (FlowCompareReq, FlowVersionCreate, StreamData, resp_200)
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.flow import FlowOnlineEditError, FlowNameExistsError
-from bisheng.common.errcode.http_error import UnAuthorizedError, ServerError, NotFoundError
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.database import get_async_db_session
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import (Flow, FlowCreate, FlowDao, FlowRead, FlowType, FlowUpdate)
-from bisheng.database.models.flow_version import FlowVersionDao
-from bisheng.database.models.role_access import AccessType
-from bisheng.share_link.api.dependencies import header_share_token_parser
-from bisheng.share_link.domain.models.share_link import ShareLink
+from terminus.api.services.flow import FlowService
+from terminus.api.utils import build_flow_no_yield, remove_api_keys
+from terminus.api.v1.schemas import (FlowCompareReq, FlowVersionCreate, StreamData, resp_200)
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.flow import FlowOnlineEditError, FlowNameExistsError
+from terminus.common.errcode.http_error import UnAuthorizedError, ServerError, NotFoundError
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.database import get_async_db_session
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import (Flow, FlowCreate, FlowDao, FlowRead, FlowType, FlowUpdate)
+from terminus.database.models.flow_version import FlowVersionDao
+from terminus.database.models.role_access import AccessType
+from terminus.share_link.api.dependencies import header_share_token_parser
+from terminus.share_link.domain.models.share_link import ShareLink
 
 # build router
 router = APIRouter(prefix='/flows', tags=['Flows'], dependencies=[Depends(UserPayload.get_login_user)])

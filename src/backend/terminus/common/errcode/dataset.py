@@ -1,4 +1,4 @@
-from bisheng.common.errcode import BaseErrorCode
+from terminus.common.errcode import BaseErrorCode
 
 
 class DatasetNameExistsError(BaseErrorCode):

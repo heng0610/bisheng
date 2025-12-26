@@ -4,7 +4,7 @@ from typing import Optional, List, Any
 
 from pydantic import BaseModel, Field, field_validator
 
-from bisheng.knowledge.domain.models.knowledge import MetadataFieldType
+from terminus.knowledge.domain.models.knowledge import MetadataFieldType
 
 
 class UpdatePreviewFileChunk(BaseModel):

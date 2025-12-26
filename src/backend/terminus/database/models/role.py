@@ -4,11 +4,11 @@ from typing import List, Optional
 from sqlalchemy import Column, DateTime, text, func, delete, and_, UniqueConstraint
 from sqlmodel import Field, select
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.database.constants import AdminRole
-from bisheng.database.models.role_access import RoleAccess
-from bisheng.user.domain.models.user_role import UserRole
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.database.constants import AdminRole
+from terminus.database.models.role_access import RoleAccess
+from terminus.user.domain.models.user_role import UserRole
 
 
 class RoleBase(SQLModelSerializable):
@@ -112,7 +112,7 @@ class RoleDao(RoleBase):
         """
         删除分组下所有的角色，清理用户对应的角色
         """
-        from bisheng.user.domain.models.user_role import UserRole
+        from terminus.user.domain.models.user_role import UserRole
         with get_sync_db_session() as session:
             # 清理对应的用户
             all_user = select(UserRole, Role).join(

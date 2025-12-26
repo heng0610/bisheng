@@ -3,7 +3,7 @@ import os
 import re
 
 import httpx
-from bisheng_langchain.gpts.prompts import (
+from terminus_langchain.gpts.prompts import (
     ASSISTANT_PROMPT_OPT,
     BREIF_DES_PROMPT,
     OPENDIALOG_PROMPT,

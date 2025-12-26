@@ -10,8 +10,8 @@ from docx import Document
 from docx.shared import Inches
 from loguru import logger
 
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.utils.util import _is_valid_url
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.utils.util import _is_valid_url
 
 
 def find_lcs(str1, str2):

@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING, Any, Callable, Dict, List, Mapping, Optional, 
 
 from pydantic import ConfigDict, model_validator, Field
 
-from bisheng_langchain.utils import requests
+from terminus_langchain.utils import requests
 from langchain.callbacks.manager import AsyncCallbackManagerForLLMRun, CallbackManagerForLLMRun
 from langchain.chat_models.base import BaseChatModel
 from langchain.schema import ChatGeneration, ChatResult
@@ -100,7 +100,7 @@ class ProxyChatLLM(BaseChatModel):
     Example:
         .. code-block:: python
 
-            from bisheng_langchain.chat_models import ProxyChatLLM
+            from terminus_langchain.chat_models import ProxyChatLLM
             proxy_chat_llm = ProxyChatLLM(model_name="chatglm_std")
     """
 

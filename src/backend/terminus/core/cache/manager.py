@@ -2,7 +2,7 @@ from contextlib import contextmanager
 from typing import Any, Awaitable, Callable, List, Optional
 
 import pandas as pd
-from bisheng.utils.util import get_cache_key
+from terminus.utils.util import get_cache_key
 from PIL import Image
 
 

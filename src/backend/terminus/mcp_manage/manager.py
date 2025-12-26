@@ -1,10 +1,10 @@
 import json
 
-from bisheng.mcp_manage.clients.base import BaseMcpClient
-from bisheng.mcp_manage.clients.sse import SseClient
-from bisheng.mcp_manage.clients.stdio import StdioClient
-from bisheng.mcp_manage.clients.streamable import StreamableClient
-from bisheng.mcp_manage.constant import McpClientType
+from terminus.mcp_manage.clients.base import BaseMcpClient
+from terminus.mcp_manage.clients.sse import SseClient
+from terminus.mcp_manage.clients.stdio import StdioClient
+from terminus.mcp_manage.clients.streamable import StreamableClient
+from terminus.mcp_manage.constant import McpClientType
 
 
 class ClientManager:

@@ -10,8 +10,8 @@ from contextlib import asynccontextmanager, contextmanager
 from sqlalchemy import text
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from bisheng.core.context import BaseContextManager
-from bisheng.core.database import DatabaseConnectionManager
+from terminus.core.context import BaseContextManager
+from terminus.core.database import DatabaseConnectionManager
 
 logger = logging.getLogger(__name__)
 
@@ -104,13 +104,13 @@ async def get_database_connection() -> DatabaseConnectionManager:
     Raises:
         ContextError: 如果数据库上下文未注册或初始化失败
     """
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return await app_context.async_get_instance(DatabaseManager.name)
     except KeyError:
         logger.warning(f"Database context not found, registering default instance")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(DatabaseManager(settings.database_url))
             return await app_context.async_get_instance(DatabaseManager.name)
         except Exception as e:
@@ -127,13 +127,13 @@ def sync_get_database_connection() -> DatabaseConnectionManager:
     Raises:
         ContextError: 如果数据库上下文未注册或初始化失败
     """
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return app_context.sync_get_instance(DatabaseManager.name)
     except KeyError:
         logger.warning(f"Database context not found, registering default instance")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(DatabaseManager(settings.database_url))
             return app_context.sync_get_instance(DatabaseManager.name)
         except Exception as e:

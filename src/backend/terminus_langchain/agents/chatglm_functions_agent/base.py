@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 from pydantic import model_validator, Field
 
-from bisheng_langchain.chat_models.host_llm import HostChatGLM
+from terminus_langchain.chat_models.host_llm import HostChatGLM
 from langchain.agents.agent import Agent, AgentOutputParser, BaseSingleActionAgent
 from langchain.agents.structured_chat.output_parser import StructuredChatOutputParserWithRetries
 from langchain.agents.structured_chat.prompt import FORMAT_INSTRUCTIONS, PREFIX, SUFFIX

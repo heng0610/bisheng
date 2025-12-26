@@ -1,14 +1,14 @@
 from typing import Dict, List, Optional, Type
 
-from bisheng.custom.customs import get_custom_nodes
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.custom_lists import embedding_type_to_cls_dict
-from bisheng.interface.embeddings.custom import CUSTOM_EMBEDDING
-from bisheng.common.services.config_service import settings
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.frontend_node.embeddings import EmbeddingFrontendNode
+from terminus.custom.customs import get_custom_nodes
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.custom_lists import embedding_type_to_cls_dict
+from terminus.interface.embeddings.custom import CUSTOM_EMBEDDING
+from terminus.common.services.config_service import settings
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.frontend_node.embeddings import EmbeddingFrontendNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_class
+from terminus.utils.util import build_template_from_class
 
 
 class EmbeddingCreator(LangChainTypeCreator):

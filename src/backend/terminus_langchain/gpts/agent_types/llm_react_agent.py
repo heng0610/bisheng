@@ -1,7 +1,7 @@
 import operator
 from typing import Annotated, Sequence, TypedDict, Union
 
-from bisheng_langchain.gpts.prompts.react_agent_prompt import react_agent_prompt
+from terminus_langchain.gpts.prompts.react_agent_prompt import react_agent_prompt
 from langchain.agents import create_structured_chat_agent
 from langchain.tools import BaseTool
 from langchain_core.agents import AgentAction, AgentFinish

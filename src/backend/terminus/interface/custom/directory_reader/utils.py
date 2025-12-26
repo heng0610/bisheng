@@ -1,5 +1,5 @@
-from bisheng.interface.custom.directory_reader import DirectoryReader
-from bisheng.template.frontend_node.custom_components import CustomComponentFrontendNode
+from terminus.interface.custom.directory_reader import DirectoryReader
+from terminus.template.frontend_node.custom_components import CustomComponentFrontendNode
 from loguru import logger
 
 

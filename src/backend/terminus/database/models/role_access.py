@@ -6,8 +6,8 @@ from pydantic import BaseModel
 from sqlalchemy import Column, DateTime, text
 from sqlmodel import Field, select, delete, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
 
 
 class RoleAccessBase(SQLModelSerializable):

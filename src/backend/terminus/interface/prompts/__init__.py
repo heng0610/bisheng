@@ -1,3 +1,3 @@
-from bisheng.interface.prompts.base import PromptCreator
+from terminus.interface.prompts.base import PromptCreator
 
 __all__ = ['PromptCreator']

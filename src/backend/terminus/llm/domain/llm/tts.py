@@ -2,12 +2,12 @@ import httpx
 from pydantic import Field
 from typing_extensions import Self
 
-from bisheng.common.errcode.server import NoTtsModelConfigError, TtsModelConfigDeletedError, \
+from terminus.common.errcode.server import NoTtsModelConfigError, TtsModelConfigDeletedError, \
     TtsModelTypeError, TtsProviderDeletedError, TtsModelOfflineError
-from bisheng.core.ai import BaseTTSClient, OpenAITTSClient, \
+from terminus.core.ai import BaseTTSClient, OpenAITTSClient, \
     AliyunTTSClient, AzureOpenAITTSClient
-from bisheng.llm.domain.const import LLMModelType, LLMServerType
-from bisheng.llm.domain.models import LLMServer, LLMModel
+from terminus.llm.domain.const import LLMModelType, LLMServerType
+from terminus.llm.domain.models import LLMServer, LLMModel
 from .base import BishengBase
 from ..utils import wrapper_bisheng_model_limit_check_async
 

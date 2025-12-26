@@ -3,9 +3,9 @@ from typing import Any, Coroutine
 from sqlmodel import select, col
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from bisheng.common.repositories.implementations.base_repository_impl import BaseRepositoryImpl
-from bisheng.knowledge.domain.models.knowledge_file import KnowledgeFile
-from bisheng.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
+from terminus.common.repositories.implementations.base_repository_impl import BaseRepositoryImpl
+from terminus.knowledge.domain.models.knowledge_file import KnowledgeFile
+from terminus.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
 
 
 class KnowledgeFileRepositoryImpl(BaseRepositoryImpl[KnowledgeFile, int], KnowledgeFileRepository):

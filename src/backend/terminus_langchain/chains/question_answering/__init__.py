@@ -2,7 +2,7 @@
 from typing import Any, Mapping, Optional, Protocol
 
 # from langchain.chains.combine_documents.stuff import StuffDocumentsChain
-from bisheng_langchain.chains.combine_documents.stuff import StuffDocumentsChain
+from terminus_langchain.chains.combine_documents.stuff import StuffDocumentsChain
 from langchain.callbacks.base import BaseCallbackManager
 from langchain.callbacks.manager import Callbacks
 from langchain.chains import ReduceDocumentsChain

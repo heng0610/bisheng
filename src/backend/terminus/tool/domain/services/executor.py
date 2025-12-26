@@ -8,21 +8,21 @@ from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import BaseTool, ArgsSchema
 from pydantic import Field, SkipValidation
 
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, StatusEnum, ApplicationTypeEnum
-from bisheng.common.schemas.telemetry.event_data_schema import ToolInvocationEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.logger import trace_id_var
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge
-from bisheng.mcp_manage.langchain.tool import McpTool
-from bisheng.mcp_manage.manager import ClientManager
-from bisheng.tool.domain.const import ToolPresetType
-from bisheng.tool.domain.langchain.knowledge import KnowledgeRagTool
-from bisheng.tool.domain.models.gpts_tools import GptsToolsDao, GptsTools, GptsToolsType
-from bisheng.tool.domain.services.openapi import OpenApiSchema
-from bisheng_langchain.gpts.load_tools import load_tools
-from bisheng_langchain.gpts.tools.api_tools.openapi import OpenApiTools
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, StatusEnum, ApplicationTypeEnum
+from terminus.common.schemas.telemetry.event_data_schema import ToolInvocationEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.logger import trace_id_var
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge
+from terminus.mcp_manage.langchain.tool import McpTool
+from terminus.mcp_manage.manager import ClientManager
+from terminus.tool.domain.const import ToolPresetType
+from terminus.tool.domain.langchain.knowledge import KnowledgeRagTool
+from terminus.tool.domain.models.gpts_tools import GptsToolsDao, GptsTools, GptsToolsType
+from terminus.tool.domain.services.openapi import OpenApiSchema
+from terminus_langchain.gpts.load_tools import load_tools
+from terminus_langchain.gpts.tools.api_tools.openapi import OpenApiTools
 
 
 def wrapper_tool(func):
@@ -105,7 +105,7 @@ class ToolExecutor(BaseTool):
                 params = tool_type.extra
 
         # special handling for bisheng_code_interpreter, because it needs minio config
-        if tool.tool_key == 'bisheng_code_interpreter':
+        if tool.tool_key == 'terminus'_code_interpreter':
             return {'minio': settings.get_minio_conf().model_dump(), **params}
         return params
 

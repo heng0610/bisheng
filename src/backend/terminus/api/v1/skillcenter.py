@@ -3,14 +3,14 @@ from typing import Optional
 from fastapi import APIRouter, HTTPException, Depends
 from sqlmodel import select
 
-from bisheng.api.utils import remove_api_keys
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.flow import FlowTemplateNameError
-from bisheng.common.services.config_service import settings
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.models.flow import Flow
-from bisheng.database.models.template import Template, TemplateCreate, TemplateUpdate
+from terminus.api.utils import remove_api_keys
+from terminus.api.v1.schemas import resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.flow import FlowTemplateNameError
+from terminus.common.services.config_service import settings
+from terminus.core.database import get_sync_db_session
+from terminus.database.models.flow import Flow
+from terminus.database.models.template import Template, TemplateCreate, TemplateUpdate
 
 # build router
 router = APIRouter(prefix='/skill', tags=['Skills'], dependencies=[Depends(UserPayload.get_login_user)])

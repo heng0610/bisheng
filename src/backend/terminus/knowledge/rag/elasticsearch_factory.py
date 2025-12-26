@@ -2,9 +2,9 @@ from typing import Optional, List, Dict
 
 from elasticsearch import Elasticsearch, AsyncElasticsearch
 
-from bisheng.common.schemas.rag_schema import RagMetadataFieldSchema
-from bisheng.common.services.config_service import settings
-from bisheng.core.vectorstore import ElasticsearchStore, AsyncElasticsearchStore, BM25Strategy, AsyncBM25Strategy
+from terminus.common.schemas.rag_schema import RagMetadataFieldSchema
+from terminus.common.services.config_service import settings
+from terminus.core.vectorstore import ElasticsearchStore, AsyncElasticsearchStore, BM25Strategy, AsyncBM25Strategy
 
 
 def generate_metadata_mappings(metadata_schemas: Optional[List[RagMetadataFieldSchema]]):

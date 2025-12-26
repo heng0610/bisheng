@@ -4,7 +4,7 @@ from sqlalchemy import Row, RowMapping, func
 from sqlmodel import SQLModel, select, Session, col
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from bisheng.common.repositories.interfaces.base_repository import BaseRepository
+from terminus.common.repositories.interfaces.base_repository import BaseRepository
 
 T = TypeVar('T', bound=SQLModel)
 ID = TypeVar('ID')

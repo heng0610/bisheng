@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from bisheng.knowledge.domain.models.knowledge import MetadataFieldType
+from terminus.knowledge.domain.models.knowledge import MetadataFieldType
 
 
 # 将时间字符串转换为时间戳

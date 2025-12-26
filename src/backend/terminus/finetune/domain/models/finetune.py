@@ -7,9 +7,9 @@ from sqlalchemy import Select
 from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlmodel import JSON, Column, DateTime, Field, func, select, text, update, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_async_db_session
-from bisheng.utils import generate_uuid
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_async_db_session
+from terminus.utils import generate_uuid
 
 
 class TrainMethod(Enum):

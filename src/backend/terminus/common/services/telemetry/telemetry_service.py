@@ -6,13 +6,13 @@ from typing import Optional
 
 from elasticsearch import AsyncElasticsearch, Elasticsearch, exceptions as es_exceptions
 
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.schemas.telemetry.base_telemetry_schema import T_EventData, BaseTelemetryEvent, UserContext, \
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.schemas.telemetry.base_telemetry_schema import T_EventData, BaseTelemetryEvent, UserContext, \
     UserGroupInfo, UserRoleInfo
-from bisheng.core.database import get_async_db_session, get_sync_db_session
-from bisheng.core.search.elasticsearch.manager import get_statistics_es_connection, get_statistics_es_connection_sync
-from bisheng.user.domain.models.user import User
-from bisheng.user.domain.repositories.implementations.user_repository_impl import UserRepositoryImpl
+from terminus.core.database import get_async_db_session, get_sync_db_session
+from terminus.core.search.elasticsearch.manager import get_statistics_es_connection, get_statistics_es_connection_sync
+from terminus.user.domain.models.user import User
+from terminus.user.domain.repositories.implementations.user_repository_impl import UserRepositoryImpl
 
 logger = logging.getLogger(__name__)
 

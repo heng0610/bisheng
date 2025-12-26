@@ -1,7 +1,7 @@
 from typing import Any
 
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.condition.conidition_case import ConditionCases
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.condition.conidition_case import ConditionCases
 from loguru import logger
 
 

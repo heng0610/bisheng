@@ -1,4 +1,4 @@
-from bisheng.worker.main import bisheng_celery
+from terminus.worker.main import bisheng_celery
 
 if __name__ == '__main__':
     bisheng_celery.start(

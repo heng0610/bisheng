@@ -10,11 +10,11 @@ from langchain_core.tools import BaseTool
 from langchain_core.utils.function_calling import convert_to_openai_tool
 from pydantic import Field, BaseModel, model_validator, ConfigDict
 
-from bisheng_langchain.linsight.const import TaskStatus, TaskMode, CallUserInputToolName, ExecConfig
-from bisheng_langchain.linsight.event import BaseEvent
-from bisheng_langchain.linsight.react_task import ReactTask
-from bisheng_langchain.linsight.task import Task
-from bisheng_langchain.linsight.utils import generate_uuid_str
+from terminus_langchain.linsight.const import TaskStatus, TaskMode, CallUserInputToolName, ExecConfig
+from terminus_langchain.linsight.event import BaseEvent
+from terminus_langchain.linsight.react_task import ReactTask
+from terminus_langchain.linsight.task import Task
+from terminus_langchain.linsight.utils import generate_uuid_str
 
 
 class TaskManage(BaseModel):

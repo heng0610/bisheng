@@ -1,9 +1,9 @@
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.common.utils import util as common_util
-from bisheng.share_link.api.schemas.share_link_schema import GenerateShareLinkRequest
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.share_link.domain.repositories.interfaces.share_link_repository import ShareLinkRepository
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.common.utils import util as common_util
+from terminus.share_link.api.schemas.share_link_schema import GenerateShareLinkRequest
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.share_link.domain.repositories.interfaces.share_link_repository import ShareLinkRepository
 
 
 class ShareLinkService:

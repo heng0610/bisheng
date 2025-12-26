@@ -1,4 +1,4 @@
-from bisheng.user.domain.services.auth import LoginUser
+from terminus.user.domain.services.auth import LoginUser
 
 
 class UserPayload(LoginUser):

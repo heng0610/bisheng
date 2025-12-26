@@ -4,7 +4,7 @@ from langchain_core.callbacks import Callbacks
 from langchain_core.documents import Document
 from pydantic import model_validator
 
-from bisheng.core.ai.base import BaseRerank
+from terminus.core.ai.base import BaseRerank
 
 
 class RRFRerank(BaseRerank):

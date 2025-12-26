@@ -2,7 +2,7 @@ from typing import Optional, Dict
 
 from pydantic import BaseModel, Field
 
-from bisheng.tool.domain.const import AuthMethod, AuthType
+from terminus.tool.domain.const import AuthMethod, AuthType
 
 
 class TestToolReq(BaseModel):

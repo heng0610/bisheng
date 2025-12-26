@@ -5,8 +5,8 @@ from fastapi import Request
 from loguru import logger
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 
-from bisheng.core.logger import trace_id_generator, trace_id_var
-from bisheng.utils import get_request_ip
+from terminus.core.logger import trace_id_generator, trace_id_var
+from terminus.utils import get_request_ip
 
 
 class CustomMiddleware(BaseHTTPMiddleware):

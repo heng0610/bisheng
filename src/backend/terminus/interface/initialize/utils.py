@@ -6,7 +6,7 @@ import orjson
 from langchain.agents import ZeroShotAgent
 from langchain.schema import BaseOutputParser, Document
 
-from bisheng.common.utils.util import orjson_dumps
+from terminus.common.utils.util import orjson_dumps
 
 
 def langchain_bug_openv1(params):

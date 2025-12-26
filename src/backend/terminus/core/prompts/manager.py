@@ -1,8 +1,8 @@
 import logging
 from abc import ABC
 
-from bisheng.core.context import BaseContextManager
-from bisheng.core.prompts.prompt_loader import PromptLoader
+from terminus.core.context import BaseContextManager
+from terminus.core.prompts.prompt_loader import PromptLoader
 
 logger = logging.getLogger(__name__)
 
@@ -43,13 +43,13 @@ class PromptManager(BaseContextManager[PromptLoader]):
 
 async def get_prompt_manager() -> PromptLoader:
     """获取提示词管理器实例（异步方式）"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return await app_context.async_get_instance(PromptManager.name)
     except KeyError:
         logger.warning(f"PromptManager not found in context. Registering...")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(PromptManager())
             return await  app_context.async_get_instance(PromptManager.name)
         except Exception as e:
@@ -59,13 +59,13 @@ async def get_prompt_manager() -> PromptLoader:
 
 def get_prompt_manager_sync() -> PromptLoader:
     """获取提示词管理器实例（同步方式）"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return app_context.sync_get_instance(PromptManager.name)
     except KeyError:
         logger.warning(f"PromptManager not found in context. Registering...")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(PromptManager())
             return app_context.sync_get_instance(PromptManager.name)
         except Exception as e:

@@ -1,7 +1,7 @@
 from typing import ClassVar, Dict, Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
 
 
 def build_file_field(suffixes: list,

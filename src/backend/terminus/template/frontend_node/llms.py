@@ -1,9 +1,9 @@
 import json
 from typing import Optional
 
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.frontend_node.constants import (CTRANSFORMERS_DEFAULT_CONFIG,
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.frontend_node.constants import (CTRANSFORMERS_DEFAULT_CONFIG,
                                                       OPENAI_API_BASE_INFO)
 
 
@@ -224,7 +224,7 @@ class LLMFrontendNode(FrontendNode):
             if field.name in ["temperature", "top_p", "cache"]:
                 field.show = True
             if field.name == 'model_id':
-                field.field_type = "bisheng_model"
+                field.field_type = "terminus_model"
                 field.display_name = "Model Name"
             elif field.name in ['model_name', "app_type", "app_id", "app_name", "user_id"]:
                 field.show = False

@@ -1,6 +1,6 @@
 import abc
 
-from bisheng.services.base import Service
+from terminus.services.base import Service
 
 
 class BaseCacheService(Service):

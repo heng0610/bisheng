@@ -1,14 +1,14 @@
 from typing import Dict, List, Optional
 
-from bisheng.custom import customs
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.tools.constants import ALL_TOOLS_NAMES, CUSTOM_TOOLS, FILE_TOOLS, OTHER_TOOLS
-from bisheng.interface.tools.util import get_tool_params
-from bisheng.common.services.config_service import settings
-from bisheng.template.field.base import TemplateField
-from bisheng.template.template.base import Template
-from bisheng.utils import util
-from bisheng.utils.util import build_template_from_class
+from terminus.custom import customs
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.tools.constants import ALL_TOOLS_NAMES, CUSTOM_TOOLS, FILE_TOOLS, OTHER_TOOLS
+from terminus.interface.tools.util import get_tool_params
+from terminus.common.services.config_service import settings
+from terminus.template.field.base import TemplateField
+from terminus.template.template.base import Template
+from terminus.utils import util
+from terminus.utils.util import build_template_from_class
 from langchain_community.agent_toolkits.load_tools import _EXTRA_LLM_TOOLS, _EXTRA_OPTIONAL_TOOLS, _LLM_TOOLS
 
 TOOL_INPUTS = {

@@ -17,26 +17,26 @@ from fastapi import UploadFile, HTTPException
 from fastapi.encoders import jsonable_encoder
 from loguru import logger
 
-from bisheng.api.services.assistant_agent import AssistantAgent
-from bisheng.api.services.flow import FlowService
-from bisheng.api.utils import build_flow, build_input_keys_response
-from bisheng.api.v1.schema.workflow import WorkflowEventType
-from bisheng.api.v1.schemas import (UnifiedResponseModel, resp_200)
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.core.cache import InMemoryCache
-from bisheng.core.cache.redis_manager import get_redis_client_sync
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.database.models.assistant import AssistantDao
-from bisheng.database.models.evaluation import (Evaluation, EvaluationDao, ExecType, EvaluationTaskStatus)
-from bisheng.database.models.flow import FlowDao
-from bisheng.database.models.flow_version import FlowVersionDao, FlowVersion
-from bisheng.graph.graph.base import Graph
-from bisheng.llm.domain.services import LLMService
-from bisheng.user.domain.models.user import UserDao
-from bisheng.utils import generate_uuid
-from bisheng.worker.workflow.redis_callback import RedisCallback
-from bisheng.worker.workflow.tasks import execute_workflow, continue_workflow
-from bisheng.workflow.common.workflow import WorkflowStatus
+from terminus.api.services.assistant_agent import AssistantAgent
+from terminus.api.services.flow import FlowService
+from terminus.api.utils import build_flow, build_input_keys_response
+from terminus.api.v1.schema.workflow import WorkflowEventType
+from terminus.api.v1.schemas import (UnifiedResponseModel, resp_200)
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.core.cache import InMemoryCache
+from terminus.core.cache.redis_manager import get_redis_client_sync
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.database.models.assistant import AssistantDao
+from terminus.database.models.evaluation import (Evaluation, EvaluationDao, ExecType, EvaluationTaskStatus)
+from terminus.database.models.flow import FlowDao
+from terminus.database.models.flow_version import FlowVersionDao, FlowVersion
+from terminus.graph.graph.base import Graph
+from terminus.llm.domain.services import LLMService
+from terminus.user.domain.models.user import UserDao
+from terminus.utils import generate_uuid
+from terminus.worker.workflow.redis_callback import RedisCallback
+from terminus.worker.workflow.tasks import execute_workflow, continue_workflow
+from terminus.workflow.common.workflow import WorkflowStatus
 
 expire = 600
 

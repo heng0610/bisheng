@@ -1,4 +1,4 @@
-from bisheng.template.frontend_node import (agents, chains, documentloaders, embeddings,
+from terminus.template.frontend_node import (agents, chains, documentloaders, embeddings,
                                             input_output, llms, memories, prompts, textsplitters,
                                             tools, vectorstores)
 

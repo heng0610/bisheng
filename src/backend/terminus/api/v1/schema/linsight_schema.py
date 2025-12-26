@@ -2,8 +2,8 @@ from typing import List, Dict, Optional
 
 from pydantic import BaseModel, Field, field_validator
 
-from bisheng.database.models.linsight_sop import LinsightSOPRecord
-from bisheng_langchain.linsight.event import NeedUserInput
+from terminus.database.models.linsight_sop import LinsightSOPRecord
+from terminus_langchain.linsight.event import NeedUserInput
 
 
 class ToolChildrenSchema(BaseModel):

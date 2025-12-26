@@ -11,32 +11,32 @@ from langchain_core.language_models import BaseChatModel
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from loguru import logger
 
-from bisheng.api.services.knowledge_imp import decide_vectorstores, extract_code_blocks
-from bisheng.api.v1.schema.inspiration_schema import SOPManagementSchema, SOPManagementUpdateSchema
-from bisheng.api.v1.schema.linsight_schema import SopRecordRead
-from bisheng.api.v1.schemas import UnifiedResponseModel, resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode import BaseErrorCode
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.common.errcode.linsight import (
+from terminus.api.services.knowledge_imp import decide_vectorstores, extract_code_blocks
+from terminus.api.v1.schema.inspiration_schema import SOPManagementSchema, SOPManagementUpdateSchema
+from terminus.api.v1.schema.linsight_schema import SopRecordRead
+from terminus.api.v1.schemas import UnifiedResponseModel, resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode import BaseErrorCode
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.common.errcode.linsight import (
     LinsightAddSopError, LinsightUpdateSopError, LinsightDeleteSopError,
     LinsightVectorModelError, LinsightDocSearchError, LinsightDocNotFoundError, SopContentOverLimitError
 )
-from bisheng.common.errcode.server import (
+from terminus.common.errcode.server import (
     NoEmbeddingModelError, EmbeddingModelNotExistError, EmbeddingModelTypeError, UploadFileEmptyError
 )
-from bisheng.common.services.config_service import settings
-from bisheng.core.prompts.manager import get_prompt_manager
-from bisheng.database.models.linsight_sop import LinsightSOP, LinsightSOPDao, LinsightSOPRecord
-from bisheng.interface.embeddings.custom import FakeEmbedding
-from bisheng.llm.domain.const import LLMModelType
-from bisheng.llm.domain.models import LLMDao
-from bisheng.llm.domain.services import LLMService
-from bisheng.user.domain.models.user import UserDao
-from bisheng.utils import util
-from bisheng_langchain.rag.init_retrievers import KeywordRetriever, BaselineVectorRetriever
-from bisheng_langchain.retrievers import EnsembleRetriever
-from bisheng_langchain.vectorstores import ElasticKeywordsSearch, Milvus
+from terminus.common.services.config_service import settings
+from terminus.core.prompts.manager import get_prompt_manager
+from terminus.database.models.linsight_sop import LinsightSOP, LinsightSOPDao, LinsightSOPRecord
+from terminus.interface.embeddings.custom import FakeEmbedding
+from terminus.llm.domain.const import LLMModelType
+from terminus.llm.domain.models import LLMDao
+from terminus.llm.domain.services import LLMService
+from terminus.user.domain.models.user import UserDao
+from terminus.utils import util
+from terminus_langchain.rag.init_retrievers import KeywordRetriever, BaselineVectorRetriever
+from terminus_langchain.retrievers import EnsembleRetriever
+from terminus_langchain.vectorstores import ElasticKeywordsSearch, Milvus
 
 
 class SOPManageService:

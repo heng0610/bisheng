@@ -4,9 +4,9 @@ from typing import Optional, List, Dict
 from sqlalchemy import Column, DateTime, UniqueConstraint
 from sqlmodel import Field, select, delete, and_, func, text
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.models.group_resource import ResourceTypeEnum
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session
+from terminus.database.models.group_resource import ResourceTypeEnum
 
 
 class TagBase(SQLModelSerializable):

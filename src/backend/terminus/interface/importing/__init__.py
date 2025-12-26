@@ -1,4 +1,4 @@
-from bisheng.interface.importing.utils import import_by_type  # noqa: F401
+from terminus.interface.importing.utils import import_by_type  # noqa: F401
 
 # This module is used to import any langchain class by name.
 

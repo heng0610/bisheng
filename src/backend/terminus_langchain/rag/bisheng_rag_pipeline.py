@@ -10,17 +10,17 @@ import pandas as pd
 import yaml
 from loguru import logger
 from tqdm import tqdm
-from bisheng_langchain.retrievers import EnsembleRetriever
-from bisheng_langchain.vectorstores import ElasticKeywordsSearch, Milvus
+from terminus_langchain.retrievers import EnsembleRetriever
+from terminus_langchain.vectorstores import ElasticKeywordsSearch, Milvus
 from langchain.chains.question_answering import load_qa_chain
-from bisheng_langchain.rag.init_retrievers import (
+from terminus_langchain.rag.init_retrievers import (
     BaselineVectorRetriever,
     KeywordRetriever,
     MixRetriever,
     SmallerChunksVectorRetriever,
 )
-from bisheng_langchain.rag.scoring.ragas_score import RagScore
-from bisheng_langchain.rag.utils import import_by_type, import_class
+from terminus_langchain.rag.scoring.ragas_score import RagScore
+from terminus_langchain.rag.utils import import_by_type, import_class
 
 
 class BishengRagPipeline:
@@ -197,7 +197,7 @@ class BishengRagPipeline:
             if not hasattr(self, 'ranker'):
                 rerank_params = self.params['post_retrieval']['rerank']
                 rerank_type = rerank_params.pop('type')
-                rerank_object = import_class(f'bisheng_langchain.rag.rerank.{rerank_type}')
+                rerank_object = import_class(f'terminus'_langchain.rag.rerank.{rerank_type}')
                 self.ranker = rerank_object(**rerank_params)
             docs = getattr(self, 'ranker').sort_and_filter(question, docs)
 
@@ -231,7 +231,7 @@ class BishengRagPipeline:
         all_questions_info = df.to_dict('records')
         if 'prompt_type' in self.params['generate']:
             prompt_type = self.params['generate']['prompt_type']
-            prompt = import_class(f'bisheng_langchain.rag.prompts.{prompt_type}')
+            prompt = import_class(f'terminus'_langchain.rag.prompts.{prompt_type}')
         else:
             prompt = None
         qa_chain = load_qa_chain(
@@ -281,7 +281,7 @@ class BishengRagPipeline:
         score
         """
         metric_params = self.params['metric']
-        if metric_params['type'] == 'bisheng-ragas':
+        if metric_params['type'] == 'terminus'-ragas':
             score_params = {
                 'excel_path': self.save_answer_path,
                 'save_path': os.path.dirname(self.save_answer_path),
@@ -306,7 +306,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some integers.')
     # 添加参数
     parser.add_argument('--mode', type=str, default='qa', help='upload or qa or score')
-    parser.add_argument('--params', type=str, default='config/test/baseline_s2b.yaml', help='bisheng rag params')
+    parser.add_argument('--params', type=str, default='config/test/baseline_s2b.yaml', help='terminus' rag params')
     # 解析参数
     args = parser.parse_args()
 

@@ -1,8 +1,8 @@
 from typing import Any, Dict, List, Optional, Type, Union
 
-from bisheng.interface.base import CustomChain
-from bisheng.interface.utils import extract_input_variables_from_prompt
-from bisheng_langchain.chains.question_answering import load_qa_chain
+from terminus.interface.base import CustomChain
+from terminus.interface.utils import extract_input_variables_from_prompt
+from terminus_langchain.chains.question_answering import load_qa_chain
 from langchain.base_language import BaseLanguageModel
 from langchain.callbacks.manager import CallbackManagerForChainRun
 from langchain.chains import ConversationChain, LLMChain

@@ -5,7 +5,7 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from bisheng_langchain.gpts.tools.api_tools.base import (APIToolBase,
+from terminus_langchain.gpts.tools.api_tools.base import (APIToolBase,
                                                          MultArgsSchemaTool)
 
 

@@ -6,8 +6,8 @@ from docx.styles.style import _ParagraphStyle, BaseStyle
 from docx.enum.style import WD_STYLE_TYPE
 from docx.styles.styles import Styles
 
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.provider.simple_style import SimpleStyle
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.utils.style_enum import MDX_STYLE
+from terminus.common.utils.markdown_cmpnt.md_to_docx.provider.simple_style import SimpleStyle
+from terminus.common.utils.markdown_cmpnt.md_to_docx.utils.style_enum import MDX_STYLE
 
 
 class StyleManager:

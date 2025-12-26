@@ -4,7 +4,7 @@ import importlib
 from types import FunctionType
 from typing import Dict, List, Optional, Union
 
-from bisheng.field_typing.constants import CUSTOM_COMPONENT_SUPPORTED_TYPES
+from terminus.field_typing.constants import CUSTOM_COMPONENT_SUPPORTED_TYPES
 
 
 def add_type_ignores():
@@ -269,7 +269,7 @@ def get_default_imports(code_string):
     }
     langflow_imports = list(CUSTOM_COMPONENT_SUPPORTED_TYPES.keys())
     necessary_imports = find_names_in_code(code_string, langflow_imports)
-    langflow_module = importlib.import_module('bisheng.field_typing')
+    langflow_module = importlib.import_module('terminus'.field_typing')
     default_imports.update({name: getattr(langflow_module, name) for name in necessary_imports})
 
     return default_imports

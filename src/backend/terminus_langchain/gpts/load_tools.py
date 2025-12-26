@@ -15,23 +15,23 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool, Tool
 from mypy_extensions import Arg, KwArg
 
-from bisheng_langchain.gpts.tools.api_tools import ALL_API_TOOLS
-from bisheng_langchain.gpts.tools.bing_search.self_arxiv import ArxivAPIWrapperSelf
-from bisheng_langchain.gpts.tools.bing_search.tool import BingSearchResults
-from bisheng_langchain.gpts.tools.calculator.tool import calculator
-from bisheng_langchain.gpts.tools.code_interpreter.e2b_executor import E2bCodeExecutor
-from bisheng_langchain.gpts.tools.code_interpreter.local_executor import LocalExecutor
-from bisheng_langchain.gpts.tools.code_interpreter.tool import CodeInterpreterTool
+from terminus_langchain.gpts.tools.api_tools import ALL_API_TOOLS
+from terminus_langchain.gpts.tools.bing_search.self_arxiv import ArxivAPIWrapperSelf
+from terminus_langchain.gpts.tools.bing_search.tool import BingSearchResults
+from terminus_langchain.gpts.tools.calculator.tool import calculator
+from terminus_langchain.gpts.tools.code_interpreter.e2b_executor import E2bCodeExecutor
+from terminus_langchain.gpts.tools.code_interpreter.local_executor import LocalExecutor
+from terminus_langchain.gpts.tools.code_interpreter.tool import CodeInterpreterTool
 # from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
-from bisheng_langchain.gpts.tools.dalle_image_generator.tool import (
+from terminus_langchain.gpts.tools.dalle_image_generator.tool import (
     DallEImageGenerator, ProxyDallEAPIWrapper,
 )
-from bisheng_langchain.gpts.tools.get_current_time.tool import get_current_time
-from bisheng_langchain.gpts.tools.local_file.local_file import LocalFileTool
-from bisheng_langchain.gpts.tools.sql_agent.tool import SqlAgentTool, SqlAgentAPIWrapper
-from bisheng_langchain.gpts.tools.web_search.tool import WebSearchTool, SearchTool
-from bisheng_langchain.rag import BishengRAGTool
-from bisheng_langchain.utils.azure_dalle_image_generator import AzureDallEWrapper
+from terminus_langchain.gpts.tools.get_current_time.tool import get_current_time
+from terminus_langchain.gpts.tools.local_file.local_file import LocalFileTool
+from terminus_langchain.gpts.tools.sql_agent.tool import SqlAgentTool, SqlAgentAPIWrapper
+from terminus_langchain.gpts.tools.web_search.tool import WebSearchTool, SearchTool
+from terminus_langchain.rag import BishengRAGTool
+from terminus_langchain.utils.azure_dalle_image_generator import AzureDallEWrapper
 
 
 def _get_current_time() -> BaseTool:
@@ -120,8 +120,8 @@ _EXTRA_PARAM_TOOLS: Dict[str, Tuple[Callable[[KwArg(Any)], BaseTool], List[Optio
                               ['openai_api_base', 'openai_proxy', 'azure_deployment', 'azure_endpoint',
                                'openai_api_version']),
     'bing_search': (_get_bing_search, ['bing_subscription_key', 'bing_search_url'], []),
-    'bisheng_code_interpreter': (_get_native_code_interpreter, ["minio"], ['config', 'type']),
-    'bisheng_rag': (BishengRAGTool.get_rag_tool, ['name', 'description'],
+    'terminus'_code_interpreter': (_get_native_code_interpreter, ["minio"], ['config', 'type']),
+    'terminus'_rag': (BishengRAGTool.get_rag_tool, ['name', 'description'],
                     ['vector_store', 'keyword_store', 'llm', 'collection_name', 'max_content',
                      'sort_by_source_and_index']),
     'sql_agent': (_get_sql_agent, ['llm', 'sql_address'], []),

@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING
 
-from bisheng.services.base import Service
+from terminus.services.base import Service
 
 if TYPE_CHECKING:
-    from bisheng.services.settings.service import SettingsService
+    from terminus.services.settings.service import SettingsService
 
 
 class AuthService(Service):

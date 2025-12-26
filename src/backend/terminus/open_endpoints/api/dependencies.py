@@ -1,14 +1,14 @@
 from fastapi import Depends
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from bisheng.common.dependencies.core_deps import get_db_session
-from bisheng.knowledge.domain.repositories.implementations.knowledge_file_repository_impl import \
+from terminus.common.dependencies.core_deps import get_db_session
+from terminus.knowledge.domain.repositories.implementations.knowledge_file_repository_impl import \
     KnowledgeFileRepositoryImpl
-from bisheng.knowledge.domain.repositories.implementations.knowledge_repository_impl import KnowledgeRepositoryImpl
-from bisheng.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
-from bisheng.knowledge.domain.repositories.interfaces.knowledge_repository import KnowledgeRepository
-from bisheng.knowledge.domain.services.knowledge_file_service import KnowledgeFileService
-from bisheng.knowledge.domain.services.knowledge_service import KnowledgeService
+from terminus.knowledge.domain.repositories.implementations.knowledge_repository_impl import KnowledgeRepositoryImpl
+from terminus.knowledge.domain.repositories.interfaces.knowledge_file_repository import KnowledgeFileRepository
+from terminus.knowledge.domain.repositories.interfaces.knowledge_repository import KnowledgeRepository
+from terminus.knowledge.domain.services.knowledge_file_service import KnowledgeFileService
+from terminus.knowledge.domain.services.knowledge_service import KnowledgeService
 
 
 async def get_knowledge_repository(

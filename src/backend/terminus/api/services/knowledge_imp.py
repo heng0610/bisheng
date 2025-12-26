@@ -22,37 +22,37 @@ from pymilvus import Collection
 from sqlalchemy import func, or_
 from sqlmodel import select
 
-from bisheng.api.services.etl4lm_loader import Etl4lmLoader
-from bisheng.api.services.libreoffice_converter import (
+from terminus.api.services.etl4lm_loader import Etl4lmLoader
+from terminus.api.services.libreoffice_converter import (
     convert_doc_to_docx,
     convert_ppt_to_pdf,
 )
-from bisheng.api.services.md_from_pdf import is_pdf_damaged
-from bisheng.api.services.patch_130 import (
+from terminus.api.services.md_from_pdf import is_pdf_damaged
+from terminus.api.services.patch_130 import (
     convert_file_to_md,
     combine_multiple_md_files_to_raw_texts,
 )
-from bisheng.api.v1.schemas import ExcelRule
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
-from bisheng.common.errcode import BaseErrorCode
-from bisheng.common.errcode.knowledge import KnowledgeSimilarError, KnowledgeFileDeleteError, KnowledgeFileEmptyError, \
+from terminus.api.v1.schemas import ExcelRule
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
+from terminus.common.errcode import BaseErrorCode
+from terminus.common.errcode.knowledge import KnowledgeSimilarError, KnowledgeFileDeleteError, KnowledgeFileEmptyError, \
     KnowledgeFileChunkMaxError, KnowledgeLLMError, KnowledgeFileDamagedError, KnowledgeFileNotSupportedError, \
     KnowledgeEtl4lmTimeoutError, KnowledgeFileFailedError
-from bisheng.common.schemas.telemetry.event_data_schema import FileParseEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.redis_manager import get_redis_client_sync, get_redis_client
-from bisheng.core.cache.utils import file_download
-from bisheng.core.database import get_sync_db_session
-from bisheng.core.logger import trace_id_var
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
-from bisheng.interface.embeddings.custom import FakeEmbedding
-from bisheng.interface.importing.utils import import_vectorstore
-from bisheng.interface.initialize.loading import instantiate_vectorstore
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao
-from bisheng.knowledge.domain.models.knowledge_file import (
+from terminus.common.schemas.telemetry.event_data_schema import FileParseEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.cache.redis_manager import get_redis_client_sync, get_redis_client
+from terminus.core.cache.utils import file_download
+from terminus.core.database import get_sync_db_session
+from terminus.core.logger import trace_id_var
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
+from terminus.interface.embeddings.custom import FakeEmbedding
+from terminus.interface.importing.utils import import_vectorstore
+from terminus.interface.initialize.loading import instantiate_vectorstore
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao
+from terminus.knowledge.domain.models.knowledge_file import (
     KnowledgeFile,
     KnowledgeFileDao,
     KnowledgeFileStatus,
@@ -62,13 +62,13 @@ from bisheng.knowledge.domain.models.knowledge_file import (
     QAKnowledgeUpsert,
     QAStatus,
 )
-from bisheng.knowledge.domain.schemas.knowledge_rag_schema import Metadata
-from bisheng.llm.domain.services import LLMService
-from bisheng.user.domain.models.user import UserDao
-from bisheng.utils import md5_hash, util
-from bisheng.utils.exceptions import EtlException, FileParseException
-from bisheng_langchain.rag.extract_info import extract_title, async_extract_title
-from bisheng_langchain.text_splitter import ElemCharacterTextSplitter
+from terminus.knowledge.domain.schemas.knowledge_rag_schema import Metadata
+from terminus.llm.domain.services import LLMService
+from terminus.user.domain.models.user import UserDao
+from terminus.utils import md5_hash, util
+from terminus.utils.exceptions import EtlException, FileParseException
+from terminus_langchain.rag.extract_info import extract_title, async_extract_title
+from terminus_langchain.text_splitter import ElemCharacterTextSplitter
 
 filetype_load_map = {
     "txt": TextLoader,

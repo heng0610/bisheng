@@ -3,8 +3,8 @@ from typing import Optional, List
 
 from sqlmodel import Field, Column, text, DateTime, select, update
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_async_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_async_db_session
 
 
 class InviteCodeBase(SQLModelSerializable):

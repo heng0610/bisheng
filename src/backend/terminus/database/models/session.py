@@ -4,8 +4,8 @@ from typing import Optional, List
 
 from sqlmodel import Field, Column, DateTime, text, select, func, update
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
 
 
 class SensitiveStatus(Enum):

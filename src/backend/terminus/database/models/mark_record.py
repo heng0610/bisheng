@@ -6,8 +6,8 @@ from typing import List, Optional
 from sqlalchemy import Column, DateTime, delete, text
 from sqlmodel import Field, select
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session
 
 
 class MarkRecordStatus(Enum):

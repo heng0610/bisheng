@@ -1,2 +1,2 @@
-from bisheng.database.models.linsight_execute_task import LinsightExecuteTask
-from bisheng.database.models.linsight_session_version import LinsightSessionVersion
+from terminus.database.models.linsight_execute_task import LinsightExecuteTask
+from terminus.database.models.linsight_session_version import LinsightSessionVersion

@@ -6,16 +6,16 @@ from typing import Any
 
 from loguru import logger
 
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.services.knowledge_imp import read_chunk_text
-from bisheng.api.v1.schemas import FileProcessBase
-from bisheng.chat.types import IgnoreException
-from bisheng.core.cache.utils import file_download
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.llm.domain.services import LLMService
-from bisheng.utils import generate_uuid
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.input.const import InputFileMetadata
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.services.knowledge_imp import read_chunk_text
+from terminus.api.v1.schemas import FileProcessBase
+from terminus.chat.types import IgnoreException
+from terminus.core.cache.utils import file_download
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.llm.domain.services import LLMService
+from terminus.utils import generate_uuid
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.input.const import InputFileMetadata
 
 
 class InputNode(BaseNode):

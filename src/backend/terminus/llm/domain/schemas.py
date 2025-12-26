@@ -2,9 +2,9 @@ from typing import Optional, List
 
 from pydantic import Field, BaseModel, model_validator
 
-from bisheng.llm.domain.models import LLMModelBase, LLMServerBase
-from bisheng.utils.mask_data import JsonFieldMasker
-from bisheng_langchain.linsight.const import TaskMode
+from terminus.llm.domain.models import LLMModelBase, LLMServerBase
+from terminus.utils.mask_data import JsonFieldMasker
+from terminus_langchain.linsight.const import TaskMode
 
 
 class LLMModelInfo(LLMModelBase):

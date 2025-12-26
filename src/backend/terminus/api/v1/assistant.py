@@ -6,19 +6,19 @@ from fastapi import status as http_status
 from fastapi.responses import StreamingResponse
 from loguru import logger
 
-from bisheng.api.services.assistant import AssistantService
-from bisheng.api.v1.schemas import (AssistantCreateReq, AssistantUpdateReq,
+from terminus.api.services.assistant import AssistantService
+from terminus.api.v1.schemas import (AssistantCreateReq, AssistantUpdateReq,
                                     StreamData, resp_200)
-from bisheng.chat.manager import ChatManager
-from bisheng.chat.types import WorkType
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.common.schemas.api import PageData
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.database.models.assistant import Assistant
-from bisheng.share_link.api.dependencies import header_share_token_parser
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.utils import generate_uuid
+from terminus.chat.manager import ChatManager
+from terminus.chat.types import WorkType
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.common.schemas.api import PageData
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.database.models.assistant import Assistant
+from terminus.share_link.api.dependencies import header_share_token_parser
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.utils import generate_uuid
 
 router = APIRouter(prefix='/assistant', tags=['Assistant'])
 chat_manager = ChatManager()

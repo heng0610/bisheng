@@ -2,9 +2,9 @@ from typing import Any, Callable, Coroutine, Union
 
 from loguru import logger
 
-from bisheng.services.base import Service
-from bisheng.services.task.backends.anyio import AnyIOBackend
-from bisheng.services.task.backends.base import TaskBackend
+from terminus.services.base import Service
+from terminus.services.task.backends.anyio import AnyIOBackend
+from terminus.services.task.backends.base import TaskBackend
 
 
 def check_celery_availability():
@@ -37,7 +37,7 @@ class TaskService(Service):
 
     def get_backend(self) -> TaskBackend:
         if USE_CELERY:
-            from bisheng.services.task.backends.celery import CeleryBackend
+            from terminus.services.task.backends.celery import CeleryBackend
 
             logger.debug('Using Celery backend')
             return CeleryBackend()

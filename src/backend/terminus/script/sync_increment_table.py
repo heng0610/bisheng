@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.knowledge.domain.services.knowledge_service import KnowledgeService
-from bisheng.user.domain.services.user import UserService
-from bisheng.worker.telemetry.mid_table import sync_mid_user_increment, sync_mid_knowledge_increment, \
+from terminus.api.services.workflow import WorkFlowService
+from terminus.knowledge.domain.services.knowledge_service import KnowledgeService
+from terminus.user.domain.services.user import UserService
+from terminus.worker.telemetry.mid_table import sync_mid_user_increment, sync_mid_knowledge_increment, \
     sync_mid_app_increment
 
 

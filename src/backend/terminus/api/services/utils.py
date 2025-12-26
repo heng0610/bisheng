@@ -1,5 +1,5 @@
-from bisheng.template.field.base import TemplateField
-from bisheng.template.template.base import Template
+from terminus.template.field.base import TemplateField
+from terminus.template.template.base import Template
 from pydantic import BaseModel
 from langchain_core.language_models import BaseLanguageModel
 

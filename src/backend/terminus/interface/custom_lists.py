@@ -10,13 +10,13 @@ from langchain_community.utilities import requests
 from langchain_deepseek import ChatDeepSeek
 from langchain_openai import AzureChatOpenAI, ChatOpenAI, OpenAIEmbeddings, AzureOpenAIEmbeddings, OpenAI
 
-from bisheng.interface.agents.custom import CUSTOM_AGENTS
-from bisheng.interface.chains.custom import CUSTOM_CHAINS
-from bisheng.interface.embeddings.custom import CUSTOM_EMBEDDING
-from bisheng.interface.importing.utils import import_class
-from bisheng_langchain import chat_models
-from bisheng_langchain import document_loaders as contribute_loader
-from bisheng_langchain import embeddings as contribute_embeddings
+from terminus.interface.agents.custom import CUSTOM_AGENTS
+from terminus.interface.chains.custom import CUSTOM_CHAINS
+from terminus.interface.embeddings.custom import CUSTOM_EMBEDDING
+from terminus.interface.importing.utils import import_class
+from terminus_langchain import chat_models
+from terminus_langchain import document_loaders as contribute_loader
+from terminus_langchain import embeddings as contribute_embeddings
 
 # LLMs
 llm_type_to_cls_dict = {}
@@ -40,7 +40,7 @@ llm_type_to_cls_dict['MoonshotChat'] = MoonshotChat
 
 # llm contribute
 llm_type_to_cls_dict.update({
-    llm_name: import_class(f'bisheng_langchain.chat_models.{llm_name}')
+    llm_name: import_class(f'terminus'_langchain.chat_models.{llm_name}')
     for llm_name in chat_models.__all__
 })
 
@@ -86,7 +86,7 @@ embedding_type_to_cls_dict: dict[str, Any] = {
 
 embedding_type_to_cls_dict.update({
     embedding_name:
-        import_class(f'bisheng_langchain.embeddings.{embedding_name}')
+        import_class(f'terminus'_langchain.embeddings.{embedding_name}')
     for embedding_name in contribute_embeddings.__all__
 })
 embedding_type_to_cls_dict.update({
@@ -104,7 +104,7 @@ documentloaders_type_to_cls_dict: dict[str, Any] = {
 # contribute
 documentloaders_type_to_cls_dict.update({
     loader:
-        import_class(f'bisheng_langchain.document_loaders.{loader}')
+        import_class(f'terminus'_langchain.document_loaders.{loader}')
     for loader in contribute_loader.__all__
 })
 

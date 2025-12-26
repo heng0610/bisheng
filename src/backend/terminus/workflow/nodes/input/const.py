@@ -1,4 +1,4 @@
-from bisheng.common.schemas.rag_schema import RagMetadataFieldSchema
+from terminus.common.schemas.rag_schema import RagMetadataFieldSchema
 
 # 输入节点临时上传文件的元数据定义
 InputFileMetadata = [

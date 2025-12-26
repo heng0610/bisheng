@@ -14,7 +14,7 @@ from urllib.parse import quote_plus, unquote, urlparse
 import cv2
 import fitz
 import numpy as np
-from bisheng_langchain.utils.requests import Requests
+from terminus_langchain.utils.requests import Requests
 from langchain_community.docstore.document import Document
 from langchain_community.document_loaders.base import BaseLoader
 from PIL import Image

@@ -8,9 +8,9 @@ from datetime import datetime, timedelta
 from pydantic import BaseModel
 from websockets import connect
 
-from bisheng.common.errcode.http_error import ServerError
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.models.message import ChatMessage
+from terminus.common.errcode.http_error import ServerError
+from terminus.core.database import get_sync_db_session
+from terminus.database.models.message import ChatMessage
 
 # 维护一个连接池
 connection_pool = defaultdict(asyncio.Queue)

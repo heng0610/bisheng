@@ -6,7 +6,7 @@
 import asyncio
 from typing import Any, Dict
 
-from bisheng.core.context import (
+from terminus.core.context import (
     # 基础类
     BaseContextManager,
     FunctionContextManager,
@@ -243,7 +243,7 @@ async def monitoring_example():
     register_context(CacheManager(name="cache2"))
 
     # 获取应用上下文信息
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     context_info = app_context.get_context_info()
 
     print("Application context info:")

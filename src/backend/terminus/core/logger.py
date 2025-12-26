@@ -7,7 +7,7 @@ from typing import Optional
 
 from loguru import logger
 
-from bisheng.core.config.settings import LoggerConf
+from terminus.core.config.settings import LoggerConf
 
 trace_id_var: ContextVar[Optional[str]] = ContextVar("trace_id", default=None)
 

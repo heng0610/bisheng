@@ -3,9 +3,9 @@ from typing import Optional, List, Dict
 from langchain_core.embeddings import Embeddings
 from pymilvus import DataType
 
-from bisheng.common.schemas.rag_schema import RagMetadataFieldSchema
-from bisheng.common.services.config_service import settings
-from bisheng.core.vectorstore import Milvus
+from terminus.common.schemas.rag_schema import RagMetadataFieldSchema
+from terminus.common.services.config_service import settings
+from terminus.core.vectorstore import Milvus
 
 _default_index_params = {"index_type": "HNSW", "metric_type": "L2", "params": {"M": 8, "efConstruction": 64}}
 

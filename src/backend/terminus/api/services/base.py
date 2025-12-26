@@ -1,6 +1,6 @@
-from bisheng.core.cache import InMemoryCache
-from bisheng.core.cache.redis_manager import get_redis_client_sync, get_redis_client
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
+from terminus.core.cache import InMemoryCache
+from terminus.core.cache.redis_manager import get_redis_client_sync, get_redis_client
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync, get_minio_storage
 
 
 class BaseService:

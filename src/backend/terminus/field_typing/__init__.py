@@ -8,7 +8,7 @@ from .range_spec import RangeSpec
 
 
 def _import_template_field():
-    from bisheng.template.field.base import TemplateField
+    from terminus.template.field.base import TemplateField
 
     return TemplateField
 

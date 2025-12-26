@@ -1,7 +1,7 @@
-from bisheng.workflow.callback.event import NodeEndData
+from terminus.workflow.callback.event import NodeEndData
 from pydantic import ConfigDict, BaseModel, Field
 
-from bisheng.workflow.nodes.output.output import OutputNode
+from terminus.workflow.nodes.output.output import OutputNode
 
 
 class OutputFakeNode(BaseModel):

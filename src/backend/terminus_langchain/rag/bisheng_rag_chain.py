@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from bisheng_langchain.vectorstores import ElasticKeywordsSearch, Milvus
+from terminus_langchain.vectorstores import ElasticKeywordsSearch, Milvus
 from langchain.chains.base import Chain
 from langchain_core.callbacks import (AsyncCallbackManagerForChainRun, CallbackManagerForChainRun,
                                       Callbacks)

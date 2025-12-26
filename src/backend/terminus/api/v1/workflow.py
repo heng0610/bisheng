@@ -6,28 +6,28 @@ from fastapi import APIRouter, Body, Depends, Query, WebSocket, WebSocketExcepti
 from loguru import logger
 from sqlmodel import select
 
-from bisheng.api.services.flow import FlowService
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.api.v1.chat import chat_manager
-from bisheng.api.v1.schemas import FlowVersionCreate, resp_200
-from bisheng.chat.types import WorkType
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.flow import WorkflowNameExistsError, WorkFlowOnlineEditError, AppWriteAuthError
-from bisheng.common.errcode.http_error import UnAuthorizedError, NotFoundError
-from bisheng.common.services import telemetry_service
-from bisheng.core.database import get_sync_db_session
-from bisheng.core.logger import trace_id_var
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.database.models.assistant import AssistantDao
-from bisheng.database.models.flow import Flow, FlowCreate, FlowDao, FlowRead, FlowType, FlowUpdate, \
+from terminus.api.services.flow import FlowService
+from terminus.api.services.workflow import WorkFlowService
+from terminus.api.v1.chat import chat_manager
+from terminus.api.v1.schemas import FlowVersionCreate, resp_200
+from terminus.chat.types import WorkType
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.flow import WorkflowNameExistsError, WorkFlowOnlineEditError, AppWriteAuthError
+from terminus.common.errcode.http_error import UnAuthorizedError, NotFoundError
+from terminus.common.services import telemetry_service
+from terminus.core.database import get_sync_db_session
+from terminus.core.logger import trace_id_var
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.database.models.assistant import AssistantDao
+from terminus.database.models.flow import Flow, FlowCreate, FlowDao, FlowRead, FlowType, FlowUpdate, \
     FlowStatus
-from bisheng.database.models.flow_version import FlowVersionDao
-from bisheng.database.models.role_access import AccessType
-from bisheng.share_link.api.dependencies import header_share_token_parser
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.utils import generate_uuid
-from bisheng_langchain.utils.requests import Requests
+from terminus.database.models.flow_version import FlowVersionDao
+from terminus.database.models.role_access import AccessType
+from terminus.share_link.api.dependencies import header_share_token_parser
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.utils import generate_uuid
+from terminus_langchain.utils.requests import Requests
 
 router = APIRouter(prefix='/workflow', tags=['Workflow'])
 

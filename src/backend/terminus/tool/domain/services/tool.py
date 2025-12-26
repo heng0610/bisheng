@@ -8,25 +8,25 @@ from langchain_core.tools import BaseTool
 from loguru import logger
 from pydantic import BaseModel, ConfigDict
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.utils import get_url_content
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode import BaseErrorCode
-from bisheng.common.errcode.http_error import UnAuthorizedError, NotFoundError
-from bisheng.common.errcode.tool import ToolTypeNotExistsError, ToolTypeRepeatError, ToolTypeNameError, \
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.utils import get_url_content
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode import BaseErrorCode
+from terminus.common.errcode.http_error import UnAuthorizedError, NotFoundError
+from terminus.common.errcode.tool import ToolTypeNotExistsError, ToolTypeRepeatError, ToolTypeNameError, \
     ToolTypeIsPresetError, ToolSchemaDownloadError, ToolSchemaEmptyError, ToolSchemaParseError, ToolSchemaServerError, \
     ToolMcpSchemaError
-from bisheng.database.models.group_resource import GroupResourceDao, ResourceTypeEnum, GroupResource
-from bisheng.database.models.role_access import AccessType
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.mcp_manage.manager import ClientManager
-from bisheng.tool.domain.const import ToolPresetType
-from bisheng.tool.domain.langchain.linsight_knowledge import SearchKnowledgeBase
-from bisheng.tool.domain.models.gpts_tools import GptsToolsDao, GptsTools, GptsToolsType, GptsToolsTypeRead
-from bisheng.tool.domain.services.openapi import OpenApiSchema
-from bisheng.utils import md5_hash, get_request_ip
-from bisheng.utils.mask_data import JsonFieldMasker
-from bisheng_langchain.gpts.load_tools import load_tools
+from terminus.database.models.group_resource import GroupResourceDao, ResourceTypeEnum, GroupResource
+from terminus.database.models.role_access import AccessType
+from terminus.database.models.user_group import UserGroupDao
+from terminus.mcp_manage.manager import ClientManager
+from terminus.tool.domain.const import ToolPresetType
+from terminus.tool.domain.langchain.linsight_knowledge import SearchKnowledgeBase
+from terminus.tool.domain.models.gpts_tools import GptsToolsDao, GptsTools, GptsToolsType, GptsToolsTypeRead
+from terminus.tool.domain.services.openapi import OpenApiSchema
+from terminus.utils import md5_hash, get_request_ip
+from terminus.utils.mask_data import JsonFieldMasker
+from terminus_langchain.gpts.load_tools import load_tools
 
 
 class ToolServices(BaseModel):

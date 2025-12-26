@@ -4,7 +4,7 @@ from langchain_core.tools import BaseTool, Tool
 from loguru import logger
 from pydantic import ConfigDict, model_validator, BaseModel, Field
 
-from bisheng_langchain.utils.requests import Requests, RequestsWrapper
+from terminus_langchain.utils.requests import Requests, RequestsWrapper
 
 
 class ApiArg(BaseModel):

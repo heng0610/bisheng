@@ -1,4 +1,4 @@
-from bisheng.core.cache.redis_manager import get_redis_client
+from terminus.core.cache.redis_manager import get_redis_client
 
 
 async def verify_captcha(captcha: str, captcha_key: str):

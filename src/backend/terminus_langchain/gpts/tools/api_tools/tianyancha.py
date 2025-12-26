@@ -5,7 +5,7 @@ from typing import Any, Dict, Type, List, Optional
 
 from pydantic import model_validator, BaseModel, Field
 
-from bisheng_langchain.utils.requests import Requests, RequestsWrapper
+from terminus_langchain.utils.requests import Requests, RequestsWrapper
 
 from .base import APIToolBase
 

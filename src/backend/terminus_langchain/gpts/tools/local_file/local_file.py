@@ -6,7 +6,7 @@ import aiofiles
 from langchain_core.tools import BaseTool, StructuredTool
 from pydantic import BaseModel, Field
 
-from bisheng_langchain.linsight.utils import format_size
+from terminus_langchain.linsight.utils import format_size
 
 
 class FileToolInput(BaseModel):

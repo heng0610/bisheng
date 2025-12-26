@@ -1,8 +1,8 @@
 from abc import ABC
 from typing import Any
 
-from bisheng.common.repositories.interfaces.base_repository import BaseRepository
-from bisheng.knowledge.domain.models.knowledge_file import KnowledgeFile
+from terminus.common.repositories.interfaces.base_repository import BaseRepository
+from terminus.knowledge.domain.models.knowledge_file import KnowledgeFile
 
 
 class KnowledgeFileRepository(BaseRepository[KnowledgeFile, int], ABC):

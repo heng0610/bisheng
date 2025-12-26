@@ -5,16 +5,16 @@ from langchain_core.documents import Document
 from loguru import logger
 from pydantic import BaseModel, Field
 
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
-from bisheng.core.ai.rerank.rrf_rerank import RRFRerank
-from bisheng.core.vectorstore.multi_retriever import MultiRetriever
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.models.knowledge import Knowledge, MetadataFieldType
-from bisheng.knowledge.domain.models.knowledge_file import KnowledgeFileDao
-from bisheng.llm.domain import LLMService
-from bisheng.workflow.common.condition import ComparisonType
-from bisheng.workflow.nodes.base import BaseNode
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
+from terminus.core.ai.rerank.rrf_rerank import RRFRerank
+from terminus.core.vectorstore.multi_retriever import MultiRetriever
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.models.knowledge import Knowledge, MetadataFieldType
+from terminus.knowledge.domain.models.knowledge_file import KnowledgeFileDao
+from terminus.llm.domain import LLMService
+from terminus.workflow.common.condition import ComparisonType
+from terminus.workflow.nodes.base import BaseNode
 
 
 class ConditionOne(BaseModel):

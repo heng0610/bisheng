@@ -1,12 +1,12 @@
 from typing import Dict, Generator, List, Type, Union
 
-from bisheng.graph.edge.base import Edge
-from bisheng.graph.graph.constants import lazy_load_vertex_dict
-from bisheng.graph.utils import process_flow
-from bisheng.graph.vertex.base import Vertex
-from bisheng.graph.vertex.types import FileToolVertex, LLMVertex, ToolkitVertex
-from bisheng.interface.tools.constants import FILE_TOOLS
-from bisheng.utils import payload
+from terminus.graph.edge.base import Edge
+from terminus.graph.graph.constants import lazy_load_vertex_dict
+from terminus.graph.utils import process_flow
+from terminus.graph.vertex.base import Vertex
+from terminus.graph.vertex.types import FileToolVertex, LLMVertex, ToolkitVertex
+from terminus.interface.tools.constants import FILE_TOOLS
+from terminus.utils import payload
 from langchain.chains.base import Chain
 from loguru import logger
 

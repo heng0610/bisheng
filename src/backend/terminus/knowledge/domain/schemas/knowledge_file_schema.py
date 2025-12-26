@@ -2,7 +2,7 @@ from typing import Optional, Type, Any, Dict
 
 from pydantic import Field
 
-from bisheng.knowledge.domain.models.knowledge_file import KnowledgeFileRead, KnowledgeFile
+from terminus.knowledge.domain.models.knowledge_file import KnowledgeFileRead, KnowledgeFile
 
 
 class KnowledgeFileInfoRes(KnowledgeFileRead):

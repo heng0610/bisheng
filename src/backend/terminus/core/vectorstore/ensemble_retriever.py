@@ -11,7 +11,7 @@ from langchain_core.callbacks import (
 )
 from langchain_core.runnables import RunnableConfig
 
-from bisheng.core.ai.rerank.rrf_rerank import RRFRerank
+from terminus.core.ai.rerank.rrf_rerank import RRFRerank
 
 
 # 输入检索器参数模型

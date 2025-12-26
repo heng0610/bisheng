@@ -4,14 +4,14 @@ from typing import Any, Dict
 
 from langchain.memory import ConversationBufferWindowMemory
 
-from bisheng.chat.types import IgnoreException
-from bisheng.database.models.group import GroupDao
-from bisheng.database.models.role import RoleDao
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.user.domain.models.user import UserDao
-from bisheng.user.domain.models.user_role import UserRoleDao
-from bisheng.workflow.callback.event import GuideQuestionData, GuideWordData
-from bisheng.workflow.nodes.base import BaseNode
+from terminus.chat.types import IgnoreException
+from terminus.database.models.group import GroupDao
+from terminus.database.models.role import RoleDao
+from terminus.database.models.user_group import UserGroupDao
+from terminus.user.domain.models.user import UserDao
+from terminus.user.domain.models.user_role import UserRoleDao
+from terminus.workflow.callback.event import GuideQuestionData, GuideWordData
+from terminus.workflow.nodes.base import BaseNode
 
 
 class StartNode(BaseNode):

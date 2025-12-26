@@ -1,3 +1,3 @@
-from bisheng.interface.tools.base import ToolCreator
+from terminus.interface.tools.base import ToolCreator
 
 __all__ = ['ToolCreator']

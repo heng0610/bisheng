@@ -4,9 +4,9 @@ from elasticsearch import Elasticsearch, AsyncElasticsearch, exceptions as es_ex
 from loguru import logger
 from pydantic import BaseModel
 
-from bisheng.common.schemas.telemetry.base_telemetry_schema import UserContext
-from bisheng.common.services import telemetry_service
-from bisheng.core.search.elasticsearch.manager import get_es_connection, get_es_connection_sync
+from terminus.common.schemas.telemetry.base_telemetry_schema import UserContext
+from terminus.common.services import telemetry_service
+from terminus.core.search.elasticsearch.manager import get_es_connection, get_es_connection_sync
 
 common_properties = {
     "user_id": {"type": "integer"},

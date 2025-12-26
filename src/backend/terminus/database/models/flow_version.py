@@ -8,9 +8,9 @@ from pydantic import field_validator
 from sqlalchemy import func, String
 from sqlmodel import JSON, Field, select, update, text, Column, DateTime
 
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.database.models.flow import Flow
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.database.models.flow import Flow
 
 
 class FlowVersionBase(SQLModelSerializable):

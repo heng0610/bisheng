@@ -1,6 +1,6 @@
 from loguru import logger
 
-from bisheng.worker.main import bisheng_celery
+from terminus.worker.main import bisheng_celery
 
 
 @bisheng_celery.task

@@ -1,6 +1,6 @@
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.config.default_style import style_conf
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.parser.md_parser import md2html
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.provider.docx_processor import DocxProcessor
+from terminus.common.utils.markdown_cmpnt.md_to_docx.config.default_style import style_conf
+from terminus.common.utils.markdown_cmpnt.md_to_docx.parser.md_parser import md2html
+from terminus.common.utils.markdown_cmpnt.md_to_docx.provider.docx_processor import DocxProcessor
 
 
 class MarkDocx:

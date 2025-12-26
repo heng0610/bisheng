@@ -48,7 +48,7 @@ class WenxinEmbeddings(BaseModel, Embeddings):
 
     Example:
         .. code-block:: python
-            from bisheng_langchain.embeddings import WenxinEmbeddings
+            from terminus_langchain.embeddings import WenxinEmbeddings
             wenxin_embeddings = WenxinEmbeddings(
                wenxin_api_key="my-api-key",
                wenxin_secret_key='xxx')

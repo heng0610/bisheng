@@ -1,10 +1,10 @@
 import json
 from typing import Any
 
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.workflow.callback.event import OutputMsgChooseData, OutputMsgData, OutputMsgInputData
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.prompt_template import PromptTemplateParser
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.workflow.callback.event import OutputMsgChooseData, OutputMsgData, OutputMsgInputData
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.prompt_template import PromptTemplateParser
 
 
 class OutputNode(BaseNode):

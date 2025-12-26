@@ -11,36 +11,36 @@ from fastapi import (APIRouter, BackgroundTasks, Body, Depends, File, HTTPExcept
 from fastapi.encoders import jsonable_encoder
 from loguru import logger
 
-from bisheng.api.services import knowledge_imp
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.services.knowledge_imp import add_qa
-from bisheng.api.v1.schemas import (KnowledgeFileProcess, UpdatePreviewFileChunk, UploadFileResponse,
+from terminus.api.services import knowledge_imp
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.services.knowledge_imp import add_qa
+from terminus.api.v1.schemas import (KnowledgeFileProcess, UpdatePreviewFileChunk, UploadFileResponse,
                                     UpdateKnowledgeReq, KnowledgeFileReProcess)
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import UnAuthorizedError, NotFoundError
-from bisheng.common.errcode.knowledge import KnowledgeCPError, KnowledgeQAError, KnowledgeRebuildingError, \
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import UnAuthorizedError, NotFoundError
+from terminus.common.errcode.knowledge import KnowledgeCPError, KnowledgeQAError, KnowledgeRebuildingError, \
     KnowledgePreviewError, KnowledgeNotQAError, KnowledgeNoEmbeddingError, KnowledgeNotExistError, KnowledgeCPEmptyError
-from bisheng.common.errcode.server import NoLlmModelConfigError
-from bisheng.common.schemas.api import resp_200, resp_500, UnifiedResponseModel
-from bisheng.common.services import telemetry_service
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.core.cache.utils import save_uploaded_file
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.role_access import AccessType
-from bisheng.knowledge.api.dependencies import get_knowledge_service, get_knowledge_file_service
-from bisheng.knowledge.domain.models.knowledge import (KnowledgeCreate, KnowledgeDao, KnowledgeTypeEnum,
+from terminus.common.errcode.server import NoLlmModelConfigError
+from terminus.common.schemas.api import resp_200, resp_500, UnifiedResponseModel
+from terminus.common.services import telemetry_service
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.core.cache.utils import save_uploaded_file
+from terminus.core.logger import trace_id_var
+from terminus.database.models.role_access import AccessType
+from terminus.knowledge.api.dependencies import get_knowledge_service, get_knowledge_file_service
+from terminus.knowledge.domain.models.knowledge import (KnowledgeCreate, KnowledgeDao, KnowledgeTypeEnum,
                                                        KnowledgeUpdate)
-from bisheng.knowledge.domain.models.knowledge import KnowledgeState
-from bisheng.knowledge.domain.models.knowledge_file import (KnowledgeFileDao, KnowledgeFileStatus,
+from terminus.knowledge.domain.models.knowledge import KnowledgeState
+from terminus.knowledge.domain.models.knowledge_file import (KnowledgeFileDao, KnowledgeFileStatus,
                                                             QAKnoweldgeDao, QAKnowledgeUpsert, QAStatus)
-from bisheng.knowledge.domain.schemas.knowledge_schema import AddKnowledgeMetadataFieldsReq, \
+from terminus.knowledge.domain.schemas.knowledge_schema import AddKnowledgeMetadataFieldsReq, \
     UpdateKnowledgeMetadataFieldsReq, ModifyKnowledgeFileMetaDataReq
-from bisheng.llm.domain.const import LLMModelType
-from bisheng.llm.domain.models import LLMDao
-from bisheng.user.domain.models.user import UserDao
-from bisheng.utils import generate_uuid, calc_data_sha256
-from bisheng.worker.knowledge.qa import insert_qa_celery
+from terminus.llm.domain.const import LLMModelType
+from terminus.llm.domain.models import LLMDao
+from terminus.user.domain.models.user import UserDao
+from terminus.utils import generate_uuid, calc_data_sha256
+from terminus.worker.knowledge.qa import insert_qa_celery
 
 # build router
 router = APIRouter(prefix='/knowledge', tags=['Knowledge'])
@@ -51,7 +51,7 @@ async def upload_file(*, file: UploadFile = File(...)):
     file_name = file.filename
     # 缓存本地
     uuid_file_name = await KnowledgeService.save_upload_file_original_name(file_name)
-    file_path = await save_uploaded_file(file, 'bisheng', uuid_file_name)
+    file_path = await save_uploaded_file(file, 'terminus'', uuid_file_name)
     if not isinstance(file_path, str):
         file_path = str(file_path)
     return resp_200(UploadFileResponse(file_path=file_path))
@@ -66,7 +66,7 @@ async def upload_knowledge_file(*, request: Request, login_user: UserPayload = D
     file_name = file.filename
     # 缓存本地
     uuid_file_name = await KnowledgeService.save_upload_file_original_name(file_name)
-    file_path = await save_uploaded_file(file, 'bisheng', uuid_file_name)
+    file_path = await save_uploaded_file(file, 'terminus'', uuid_file_name)
     if not isinstance(file_path, str):
         file_path = str(file_path)
 
@@ -574,7 +574,7 @@ async def get_export_url():
     file_name = f"qa_export_template.xlsx"
     bio.seek(0)
     file = UploadFile(filename=file_name, file=bio)
-    file_path = await save_uploaded_file(file, 'bisheng', file_name)
+    file_path = await save_uploaded_file(file, 'terminus'', file_name)
     return resp_200({"url": file_path})
 
 
@@ -631,7 +631,7 @@ async def get_export_url(*,
         file_index = file_index + 1
         bio.seek(0)
         file_io = UploadFile(filename=file_name, file=bio)
-        file_path = await save_uploaded_file(file_io, 'bisheng', file_name)
+        file_path = await save_uploaded_file(file_io, 'terminus'', file_name)
         file_list.append(file_path)
         total_num += len(qa_list)
         if len(qa_list) < page_size or total_num >= total_count:
@@ -779,7 +779,7 @@ def get_knowledge_status(*, login_user: UserPayload = Depends(UserPayload.get_lo
         raise KnowledgeRebuildingError()
     if private_knowledge.state == KnowledgeState.FAILED.value:
         # 延迟导入以避免循环导入
-        from bisheng.worker.knowledge.rebuild_knowledge_worker import rebuild_knowledge_celery
+        from terminus.worker.knowledge.rebuild_knowledge_worker import rebuild_knowledge_celery
         rebuild_knowledge_celery.delay(private_knowledge.id, int(private_knowledge.model), login_user.user_id)
         # 返回502状态码和相应提示信息
         raise KnowledgeRebuildingError()
@@ -843,13 +843,13 @@ def update_knowledge_model(*,
     if knowledge.type == KnowledgeTypeEnum.NORMAL.value:
 
         # 延迟导入以避免循环导入
-        from bisheng.worker.knowledge.rebuild_knowledge_worker import rebuild_knowledge_celery
+        from terminus.worker.knowledge.rebuild_knowledge_worker import rebuild_knowledge_celery
         rebuild_knowledge_celery.delay(knowledge.id, req_data.model_id, login_user.user_id)
 
     elif knowledge.type == KnowledgeTypeEnum.QA.value:
 
         # 延迟导入以避免循环导入
-        from bisheng.worker.knowledge.qa import rebuild_qa_knowledge_celery
+        from terminus.worker.knowledge.qa import rebuild_qa_knowledge_celery
         rebuild_qa_knowledge_celery.delay(knowledge.id, req_data.model_id, login_user.user_id)
 
     logger.info(f"Started rebuild task for knowledge_id={knowledge.id} with model_id={req_data.model_id}")

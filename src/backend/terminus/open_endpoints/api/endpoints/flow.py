@@ -3,9 +3,9 @@ from uuid import UUID
 from fastapi import APIRouter, HTTPException, Query, Request
 from loguru import logger
 
-from bisheng.api.services.flow import FlowService
-from bisheng.common.services.config_service import settings
-from bisheng.open_endpoints.api.endpoints.assistant import get_default_operator
+from terminus.api.services.flow import FlowService
+from terminus.common.services.config_service import settings
+from terminus.open_endpoints.api.endpoints.assistant import get_default_operator
 
 router = APIRouter(prefix='/flows', tags=['OpenAPI', 'FlowV2'])
 

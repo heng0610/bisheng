@@ -4,9 +4,9 @@ from typing import List, Optional
 from sqlalchemy import Column, DateTime, delete, text, INT
 from sqlmodel import Field, select
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.database.models.group import DefaultGroup
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.database.models.group import DefaultGroup
 
 
 class UserGroupBase(SQLModelSerializable):

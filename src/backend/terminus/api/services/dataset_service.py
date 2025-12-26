@@ -2,12 +2,12 @@ from typing import Dict, List, Optional
 
 from fastapi import HTTPException
 
-from bisheng.api.services.base import BaseService
-from bisheng.api.v1.schema.dataset_param import CreateDatasetParam
-from bisheng.common.errcode.dataset import DatasetNameExistsError
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.database.models.dataset import Dataset, DatasetCreate, DatasetDao, DatasetRead
-from bisheng.user.domain.models.user import UserDao
+from terminus.api.services.base import BaseService
+from terminus.api.v1.schema.dataset_param import CreateDatasetParam
+from terminus.common.errcode.dataset import DatasetNameExistsError
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.database.models.dataset import Dataset, DatasetCreate, DatasetDao, DatasetRead
+from terminus.user.domain.models.user import UserDao
 
 
 class DatasetService(BaseService):

@@ -4,16 +4,16 @@ import json
 import types
 from typing import TYPE_CHECKING, Any, Coroutine, Dict, List, Optional
 
-from bisheng.graph.utils import UnbuiltObject
-from bisheng.interface.initialize import loading
-from bisheng.interface.listing import lazy_load_dict
-from bisheng.utils.constants import DIRECT_TYPES, NODE_ID_DICT, PRESET_QUESTION
-from bisheng.utils.util import sync_to_async
+from terminus.graph.utils import UnbuiltObject
+from terminus.interface.initialize import loading
+from terminus.interface.listing import lazy_load_dict
+from terminus.utils.constants import DIRECT_TYPES, NODE_ID_DICT, PRESET_QUESTION
+from terminus.utils.util import sync_to_async
 from loguru import logger
 
 if TYPE_CHECKING:
-    from bisheng.graph.edge.base import Edge
-    from bisheng.graph.graph.base import Graph
+    from terminus.graph.edge.base import Edge
+    from terminus.graph.graph.base import Graph
 
 
 class Vertex:

@@ -4,11 +4,11 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.runnables import RunnableConfig
 from loguru import logger
 
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.llm.domain.services import LLMService
-from bisheng.workflow.callback.llm_callback import LLMNodeCallbackHandler
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.prompt_template import PromptTemplateParser
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.llm.domain.services import LLMService
+from terminus.workflow.callback.llm_callback import LLMNodeCallbackHandler
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.prompt_template import PromptTemplateParser
 
 
 class LLMNode(BaseNode):

@@ -3,15 +3,15 @@ from typing import Optional, Dict
 
 from fastapi import APIRouter, Depends, Body, Request
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.schemas.api import UnifiedResponseModel, resp_200
-from bisheng.mcp_manage.langchain.tool import McpTool
-from bisheng.mcp_manage.manager import ClientManager
-from bisheng.tool.domain.models.gpts_tools import GptsToolsTypeRead
-from bisheng.tool.domain.schemas import TestToolReq
-from bisheng.tool.domain.services.openapi import OpenApiSchema
-from bisheng.tool.domain.services.tool import ToolServices
-from bisheng_langchain.gpts.tools.api_tools.openapi import OpenApiTools
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.schemas.api import UnifiedResponseModel, resp_200
+from terminus.mcp_manage.langchain.tool import McpTool
+from terminus.mcp_manage.manager import ClientManager
+from terminus.tool.domain.models.gpts_tools import GptsToolsTypeRead
+from terminus.tool.domain.schemas import TestToolReq
+from terminus.tool.domain.services.openapi import OpenApiSchema
+from terminus.tool.domain.services.tool import ToolServices
+from terminus_langchain.gpts.tools.api_tools.openapi import OpenApiTools
 
 router = APIRouter(prefix='/tool', tags=['Tool'])
 

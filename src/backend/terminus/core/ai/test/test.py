@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-from bisheng.core.ai import AzureOpenAIASRClient
+from terminus.core.ai import AzureOpenAIASRClient
 
 
 @pytest.mark.asyncio

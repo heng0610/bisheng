@@ -4,12 +4,12 @@ from collections import defaultdict
 from typing import Any, Dict, List
 
 import orjson
-from bisheng.api.v1.schemas import ChatMessage, ChatResponse, FileResponse
-from bisheng.interface.utils import pil_to_base64
-from bisheng.services import ServiceType, service_manager
-from bisheng.services.base import Service
-from bisheng.services.chat.cache import Subject
-from bisheng.services.chat.utils import process_graph
+from terminus.api.v1.schemas import ChatMessage, ChatResponse, FileResponse
+from terminus.interface.utils import pil_to_base64
+from terminus.services import ServiceType, service_manager
+from terminus.services.base import Service
+from terminus.services.chat.cache import Subject
+from terminus.services.chat.utils import process_graph
 from fastapi import WebSocket, status
 from loguru import logger
 from starlette.websockets import WebSocketState

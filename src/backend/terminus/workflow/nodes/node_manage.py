@@ -1,17 +1,17 @@
-from bisheng.workflow.common.node import NodeType
-from bisheng.workflow.nodes.agent.agent import AgentNode
-from bisheng.workflow.nodes.code.code import CodeNode
-from bisheng.workflow.nodes.condition.condition import ConditionNode
-from bisheng.workflow.nodes.end.end import EndNode
-from bisheng.workflow.nodes.input.input import InputNode
-from bisheng.workflow.nodes.knowledge_retriever.knowledge_retriever import KnowledgeRetriever
-from bisheng.workflow.nodes.llm.llm import LLMNode
-from bisheng.workflow.nodes.output.output import OutputNode
-from bisheng.workflow.nodes.qa_retriever.qa_retriever import QARetrieverNode
-from bisheng.workflow.nodes.rag.rag import RagNode
-from bisheng.workflow.nodes.report.report import ReportNode
-from bisheng.workflow.nodes.start.start import StartNode
-from bisheng.workflow.nodes.tool.tool import ToolNode
+from terminus.workflow.common.node import NodeType
+from terminus.workflow.nodes.agent.agent import AgentNode
+from terminus.workflow.nodes.code.code import CodeNode
+from terminus.workflow.nodes.condition.condition import ConditionNode
+from terminus.workflow.nodes.end.end import EndNode
+from terminus.workflow.nodes.input.input import InputNode
+from terminus.workflow.nodes.knowledge_retriever.knowledge_retriever import KnowledgeRetriever
+from terminus.workflow.nodes.llm.llm import LLMNode
+from terminus.workflow.nodes.output.output import OutputNode
+from terminus.workflow.nodes.qa_retriever.qa_retriever import QARetrieverNode
+from terminus.workflow.nodes.rag.rag import RagNode
+from terminus.workflow.nodes.report.report import ReportNode
+from terminus.workflow.nodes.start.start import StartNode
+from terminus.workflow.nodes.tool.tool import ToolNode
 
 NODE_CLASS_MAP = {
     NodeType.START.value: StartNode,

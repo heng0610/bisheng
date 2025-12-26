@@ -3,9 +3,9 @@
 import importlib
 from typing import Any, ClassVar, Dict, Type
 
-from bisheng.interface.custom import CustomComponent
-from bisheng.interface.wrappers.base import wrapper_creator
-from bisheng.utils import validate
+from terminus.interface.custom import CustomComponent
+from terminus.interface.wrappers.base import wrapper_creator
+from terminus.utils import validate
 from langchain.agents import Agent
 from langchain.base_language import BaseLanguageModel
 from langchain.chains.base import Chain
@@ -29,7 +29,7 @@ def import_module(module_path: str) -> Any:
 
 
 def import_by_type(_type: str, name: str) -> Any:
-    from bisheng_langchain import chat_models
+    from terminus_langchain import chat_models
     """Import class by type and name"""
     if _type is None:
         raise ValueError(f'Type cannot be None. Check if {name} is in the config file.')
@@ -69,18 +69,18 @@ def import_by_type(_type: str, name: str) -> Any:
 
 def import_custom_component(custom_component: str) -> CustomComponent:
     """Import custom component from custom component name"""
-    return import_class('bisheng.interface.custom.custom_component.CustomComponent')
+    return import_class('terminus'.interface.custom.custom_component.CustomComponent')
 
 
 def import_inputoutput(input_output: str) -> Any:
     """Import output parser from output parser name"""
-    from bisheng.interface.inputoutput.base import input_output_creator
+    from terminus.interface.inputoutput.base import input_output_creator
     return input_output_creator.type_to_loader_dict[input_output]
 
 
 def import_output_parser(output_parser: str) -> Any:
     """Import output parser from output parser name"""
-    from bisheng.interface.output_parsers.base import output_parser_creator
+    from terminus.interface.output_parsers.base import output_parser_creator
     if output_parser in output_parser_creator.type_to_loader_dict:
         return output_parser_creator.type_to_loader_dict[output_parser]
     return import_module(f'from langchain_community.output_parsers import {output_parser}')
@@ -88,23 +88,23 @@ def import_output_parser(output_parser: str) -> Any:
 
 def import_chat_llm(llm: str) -> BaseChatModel:
     """Import chat llm from llm name"""
-    from bisheng.interface.llms.base import llm_creator
+    from terminus.interface.llms.base import llm_creator
     if llm in llm_creator.type_to_loader_dict:
         return llm_creator.type_to_loader_dict[llm]
-    return import_class(f'bisheng_langchain.chat_models.{llm}')
+    return import_class(f'terminus'_langchain.chat_models.{llm}')
 
 
 def import_chain_contribute_llm(llm: str) -> BaseChatModel:
     """Import chat llm from llm name"""
-    from bisheng.interface.llms.base import llm_creator
+    from terminus.interface.llms.base import llm_creator
     if llm in llm_creator.type_to_loader_dict:
         return llm_creator.type_to_loader_dict[llm]
-    return import_class(f'bisheng_langchain.chat_models.{llm}')
+    return import_class(f'terminus'_langchain.chat_models.{llm}')
 
 
 def import_retriever(retriever: str) -> Any:
     """Import retriever from retriever name"""
-    from bisheng.interface.retrievers.base import retriever_creator
+    from terminus.interface.retrievers.base import retriever_creator
     if retriever in retriever_creator.type_to_loader_dict:
         return retriever_creator.type_to_loader_dict[retriever]
 
@@ -112,12 +112,12 @@ def import_retriever(retriever: str) -> Any:
 
 
 def import_autogenRoles(autogen: str) -> Any:
-    return import_module(f'from bisheng_langchain.autogen_role import {autogen}')
+    return import_module(f'from terminus_langchain.autogen_role import {autogen}')
 
 
 def import_memory(memory: str) -> Any:
     """Import memory from memory name"""
-    from bisheng.interface.memories.base import memory_creator
+    from terminus.interface.memories.base import memory_creator
     if memory in memory_creator.type_to_loader_dict:
         return memory_creator.type_to_loader_dict[memory]
     return import_module(f'from langchain.memory import {memory}')
@@ -132,7 +132,7 @@ def import_class(class_path: str) -> Any:
 
 def import_prompt(prompt: str) -> Type[PromptTemplate]:
     """Import prompt from prompt name"""
-    from bisheng.interface.prompts.base import prompt_creator
+    from terminus.interface.prompts.base import prompt_creator
 
     if prompt in prompt_creator.type_to_loader_dict:
         return prompt_creator.type_to_loader_dict[prompt]
@@ -148,28 +148,28 @@ def import_wrapper(wrapper: str) -> Any:
 
 def import_toolkit(toolkit: str) -> Any:
     """Import toolkit from toolkit name"""
-    from bisheng.interface.toolkits.base import toolkits_creator
+    from terminus.interface.toolkits.base import toolkits_creator
     return toolkits_creator.type_to_loader_dict[toolkit]
 
 
 def import_agent(agent: str) -> Agent:
     """Import agent from agent name"""
     # check for custom agent
-    from bisheng_langchain import agents
+    from terminus_langchain import agents
     if agent in agents.__all__:
-        return import_class(f'bisheng_langchain.agents.{agent}')
+        return import_class(f'terminus'_langchain.agents.{agent}')
     return import_class(f'langchain.agents.{agent}')
 
 
 def import_llm(llm: str) -> BaseLanguageModel:
     """Import llm from llm name"""
-    from bisheng.interface.llms.base import llm_creator
+    from terminus.interface.llms.base import llm_creator
     return next(x for x in llm_creator.type_to_loader_dict.values() if x.__name__ == llm)
 
 
 def import_tool(tool: str) -> BaseTool:
     """Import tool from tool name"""
-    from bisheng.interface.tools.base import tool_creator
+    from terminus.interface.tools.base import tool_creator
 
     if tool in tool_creator.type_to_loader_dict:
         return tool_creator.type_to_loader_dict[tool]['fcn']
@@ -179,35 +179,35 @@ def import_tool(tool: str) -> BaseTool:
 
 def import_chain(chain: str) -> Type[Chain]:
     """Import chain from chain name"""
-    from bisheng.interface.chains.base import chain_creator
+    from terminus.interface.chains.base import chain_creator
     return next(x for x in chain_creator.type_to_loader_dict.values() if x.__name__ == chain)
 
 
 def import_embedding(embedding: str) -> Any:
     """Import embedding from embedding name"""
-    from bisheng.interface.embeddings.base import embedding_creator
+    from terminus.interface.embeddings.base import embedding_creator
     return next(x for x in embedding_creator.type_to_loader_dict.values()
                 if x.__name__ == embedding)
 
 
 def import_vectorstore(vectorstore: str) -> Any:
     """Import vectorstore from vectorstore name"""
-    from bisheng_langchain import vectorstores
-    from bisheng.interface.vector_store.base import vectorstore_creator
+    from terminus_langchain import vectorstores
+    from terminus.interface.vector_store.base import vectorstore_creator
     if vectorstore_creator.type_to_loader_dict.get(vectorstore) is not None:
         return vectorstore_creator.type_to_loader_dict[vectorstore]
     if vectorstore in vectorstores.__all__:
-        return import_class(f'bisheng_langchain.vectorstores.{vectorstore}')
+        return import_class(f'terminus'_langchain.vectorstores.{vectorstore}')
     return import_class(f'langchain_community.vectorstores.{vectorstore}')
 
 
 def import_documentloader(documentloader: str) -> Any:
     """Import documentloader from documentloader name"""
-    from bisheng_langchain import document_loaders
-    from bisheng.interface.document_loaders.base import documentloader_creator
+    from terminus_langchain import document_loaders
+    from terminus.interface.document_loaders.base import documentloader_creator
 
     if documentloader in document_loaders.__all__:
-        return import_class(f'bisheng_langchain.document_loaders.{documentloader}')
+        return import_class(f'terminus'_langchain.document_loaders.{documentloader}')
     return next(x for x in documentloader_creator.type_to_loader_dict.values()
                 if x.__name__ == documentloader)
 

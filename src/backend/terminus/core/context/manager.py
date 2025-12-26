@@ -9,8 +9,8 @@ from typing import Optional, Dict, Any, TypeVar, List, Union
 
 from loguru import logger
 
-from bisheng.core.config.settings import Settings
-from bisheng.core.context.base import (
+from terminus.core.config.settings import Settings
+from terminus.core.context.base import (
     ContextRegistry,
     BaseContextManager,
     ContextState,
@@ -68,26 +68,26 @@ class ApplicationContextManager:
         """注册默认的上下文管理器"""
         try:
 
-            from bisheng.core.database.manager import DatabaseManager
+            from terminus.core.database.manager import DatabaseManager
             self.register_context(DatabaseManager(database_url=config.database_url))
 
-            from bisheng.core.cache.redis_manager import RedisManager
+            from terminus.core.cache.redis_manager import RedisManager
             self.register_context(RedisManager(redis_url=config.redis_url))
 
-            from bisheng.core.storage.minio.minio_manager import MinioManager
+            from terminus.core.storage.minio.minio_manager import MinioManager
             self.register_context(MinioManager(minio_config=config.object_storage.minio))
 
-            from bisheng.core.search.elasticsearch.manager import EsConnManager, statistics_es_name
+            from terminus.core.search.elasticsearch.manager import EsConnManager, statistics_es_name
             self.register_context(EsConnManager(es_hosts=config.get_search_conf().elasticsearch_url,
                                                 **config.get_search_conf().ssl_verify))
             self.register_context(EsConnManager(es_hosts=config.get_telemetry_conf().elasticsearch_url,
                                                 name=statistics_es_name,
                                                 **config.get_telemetry_conf().ssl_verify))
 
-            from bisheng.core.external.http_client.http_client_manager import HttpClientManager
+            from terminus.core.external.http_client.http_client_manager import HttpClientManager
             self.register_context(HttpClientManager())
 
-            from bisheng.core.prompts.manager import PromptManager
+            from terminus.core.prompts.manager import PromptManager
             self.register_context(PromptManager())
 
             logger.debug("Default contexts registered")

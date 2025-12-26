@@ -1,13 +1,13 @@
 from typing import Any, Callable, Dict, List, Tuple
 
 # from .eastmoney import
-from bisheng_langchain.gpts.tools.api_tools.firecrawl import FireCrawl
-from bisheng_langchain.gpts.tools.api_tools.jina import JinaTool
-from bisheng_langchain.gpts.tools.api_tools.silicon_flow import SiliconFlow
-from bisheng_langchain.gpts.tools.message.dingding import DingdingMessageTool
-from bisheng_langchain.gpts.tools.message.email import EmailMessageTool
-from bisheng_langchain.gpts.tools.message.feishu import FeishuMessageTool
-from bisheng_langchain.gpts.tools.message.wechat import WechatMessageTool
+from terminus_langchain.gpts.tools.api_tools.firecrawl import FireCrawl
+from terminus_langchain.gpts.tools.api_tools.jina import JinaTool
+from terminus_langchain.gpts.tools.api_tools.silicon_flow import SiliconFlow
+from terminus_langchain.gpts.tools.message.dingding import DingdingMessageTool
+from terminus_langchain.gpts.tools.message.email import EmailMessageTool
+from terminus_langchain.gpts.tools.message.feishu import FeishuMessageTool
+from terminus_langchain.gpts.tools.message.wechat import WechatMessageTool
 from langchain_core.tools import BaseTool
 from mypy_extensions import KwArg
 

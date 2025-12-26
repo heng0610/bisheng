@@ -6,16 +6,16 @@ import warnings
 from typing import Any, Dict, List, Optional, Union
 from uuid import UUID
 
-from bisheng.field_typing.range_spec import RangeSpec
-from bisheng.interface.custom.code_parser.utils import extract_inner_type
-from bisheng.interface.custom.custom_component import CustomComponent
-from bisheng.interface.custom.directory_reader.utils import (build_custom_component_list_from_path,
+from terminus.field_typing.range_spec import RangeSpec
+from terminus.interface.custom.code_parser.utils import extract_inner_type
+from terminus.interface.custom.custom_component import CustomComponent
+from terminus.interface.custom.directory_reader.utils import (build_custom_component_list_from_path,
                                                              determine_component_name,
                                                              merge_nested_dicts_with_renaming)
-from bisheng.interface.importing.utils import eval_custom_component_code
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.custom_components import CustomComponentFrontendNode
-from bisheng.utils.util import get_base_classes
+from terminus.interface.importing.utils import eval_custom_component_code
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.custom_components import CustomComponentFrontendNode
+from terminus.utils.util import get_base_classes
 from fastapi import HTTPException
 from loguru import logger
 

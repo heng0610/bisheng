@@ -1,7 +1,7 @@
-from bisheng.template.field.base import TemplateField
-from bisheng.template.frontend_node.base import FrontendNode
-from bisheng.template.template.base import Template
-from bisheng.utils.constants import DEFAULT_PYTHON_FUNCTION
+from terminus.template.field.base import TemplateField
+from terminus.template.frontend_node.base import FrontendNode
+from terminus.template.template.base import Template
+from terminus.utils.constants import DEFAULT_PYTHON_FUNCTION
 
 
 class ToolNode(FrontendNode):

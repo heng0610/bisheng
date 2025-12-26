@@ -7,27 +7,27 @@ from fastapi import WebSocket, Request
 from langchain_core.messages import AIMessage, HumanMessage, BaseMessage, ToolMessage
 from loguru import logger
 
-from bisheng.api.services.assistant_agent import AssistantAgent
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.v1.callback import AsyncGptsDebugCallbackHandler
-from bisheng.api.v1.schemas import ChatMessage, ChatResponse
-from bisheng.chat.types import WorkType
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode import BaseErrorCode
-from bisheng.common.errcode.assistant import (AssistantDeletedError, AssistantNotOnlineError,
+from terminus.api.services.assistant_agent import AssistantAgent
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.v1.callback import AsyncGptsDebugCallbackHandler
+from terminus.api.v1.schemas import ChatMessage, ChatResponse
+from terminus.chat.types import WorkType
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode import BaseErrorCode
+from terminus.common.errcode.assistant import (AssistantDeletedError, AssistantNotOnlineError,
                                               AssistantOtherError)
-from bisheng.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationProcessEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.assistant import AssistantDao, AssistantStatus
-from bisheng.database.models.flow import FlowType
-from bisheng.database.models.message import ChatMessageDao, ChatMessage as ChatMessageModel
-from bisheng.database.models.session import MessageSession, MessageSessionDao
-from bisheng.utils import get_request_ip
-from bisheng.utils.threadpool import thread_pool
-from bisheng_langchain.gpts.message_types import LiberalToolMessage
+from terminus.common.schemas.telemetry.event_data_schema import NewMessageSessionEventData, ApplicationProcessEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.logger import trace_id_var
+from terminus.database.models.assistant import AssistantDao, AssistantStatus
+from terminus.database.models.flow import FlowType
+from terminus.database.models.message import ChatMessageDao, ChatMessage as ChatMessageModel
+from terminus.database.models.session import MessageSession, MessageSessionDao
+from terminus.utils import get_request_ip
+from terminus.utils.threadpool import thread_pool
+from terminus_langchain.gpts.message_types import LiberalToolMessage
 
 
 class ChatClient:

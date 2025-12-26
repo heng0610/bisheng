@@ -8,7 +8,7 @@ from langchain_core.tools import BaseTool
 from pydantic import BaseModel, Field, model_validator
 from typing_extensions import Self
 
-from bisheng_langchain.utils.azure_dalle_image_generator import AzureDallEWrapper
+from terminus_langchain.utils.azure_dalle_image_generator import AzureDallEWrapper
 
 logger = logging.getLogger(__name__)
 

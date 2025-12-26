@@ -1,8 +1,8 @@
 import logging
 from typing import Optional, Union, Dict
 
-from bisheng.core.context import BaseContextManager
-from bisheng.core.cache.redis_conn import RedisClient
+from terminus.core.context import BaseContextManager
+from terminus.core.cache.redis_conn import RedisClient
 
 logger = logging.getLogger(__name__)
 
@@ -47,13 +47,13 @@ class RedisManager(BaseContextManager[RedisClient]):
 
 async def get_redis_client() -> RedisClient:
     """获取 Redis 客户端实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return await app_context.async_get_instance(RedisManager.name)
     except KeyError:
         logger.warning(f"RedisManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(RedisManager(
                 redis_url=settings.redis_url
             ))
@@ -65,13 +65,13 @@ async def get_redis_client() -> RedisClient:
 
 def get_redis_client_sync() -> RedisClient:
     """同步获取 Redis 客户端实例"""
-    from bisheng.core.context.manager import app_context
+    from terminus.core.context.manager import app_context
     try:
         return app_context.sync_get_instance(RedisManager.name)
     except KeyError:
         logger.warning(f"RedisManager not found in app_context. Registering a new instance.")
         try:
-            from bisheng.common.services.config_service import settings
+            from terminus.common.services.config_service import settings
             app_context.register_context(RedisManager(
                 redis_url=settings.redis_url
             ))

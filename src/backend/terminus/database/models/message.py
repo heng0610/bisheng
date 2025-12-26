@@ -7,8 +7,8 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlmodel import (JSON, Column, DateTime, Field, String, Text, case, delete, func, not_, or_,
                       select, text, update, col)
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
 
 
 class LikedType(Enum):

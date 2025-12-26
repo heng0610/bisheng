@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING, Dict, List, Optional
 
-from bisheng.services.schema import ServiceType
+from terminus.services.schema import ServiceType
 from loguru import logger
 
 if TYPE_CHECKING:
-    from bisheng.services.base import Service
-    from bisheng.services.factory import ServiceFactory
+    from terminus.services.base import Service
+    from terminus.services.factory import ServiceFactory
 
 
 class ServiceManager:
@@ -127,7 +127,7 @@ def reinitialize_services():
 #     """
 #     Initialize the settings manager.
 #     """
-#     from bisheng.services.settings import factory as settings_factory
+#     from terminus.services.settings import factory as settings_factory
 
 #     service_manager.register_factory(settings_factory.SettingsServiceFactory())
 
@@ -136,8 +136,8 @@ def initialize_session_service():
     """
     Initialize the session manager.
     """
-    # from bisheng.services.cache import factory as cache_factory
-    from bisheng.services.session import factory as session_service_factory  # type: ignore
+    # from terminus.services.cache import factory as cache_factory
+    from terminus.services.session import factory as session_service_factory  # type: ignore
 
     # initialize_settings_service()
 

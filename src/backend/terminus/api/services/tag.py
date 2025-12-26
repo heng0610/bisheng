@@ -4,15 +4,15 @@ from typing import List
 from fastapi import Request
 from loguru import logger
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import UnAuthorizedError, NotFoundError
-from bisheng.common.errcode.tag import TagExistError, TagNotExistError
-from bisheng.common.models.config import ConfigDao, ConfigKeyEnum, Config
-from bisheng.database.models.assistant import AssistantDao
-from bisheng.database.models.flow import FlowDao
-from bisheng.database.models.group_resource import ResourceTypeEnum, GroupResourceDao
-from bisheng.database.models.role_access import AccessType
-from bisheng.database.models.tag import TagDao, Tag, TagLink
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import UnAuthorizedError, NotFoundError
+from terminus.common.errcode.tag import TagExistError, TagNotExistError
+from terminus.common.models.config import ConfigDao, ConfigKeyEnum, Config
+from terminus.database.models.assistant import AssistantDao
+from terminus.database.models.flow import FlowDao
+from terminus.database.models.group_resource import ResourceTypeEnum, GroupResourceDao
+from terminus.database.models.role_access import AccessType
+from terminus.database.models.tag import TagDao, Tag, TagLink
 
 
 class TagService:

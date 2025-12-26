@@ -6,28 +6,28 @@ from fastapi import (APIRouter, BackgroundTasks, Body, File, Form, HTTPException
                      UploadFile)
 from starlette.responses import FileResponse
 
-from bisheng.api.services import knowledge_imp
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.services.knowledge_imp import (decide_vectorstores, delete_es, delete_vector,
+from terminus.api.services import knowledge_imp
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.services.knowledge_imp import (decide_vectorstores, delete_es, delete_vector,
                                                 text_knowledge)
-from bisheng.api.v1.schemas import (ChunkInput, KnowledgeFileOne, KnowledgeFileProcess,
+from terminus.api.v1.schemas import (ChunkInput, KnowledgeFileOne, KnowledgeFileProcess,
                                     resp_200, resp_500, ExcelRule)
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.services import telemetry_service
-from bisheng.core.logger import trace_id_var
-from bisheng.open_endpoints.domain.schemas.filelib import APIAddQAParam, APIAppendQAParam, QueryQAParam
-from bisheng.open_endpoints.domain.utils import get_default_operator
-from bisheng.core.cache.utils import file_download, save_download_file
-from bisheng.common.errcode.http_error import ServerError
-from bisheng.knowledge.domain.models.knowledge import (KnowledgeCreate, KnowledgeDao, KnowledgeTypeEnum,
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.services import telemetry_service
+from terminus.core.logger import trace_id_var
+from terminus.open_endpoints.domain.schemas.filelib import APIAddQAParam, APIAppendQAParam, QueryQAParam
+from terminus.open_endpoints.domain.utils import get_default_operator
+from terminus.core.cache.utils import file_download, save_download_file
+from terminus.common.errcode.http_error import ServerError
+from terminus.knowledge.domain.models.knowledge import (KnowledgeCreate, KnowledgeDao, KnowledgeTypeEnum,
                                                        KnowledgeUpdate)
-from bisheng.knowledge.domain.models.knowledge_file import (QAKnoweldgeDao, QAKnowledgeUpsert)
-from bisheng.database.models.message import ChatMessageDao
-from bisheng.interface.embeddings.custom import FakeEmbedding
-from bisheng.common.services.config_service import settings
+from terminus.knowledge.domain.models.knowledge_file import (QAKnoweldgeDao, QAKnowledgeUpsert)
+from terminus.database.models.message import ChatMessageDao
+from terminus.interface.embeddings.custom import FakeEmbedding
+from terminus.common.services.config_service import settings
 from loguru import logger
 
-from bisheng.utils.util import sync_func_to_async
+from terminus.utils.util import sync_func_to_async
 
 # build router
 router = APIRouter(prefix='/filelib', tags=['OpenAPI', 'Knowledge'])
@@ -109,7 +109,7 @@ async def upload_file(
             return resp_500(message='file name must be not empty')
         # 缓存本地
         file_byte = await file.read()
-        file_path = save_download_file(file_byte, 'bisheng', file_name)
+        file_path = save_download_file(file_byte, 'terminus'', file_name)
     else:
         file_path, file_name = file_download(file_url)
 
@@ -177,7 +177,7 @@ async def post_chunks(request: Request,
     if not file_name:
         return resp_500(message='file name must be not empty')
     file_byte = await file.read()
-    file_path = save_download_file(file_byte, 'bisheng', file_name)
+    file_path = save_download_file(file_byte, 'terminus'', file_name)
 
     login_user = get_default_operator()
 
@@ -201,7 +201,7 @@ async def post_string_chunks(request: Request, document: ChunkInput):
     content = '\n\n'.join([doc.page_content for doc in document.documents])
     content_bytes = bytes(content, encoding='utf-8')
     file_name = document.documents[0].metadata.get('source')
-    file_path = save_download_file(content_bytes, 'bisheng', file_name)
+    file_path = save_download_file(content_bytes, 'terminus'', file_name)
 
     login_user = get_default_operator()
 

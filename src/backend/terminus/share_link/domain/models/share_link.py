@@ -7,7 +7,7 @@ from sqlalchemy import Enum as SQLEnum, DateTime, text, JSON
 from sqlalchemy import CHAR, Column
 from sqlmodel import Field
 
-from bisheng.common.models.base import SQLModelSerializable
+from terminus.common.models.base import SQLModelSerializable
 
 
 class ResourceTypeEnum(str, Enum):

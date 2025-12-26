@@ -1,6 +1,6 @@
 from abc import ABC
-from bisheng.common.repositories.interfaces.base_repository import BaseRepository
-from bisheng.user.domain.models.user import User, UserQuery
+from terminus.common.repositories.interfaces.base_repository import BaseRepository
+from terminus.user.domain.models.user import User, UserQuery
 
 
 class UserRepository(BaseRepository[User, int], ABC):

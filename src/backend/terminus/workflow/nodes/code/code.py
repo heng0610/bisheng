@@ -1,7 +1,7 @@
 from typing import Any
 
-from bisheng.workflow.nodes.base import BaseNode
-from bisheng.workflow.nodes.code.code_parse import CodeParser
+from terminus.workflow.nodes.base import BaseNode
+from terminus.workflow.nodes.code.code_parse import CodeParser
 
 
 class CodeNode(BaseNode):

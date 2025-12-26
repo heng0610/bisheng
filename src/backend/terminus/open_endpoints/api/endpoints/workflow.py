@@ -9,21 +9,21 @@ from fastapi.responses import ORJSONResponse
 from loguru import logger
 from starlette.responses import StreamingResponse
 
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.api.v1.chat import chat_manager
-from bisheng.api.v1.schema.workflow import WorkflowStream, WorkflowEvent, WorkflowEventType
-from bisheng.api.v1.schemas import resp_200
-from bisheng.chat.types import WorkType
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.common.schemas.telemetry.event_data_schema import ApplicationAliveEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import FlowDao, FlowType
-from bisheng.open_endpoints.domain.utils import get_default_operator
-from bisheng.worker.workflow.redis_callback import RedisCallback
-from bisheng.worker.workflow.tasks import execute_workflow, continue_workflow
-from bisheng.workflow.common.workflow import WorkflowStatus
+from terminus.api.services.workflow import WorkFlowService
+from terminus.api.v1.chat import chat_manager
+from terminus.api.v1.schema.workflow import WorkflowStream, WorkflowEvent, WorkflowEventType
+from terminus.api.v1.schemas import resp_200
+from terminus.chat.types import WorkType
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.common.schemas.telemetry.event_data_schema import ApplicationAliveEventData
+from terminus.common.services import telemetry_service
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import FlowDao, FlowType
+from terminus.open_endpoints.domain.utils import get_default_operator
+from terminus.worker.workflow.redis_callback import RedisCallback
+from terminus.worker.workflow.tasks import execute_workflow, continue_workflow
+from terminus.workflow.common.workflow import WorkflowStatus
 
 router = APIRouter(prefix='/workflow', tags=['OpenAPI', 'Workflow'])
 

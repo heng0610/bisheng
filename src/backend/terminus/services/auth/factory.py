@@ -1,5 +1,5 @@
-from bisheng.services.auth.service import AuthService
-from bisheng.services.factory import ServiceFactory
+from terminus.services.auth.service import AuthService
+from terminus.services.factory import ServiceFactory
 
 
 class AuthServiceFactory(ServiceFactory):

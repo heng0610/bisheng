@@ -4,9 +4,9 @@ from sqlalchemy.orm import selectinload
 from sqlmodel import select, Session
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from bisheng.common.repositories.implementations.base_repository_impl import BaseRepositoryImpl
-from bisheng.user.domain.models.user import User
-from bisheng.user.domain.repositories.interfaces.user_repository import UserRepository
+from terminus.common.repositories.implementations.base_repository_impl import BaseRepositoryImpl
+from terminus.user.domain.models.user import User
+from terminus.user.domain.repositories.interfaces.user_repository import UserRepository
 
 
 class UserRepositoryImpl(BaseRepositoryImpl[User, int], UserRepository):

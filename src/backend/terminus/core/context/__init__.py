@@ -11,7 +11,7 @@
 
 使用示例：
     # 基本使用
-    from bisheng.core.context import initialize_app_context, get_context
+    from terminus.core.context import initialize_app_context, get_context
 
     await initialize_app_context()
     db = await get_context('database').async_get_instance()

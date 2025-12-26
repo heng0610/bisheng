@@ -1,4 +1,4 @@
-from bisheng.common.schemas.rag_schema import RagMetadataFieldSchema
+from terminus.common.schemas.rag_schema import RagMetadataFieldSchema
 
 KNOWLEDGE_RAG_METADATA_SCHEMA = [
     RagMetadataFieldSchema(field_name="document_id", field_type="int64", kwargs={"nullable": False}),

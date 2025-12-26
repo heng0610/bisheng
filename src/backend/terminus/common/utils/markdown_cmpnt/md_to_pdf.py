@@ -28,7 +28,7 @@ import tempfile
 from pathlib import Path
 from typing import Optional, Union
 
-from bisheng.common.utils.markdown_cmpnt.md_to_docx.parser.ext_md_syntax import ExtMdSyntax
+from terminus.common.utils.markdown_cmpnt.md_to_docx.parser.ext_md_syntax import ExtMdSyntax
 
 logger = logging.getLogger(__name__)
 

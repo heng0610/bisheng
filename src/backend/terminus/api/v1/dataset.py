@@ -2,11 +2,11 @@ from typing import List
 
 from fastapi import APIRouter, Depends, Request
 
-from bisheng.api.services.dataset_service import DatasetService
-from bisheng.api.v1.schema.dataset_param import CreateDatasetParam
-from bisheng.api.v1.schemas import UnifiedResponseModel, resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.database.models.dataset import DatasetRead
+from terminus.api.services.dataset_service import DatasetService
+from terminus.api.v1.schema.dataset_param import CreateDatasetParam
+from terminus.api.v1.schemas import UnifiedResponseModel, resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.database.models.dataset import DatasetRead
 
 # build router
 router = APIRouter(prefix='/dataset', tags=['FineTune'])

@@ -13,37 +13,37 @@ from sse_starlette import EventSourceResponse
 from starlette.responses import StreamingResponse
 from starlette.websockets import WebSocket
 
-from bisheng.api.services.invite_code.invite_code import InviteCodeService
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.services.linsight.message_stream_handle import MessageStreamHandle
-from bisheng.api.services.linsight.sop_manage import SOPManageService
-from bisheng.api.services.linsight.workbench_impl import LinsightWorkbenchImpl
-from bisheng.api.v1.schema.base_schema import PageList
-from bisheng.api.v1.schema.inspiration_schema import SOPManagementSchema, SOPManagementUpdateSchema
-from bisheng.api.v1.schema.linsight_schema import LinsightQuestionSubmitSchema, DownloadFilesSchema, \
+from terminus.api.services.invite_code.invite_code import InviteCodeService
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.services.linsight.message_stream_handle import MessageStreamHandle
+from terminus.api.services.linsight.sop_manage import SOPManageService
+from terminus.api.services.linsight.workbench_impl import LinsightWorkbenchImpl
+from terminus.api.v1.schema.base_schema import PageList
+from terminus.api.v1.schema.inspiration_schema import SOPManagementSchema, SOPManagementUpdateSchema
+from terminus.api.v1.schema.linsight_schema import LinsightQuestionSubmitSchema, DownloadFilesSchema, \
     SubmitFileSchema, LinsightToolSchema, ToolChildrenSchema
-from bisheng.api.v1.schemas import UnifiedResponseModel, resp_200
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import UnAuthorizedError, NotFoundError
-from bisheng.common.errcode.linsight import LinsightQuestionError, LinsightUseUpError, LinsightModifySopError, \
+from terminus.api.v1.schemas import UnifiedResponseModel, resp_200
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import UnAuthorizedError, NotFoundError
+from terminus.common.errcode.linsight import LinsightQuestionError, LinsightUseUpError, LinsightModifySopError, \
     LinsightStartTaskError, LinsightSessionVersionRunningError, LinsightQueueStatusError, FileUploadError, \
     SopShowcaseError
-from bisheng.common.errcode.server import InvalidOperationError, ResourceDownloadError
-from bisheng.common.schemas.telemetry.event_data_schema import ApplicationAliveEventData, ApplicationProcessEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.redis_manager import get_redis_client
-from bisheng.core.logger import trace_id_var
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum, \
+from terminus.common.errcode.server import InvalidOperationError, ResourceDownloadError
+from terminus.common.schemas.telemetry.event_data_schema import ApplicationAliveEventData, ApplicationProcessEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.cache.redis_manager import get_redis_client
+from terminus.core.logger import trace_id_var
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.database.models.linsight_session_version import LinsightSessionVersionDao, SessionVersionStatusEnum, \
     LinsightSessionVersion
-from bisheng.database.models.linsight_sop import LinsightSOPDao, LinsightSOPRecord
-from bisheng.knowledge.domain.models.knowledge import KnowledgeTypeEnum, KnowledgeDao
-from bisheng.linsight.state_message_manager import LinsightStateMessageManager, MessageData, MessageEventType
-from bisheng.share_link.api.dependencies import header_share_token_parser
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.utils import util
+from terminus.database.models.linsight_sop import LinsightSOPDao, LinsightSOPRecord
+from terminus.knowledge.domain.models.knowledge import KnowledgeTypeEnum, KnowledgeDao
+from terminus.linsight.state_message_manager import LinsightStateMessageManager, MessageData, MessageEventType
+from terminus.share_link.api.dependencies import header_share_token_parser
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.utils import util
 
 router = APIRouter(prefix="/linsight", tags=["灵思"])
 
@@ -356,7 +356,7 @@ async def start_execute_sop(
         # 灵思会话版本已完成或正在执行，无法再次执行
         return LinsightSessionVersionRunningError.return_resp()
 
-    from bisheng.linsight.worker import LinsightQueue
+    from terminus.linsight.worker import LinsightQueue
     try:
         redis_client = await get_redis_client()
         queue = LinsightQueue('queue', namespace="linsight", redis=redis_client)
@@ -527,7 +527,7 @@ async def terminate_execute(
         # return resp_500(code=400, message="灵思会话版本已终止执行")
         return InvalidOperationError.return_resp()
 
-    from bisheng.linsight.worker import LinsightQueue
+    from terminus.linsight.worker import LinsightQueue
     redis_client = await get_redis_client()
     queue = LinsightQueue('queue', namespace="linsight", redis=redis_client)
 
@@ -722,7 +722,7 @@ async def get_queue_status(
     :param login_user:
     :return:
     """
-    from bisheng.linsight.worker import LinsightQueue
+    from terminus.linsight.worker import LinsightQueue
     redis_client = await get_redis_client()
     queue = LinsightQueue('queue', namespace="linsight", redis=redis_client)
     try:
@@ -756,12 +756,12 @@ async def download_md_to_pdf_or_docx(
         file_name = os.path.splitext(file_name)[0]
 
         if to_type == "pdf":
-            from bisheng.common.utils.markdown_cmpnt.md_to_pdf import md_to_pdf_bytes
+            from terminus.common.utils.markdown_cmpnt.md_to_pdf import md_to_pdf_bytes
             converted_bytes = await util.sync_func_to_async(md_to_pdf_bytes)(md_str)
             file_name = f"{file_name}.pdf"
             content_type = "application/pdf"
         else:
-            from bisheng.common.utils.markdown_cmpnt.md_to_docx.markdocx import MarkDocx
+            from terminus.common.utils.markdown_cmpnt.md_to_docx.markdocx import MarkDocx
             mark_docx = MarkDocx()
             converted_bytes, _ = await util.sync_func_to_async(mark_docx)(md_str)
             file_name = f"{file_name}.docx"
@@ -1255,7 +1255,7 @@ async def integrated_execute(
 
             # ======================== 开始执行 ========================
             try:
-                from bisheng.linsight.worker import LinsightQueue
+                from terminus.linsight.worker import LinsightQueue
                 redis_client = await get_redis_client()
                 queue = LinsightQueue('queue', namespace="linsight", redis=redis_client)
                 await queue.put(data=linsight_session_version_model.id)

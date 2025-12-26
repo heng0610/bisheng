@@ -1,14 +1,14 @@
 from typing import ClassVar, Dict, List, Optional
 
-from bisheng.custom.customs import get_custom_nodes
-from bisheng.interface.agents.custom import CUSTOM_AGENTS
-from bisheng.interface.base import LangChainTypeCreator
-from bisheng.interface.importing.utils import import_class
-from bisheng.common.services.config_service import settings
-from bisheng.template.frontend_node.agents import AgentFrontendNode
+from terminus.custom.customs import get_custom_nodes
+from terminus.interface.agents.custom import CUSTOM_AGENTS
+from terminus.interface.base import LangChainTypeCreator
+from terminus.interface.importing.utils import import_class
+from terminus.common.services.config_service import settings
+from terminus.template.frontend_node.agents import AgentFrontendNode
 from loguru import logger
-from bisheng.utils.util import build_template_from_class, build_template_from_method
-from bisheng_langchain import agents as bisheng_agents
+from terminus.utils.util import build_template_from_class, build_template_from_method
+from terminus_langchain import agents as bisheng_agents
 from langchain.agents import types
 
 
@@ -37,7 +37,7 @@ class AgentCreator(LangChainTypeCreator):
                 # TODO: validate AgentType
                 self.type_dict[name] = agent  # type: ignore
             bisheng = {
-                chain_name: import_class(f'bisheng_langchain.agents.{chain_name}')
+                chain_name: import_class(f'terminus'_langchain.agents.{chain_name}')
                 for chain_name in bisheng_agents.__all__
             }
             self.type_dict.update(bisheng)

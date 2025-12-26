@@ -3,20 +3,20 @@ from typing import List
 
 from loguru import logger
 
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.common.schemas.telemetry.base_telemetry_schema import UserGroupInfo, UserRoleInfo
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import FlowType
-from bisheng.knowledge.domain.services.knowledge_service import KnowledgeService
-from bisheng.telemetry.domain.mid_table.app_increment import AppIncrement, AppIncrementRecord
-from bisheng.telemetry.domain.mid_table.base import BaseMidTable
-from bisheng.telemetry.domain.mid_table.knowledge_increment import KnowledgeIncrement, KnowledgeIncrementRecord
-from bisheng.telemetry.domain.mid_table.user_increment import UserIncrement, UserIncrementRecord
-from bisheng.telemetry.domain.mid_table.user_interact import UserInteract, UserInteractRecord
-from bisheng.user.domain.services.user import UserService
-from bisheng.utils import generate_uuid
-from bisheng.worker.main import bisheng_celery
+from terminus.api.services.workflow import WorkFlowService
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.common.schemas.telemetry.base_telemetry_schema import UserGroupInfo, UserRoleInfo
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import FlowType
+from terminus.knowledge.domain.services.knowledge_service import KnowledgeService
+from terminus.telemetry.domain.mid_table.app_increment import AppIncrement, AppIncrementRecord
+from terminus.telemetry.domain.mid_table.base import BaseMidTable
+from terminus.telemetry.domain.mid_table.knowledge_increment import KnowledgeIncrement, KnowledgeIncrementRecord
+from terminus.telemetry.domain.mid_table.user_increment import UserIncrement, UserIncrementRecord
+from terminus.telemetry.domain.mid_table.user_interact import UserInteract, UserInteractRecord
+from terminus.user.domain.services.user import UserService
+from terminus.utils import generate_uuid
+from terminus.worker.main import bisheng_celery
 
 
 def get_yesterday_date_range(mid_table: BaseMidTable, start_date: str = None, end_date: str = None) -> (datetime,

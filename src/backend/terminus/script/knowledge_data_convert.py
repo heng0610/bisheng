@@ -3,18 +3,18 @@ import json
 import traceback
 from typing import List, Dict
 
-from bisheng.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
-from bisheng.knowledge.domain.knowledge_rag import KnowledgeRag
-from bisheng.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao, KnowledgeTypeEnum
-from bisheng.knowledge.domain.models.knowledge_file import KnowledgeFile
-from bisheng.llm.domain import LLMService
-from bisheng.script.knowledge_data_fix import get_all_knowledge_files, _get_milvus_chunks_data, _get_es_chunks_data
+from terminus.common.constants.vectorstore_metadata import KNOWLEDGE_RAG_METADATA_SCHEMA
+from terminus.knowledge.domain.knowledge_rag import KnowledgeRag
+from terminus.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao, KnowledgeTypeEnum
+from terminus.knowledge.domain.models.knowledge_file import KnowledgeFile
+from terminus.llm.domain import LLMService
+from terminus.script.knowledge_data_fix import get_all_knowledge_files, _get_milvus_chunks_data, _get_es_chunks_data
 
 user_map = {}
 
 
 def get_user_name_by_id(user_id: int):
-    from bisheng.user.domain.models.user import UserDao
+    from terminus.user.domain.models.user import UserDao
 
     if user_id in user_map:
         return user_map[user_id]

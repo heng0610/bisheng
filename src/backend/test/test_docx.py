@@ -59,5 +59,5 @@ def test(document):
         print(idx, uu)
 
 
-document = Document('bisheng.docx')
+document = Document('terminus'.docx')
 test(document)

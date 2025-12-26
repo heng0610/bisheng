@@ -6,33 +6,33 @@ from fastapi import Request
 from fastapi.encoders import jsonable_encoder
 from loguru import logger
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.services.base import BaseService
-from bisheng.api.utils import get_L2_param_from_flow
-from bisheng.api.v1.schemas import UnifiedResponseModel, resp_200, FlowVersionCreate, FlowCompareReq, resp_500, \
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.services.base import BaseService
+from terminus.api.utils import get_L2_param_from_flow
+from terminus.api.v1.schemas import UnifiedResponseModel, resp_200, FlowVersionCreate, FlowCompareReq, resp_500, \
     StreamData
-from bisheng.chat.utils import process_node_data
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.flow import NotFoundVersionError, CurVersionDelError, VersionNameExistsError, \
+from terminus.chat.utils import process_node_data
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.flow import NotFoundVersionError, CurVersionDelError, VersionNameExistsError, \
     NotFoundFlowError, \
     FlowOnlineEditError, WorkFlowOnlineEditError
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.services import telemetry_service
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import FlowDao, FlowStatus, Flow, FlowType
-from bisheng.database.models.flow_version import FlowVersionDao, FlowVersionRead, FlowVersion
-from bisheng.database.models.group_resource import GroupResourceDao, ResourceTypeEnum, GroupResource
-from bisheng.database.models.role_access import RoleAccessDao, AccessType
-from bisheng.database.models.session import MessageSessionDao
-from bisheng.database.models.tag import TagDao
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.database.models.variable_value import VariableDao
-from bisheng.processing.process import process_graph_cached, process_tweaks
-from bisheng.share_link.domain.models.share_link import ShareLink
-from bisheng.user.domain.models.user import UserDao
-from bisheng.user.domain.models.user_role import UserRoleDao
-from bisheng.utils import get_request_ip
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.services import telemetry_service
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import FlowDao, FlowStatus, Flow, FlowType
+from terminus.database.models.flow_version import FlowVersionDao, FlowVersionRead, FlowVersion
+from terminus.database.models.group_resource import GroupResourceDao, ResourceTypeEnum, GroupResource
+from terminus.database.models.role_access import RoleAccessDao, AccessType
+from terminus.database.models.session import MessageSessionDao
+from terminus.database.models.tag import TagDao
+from terminus.database.models.user_group import UserGroupDao
+from terminus.database.models.variable_value import VariableDao
+from terminus.processing.process import process_graph_cached, process_tweaks
+from terminus.share_link.domain.models.share_link import ShareLink
+from terminus.user.domain.models.user import UserDao
+from terminus.user.domain.models.user_role import UserRoleDao
+from terminus.utils import get_request_ip
 
 
 class FlowService(BaseService):

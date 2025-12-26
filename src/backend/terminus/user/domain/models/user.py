@@ -6,13 +6,13 @@ from sqlalchemy import Column, DateTime, func, text
 from sqlalchemy.orm import selectinload
 from sqlmodel import Field, select, Relationship, col
 
-from bisheng.common.models.base import SQLModelSerializable
-from bisheng.core.database import get_sync_db_session, get_async_db_session
-from bisheng.database.constants import AdminRole, DefaultRole
-from bisheng.database.models.group import Group
-from bisheng.database.models.role import Role
-from bisheng.database.models.user_group import UserGroup
-from bisheng.user.domain.models.user_role import UserRole
+from terminus.common.models.base import SQLModelSerializable
+from terminus.core.database import get_sync_db_session, get_async_db_session
+from terminus.database.constants import AdminRole, DefaultRole
+from terminus.database.models.group import Group
+from terminus.database.models.role import Role
+from terminus.database.models.user_group import UserGroup
+from terminus.user.domain.models.user_role import UserRole
 
 
 class UserBase(SQLModelSerializable):

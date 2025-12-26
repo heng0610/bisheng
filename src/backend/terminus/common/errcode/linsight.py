@@ -1,4 +1,4 @@
-from bisheng.common.errcode.base import BaseErrorCode
+from terminus.common.errcode.base import BaseErrorCode
 
 
 class SopFileError(BaseErrorCode):

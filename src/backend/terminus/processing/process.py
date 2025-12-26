@@ -10,15 +10,15 @@ from loguru import logger
 from pydantic import BaseModel
 from sqlmodel import select
 
-from bisheng.core.database import get_sync_db_session
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.database.models.message import ChatMessage
-from bisheng.database.models.report import Report as ReportModel
-from bisheng.interface.run import build_sorted_vertices, get_memory_key, update_memory_keys
-from bisheng.services.deps import get_session_service
-from bisheng.template.field.base import TemplateField
-from bisheng.utils.docx_temp import test_replace_string
-from bisheng_langchain.input_output import Report
+from terminus.core.database import get_sync_db_session
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.database.models.message import ChatMessage
+from terminus.database.models.report import Report as ReportModel
+from terminus.interface.run import build_sorted_vertices, get_memory_key, update_memory_keys
+from terminus.services.deps import get_session_service
+from terminus.template.field.base import TemplateField
+from terminus.utils.docx_temp import test_replace_string
+from terminus_langchain.input_output import Report
 
 
 def fix_memory_inputs(langchain_object):
@@ -74,7 +74,7 @@ def get_result_and_thought(langchain_object: Any, inputs: dict):
         try:
             # all use chat handlers
             # action = 'default'
-            from bisheng.api.v1 import callback
+            from terminus.api.v1 import callback
             callbacks = [callback.StreamingLLMCallbackHandler(None, flow_id=None, chat_id=None)]
             output = langchain_object(inputs, return_only_outputs=True, callbacks=callbacks)
         except ValueError as exc:
@@ -269,7 +269,7 @@ async def load_flow_from_json(flow: Union[Path, str, dict],
     graph_data = flow_graph['data']
     if tweaks is not None:
         graph_data = process_tweaks(graph_data, tweaks)
-    from bisheng.api.utils import build_flow_no_yield
+    from terminus.api.utils import build_flow_no_yield
     graph = await build_flow_no_yield(graph_data=graph_data,
                                       artifacts={},
                                       process_file=True,

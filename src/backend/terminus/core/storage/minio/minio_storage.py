@@ -12,8 +12,8 @@ from loguru import logger
 from minio.commonconfig import Filter
 from minio.lifecycleconfig import LifecycleConfig, Rule, Expiration
 
-from bisheng.core.config.settings import MinioConf
-from bisheng.core.storage.base import BaseStorage
+from terminus.core.config.settings import MinioConf
+from terminus.core.storage.base import BaseStorage
 
 
 class MinioStorage(BaseStorage, ABC):

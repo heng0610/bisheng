@@ -1,5 +1,5 @@
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.telemetry.domain.mid_table.base import BaseMidTable, BaseRecord
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.telemetry.domain.mid_table.base import BaseMidTable, BaseRecord
 
 
 class UserInteractRecord(BaseRecord):

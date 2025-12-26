@@ -4,8 +4,8 @@ from typing import List, Generic, TypeVar, Optional, Any
 
 from pydantic import BaseModel, Field, ConfigDict
 
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.schemas.telemetry.event_data_schema import BaseEventData
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.schemas.telemetry.event_data_schema import BaseEventData
 
 
 class UserGroupInfo(BaseModel):

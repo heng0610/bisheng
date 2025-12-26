@@ -5,18 +5,18 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
 from uuid import UUID
 
 import httpx
-from bisheng.services.base import Service
-from bisheng.services.store.exceptions import APIKeyError, FilterError, ForbiddenError
-from bisheng.services.store.schema import (CreateComponentResponse, DownloadComponentResponse,
+from terminus.services.base import Service
+from terminus.services.store.exceptions import APIKeyError, FilterError, ForbiddenError
+from terminus.services.store.schema import (CreateComponentResponse, DownloadComponentResponse,
                                            ListComponentResponse, ListComponentResponseModel,
                                            StoreComponentCreate)
-from bisheng.services.store.utils import (process_component_data, process_tags_for_post,
+from terminus.services.store.utils import (process_component_data, process_tags_for_post,
                                           update_components_with_user_data)
 from httpx import HTTPError, HTTPStatusError
 from loguru import logger
 
 if TYPE_CHECKING:
-    from bisheng.services.settings.service import SettingsService
+    from terminus.services.settings.service import SettingsService
 
 
 user_data_var: ContextVar[Optional[Dict[str, Any]]] = ContextVar('user_data', default=None)

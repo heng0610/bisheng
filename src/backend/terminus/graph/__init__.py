@@ -1,7 +1,7 @@
-from bisheng.graph.edge.base import Edge
-from bisheng.graph.graph.base import Graph
-from bisheng.graph.vertex.base import Vertex
-from bisheng.graph.vertex.types import (AgentVertex, ChainVertex,
+from terminus.graph.edge.base import Edge
+from terminus.graph.graph.base import Graph
+from terminus.graph.vertex.base import Vertex
+from terminus.graph.vertex.types import (AgentVertex, ChainVertex,
                                         DocumentLoaderVertex, EmbeddingVertex,
                                         LLMVertex, MemoryVertex, PromptVertex,
                                         RetrieverVertex, TextSplitterVertex,

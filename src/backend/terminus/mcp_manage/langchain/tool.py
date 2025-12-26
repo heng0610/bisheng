@@ -6,8 +6,8 @@ from typing import Any
 from langchain_core.tools import StructuredTool
 from pydantic import BaseModel, ConfigDict
 
-from bisheng.mcp_manage.clients.base import BaseMcpClient
-from bisheng_langchain.utils.openapi import convert_openapi_field_value
+from terminus.mcp_manage.clients.base import BaseMcpClient
+from terminus_langchain.utils.openapi import convert_openapi_field_value
 
 
 class McpTool(BaseModel):

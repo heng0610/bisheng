@@ -1,7 +1,7 @@
 from typing import Any, Callable, Optional, Tuple
 
 import anyio
-from bisheng.services.task.backends.base import TaskBackend
+from terminus.services.task.backends.base import TaskBackend
 from loguru import logger
 
 

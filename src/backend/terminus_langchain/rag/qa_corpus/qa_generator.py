@@ -7,7 +7,7 @@ from loguru import logger
 from tqdm import tqdm
 from langchain.document_loaders import PyPDFLoader
 from langchain_core.prompts import PromptTemplate
-from bisheng_langchain.document_loaders import ElemUnstructuredLoader
+from terminus_langchain.document_loaders import ElemUnstructuredLoader
 from bisheng_ragas.trainset import TrainsetGenerator
 
 

@@ -1,12 +1,12 @@
 import os
 import sys
 from langchain_elasticsearch import ElasticsearchStore
-from bisheng_langchain.vectorstores import Milvus
+from terminus_langchain.vectorstores import Milvus
 
 parent_dir = os.path.dirname(os.path.abspath(__file__)).replace('test', '')
 sys.path.append(parent_dir)
-os.environ['config'] = os.path.join(parent_dir, 'bisheng/config.dev.yaml')
-from bisheng.interface.embeddings.custom import FakeEmbedding
+os.environ['config'] = os.path.join(parent_dir, 'terminus'/config.dev.yaml')
+from terminus.interface.embeddings.custom import FakeEmbedding
 
 embedding = FakeEmbedding()
 

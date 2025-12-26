@@ -5,14 +5,14 @@ from typing import Dict, Callable
 from fastapi import WebSocket, Request
 from loguru import logger
 
-from bisheng.api.v1.schemas import ChatMessage, ChatResponse
-from bisheng.chat.types import WorkType
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.message import ChatMessage as ChatMessageModel
-from bisheng.database.models.message import ChatMessageDao
-from bisheng.utils import generate_uuid
-from bisheng.utils.threadpool import thread_pool
+from terminus.api.v1.schemas import ChatMessage, ChatResponse
+from terminus.chat.types import WorkType
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.core.logger import trace_id_var
+from terminus.database.models.message import ChatMessage as ChatMessageModel
+from terminus.database.models.message import ChatMessageDao
+from terminus.utils import generate_uuid
+from terminus.utils.threadpool import thread_pool
 
 
 class BaseClient(ABC):

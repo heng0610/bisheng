@@ -8,11 +8,11 @@ from langchain_community.vectorstores import (FAISS, Chroma, Milvus, MongoDBAtla
 from loguru import logger
 from sqlmodel import select
 
-from bisheng.common.services.config_service import settings
-from bisheng.core.database import get_sync_db_session
-from bisheng.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao
-from bisheng.llm.domain import LLMService
-from bisheng_langchain.vectorstores import ElasticKeywordsSearch
+from terminus.common.services.config_service import settings
+from terminus.core.database import get_sync_db_session
+from terminus.knowledge.domain.models.knowledge import Knowledge, KnowledgeDao
+from terminus.llm.domain import LLMService
+from terminus_langchain.vectorstores import ElasticKeywordsSearch
 
 
 def docs_in_params(params: dict) -> bool:

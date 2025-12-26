@@ -4,7 +4,7 @@ from langchain_core.tools import BaseTool
 from loguru import logger
 from pydantic import BaseModel, create_model
 
-from bisheng_langchain.utils.openapi import convert_openapi_field_value
+from terminus_langchain.utils.openapi import convert_openapi_field_value
 from .base import APIToolBase, Field, MultArgsSchemaTool
 
 
@@ -92,14 +92,14 @@ class OpenApiTools(APIToolBase):
                               description=one['schema']['properties'][param]['description']))
                 param_model = create_model(
                     param,
-                    __module__='bisheng_langchain.gpts.tools.api_tools.openapi',
+                    __module__='terminus'_langchain.gpts.tools.api_tools.openapi',
                     **param_object_param)
                 field_type = param_model
             else:
                 raise Exception(f'schema type is not support: {field_type}')
             model_params[one['name']] = (field_type, Field(default_factory=field_type, description=one['description']))
         return create_model('InputArgs',
-                            __module__='bisheng_langchain.gpts.tools.api_tools.openapi',
+                            __module__='terminus'_langchain.gpts.tools.api_tools.openapi',
                             __base__=BaseModel,
                             **model_params)
 

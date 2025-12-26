@@ -1,6 +1,6 @@
 from abc import ABC
 
-from bisheng.workflow.callback.event import NodeStartData, NodeEndData, OutputMsgChooseData, OutputMsgInputData, \
+from terminus.workflow.callback.event import NodeStartData, NodeEndData, OutputMsgChooseData, OutputMsgInputData, \
     UserInputData, GuideWordData, GuideQuestionData, \
     OutputMsgData, StreamMsgData, StreamMsgOverData
 

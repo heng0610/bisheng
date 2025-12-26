@@ -5,26 +5,26 @@ from typing import Any, List, Optional, Dict
 
 from loguru import logger
 
-from bisheng.api.v1.schema.chat_schema import AppChatList
-from bisheng.api.v1.schema.workflow import WorkflowEventType
-from bisheng.api.v1.schemas import resp_200
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import UnAuthorizedError
-from bisheng.common.services.config_service import settings
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.database.models.assistant import AssistantDao, Assistant
-from bisheng.database.models.audit_log import AuditLog, SystemId, EventType, ObjectType, AuditLogDao
-from bisheng.database.models.flow import FlowDao, Flow, FlowType
-from bisheng.database.models.group import Group
-from bisheng.database.models.group_resource import GroupResourceDao, ResourceTypeEnum
-from bisheng.database.models.message import ChatMessageDao, LikedType
-from bisheng.database.models.role import Role
-from bisheng.database.models.session import MessageSessionDao, SensitiveStatus
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge
-from bisheng.tool.domain.models.gpts_tools import GptsToolsType
-from bisheng.user.domain.models.user import UserDao, User
-from bisheng.utils import generate_uuid
+from terminus.api.v1.schema.chat_schema import AppChatList
+from terminus.api.v1.schema.workflow import WorkflowEventType
+from terminus.api.v1.schemas import resp_200
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import UnAuthorizedError
+from terminus.common.services.config_service import settings
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.database.models.assistant import AssistantDao, Assistant
+from terminus.database.models.audit_log import AuditLog, SystemId, EventType, ObjectType, AuditLogDao
+from terminus.database.models.flow import FlowDao, Flow, FlowType
+from terminus.database.models.group import Group
+from terminus.database.models.group_resource import GroupResourceDao, ResourceTypeEnum
+from terminus.database.models.message import ChatMessageDao, LikedType
+from terminus.database.models.role import Role
+from terminus.database.models.session import MessageSessionDao, SensitiveStatus
+from terminus.database.models.user_group import UserGroupDao
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao, Knowledge
+from terminus.tool.domain.models.gpts_tools import GptsToolsType
+from terminus.user.domain.models.user import UserDao, User
+from terminus.utils import generate_uuid
 
 
 # todo change to async or submit thread pool

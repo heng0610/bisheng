@@ -2,12 +2,12 @@ from datetime import datetime, timedelta, timezone
 from typing import Annotated, Coroutine, Optional, Union
 from uuid import UUID
 
-from bisheng.services.database.models.api_key.crud import check_key
-from bisheng.services.database.models.api_key.model import ApiKey
-from bisheng.services.database.models.user.crud import (get_user_by_id, get_user_by_username,
+from terminus.services.database.models.api_key.crud import check_key
+from terminus.services.database.models.api_key.model import ApiKey
+from terminus.services.database.models.user.crud import (get_user_by_id, get_user_by_username,
                                                         update_user_last_login_at)
-from bisheng.services.database.models.user.model import User
-from bisheng.services.deps import get_session, get_settings_service
+from terminus.services.database.models.user.model import User
+from terminus.services.deps import get_session, get_settings_service
 from cryptography.fernet import Fernet
 from fastapi import Depends, HTTPException, Security, status
 from fastapi.security import APIKeyHeader, APIKeyQuery, OAuth2PasswordBearer

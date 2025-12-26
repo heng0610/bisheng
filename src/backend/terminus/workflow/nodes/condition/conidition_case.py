@@ -4,8 +4,8 @@ from typing import List, Optional, Dict
 from loguru import logger
 from pydantic import ConfigDict, BaseModel, Field
 
-from bisheng.workflow.common.condition import ComparisonType, LogicType
-from bisheng.workflow.nodes.base import BaseNode
+from terminus.workflow.common.condition import ComparisonType, LogicType
+from terminus.workflow.nodes.base import BaseNode
 
 
 class ConditionOne(BaseModel):

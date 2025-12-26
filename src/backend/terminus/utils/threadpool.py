@@ -6,7 +6,7 @@ from typing import Dict, List, Set, Tuple
 
 from loguru import logger
 
-from bisheng.core.logger import trace_id_var
+from terminus.core.logger import trace_id_var
 
 
 class ThreadPoolManager:

@@ -1,4 +1,4 @@
-from bisheng.template import frontend_node
+from terminus.template import frontend_node
 
 # These should always be instantiated
 CUSTOM_NODES = {

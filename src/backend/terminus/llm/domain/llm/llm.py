@@ -12,13 +12,13 @@ from loguru import logger
 from pydantic import Field
 from typing_extensions import Self
 
-from bisheng.common.errcode.server import NoLlmModelConfigError, LlmModelConfigDeletedError, LlmProviderDeletedError, \
+from terminus.common.errcode.server import NoLlmModelConfigError, LlmModelConfigDeletedError, LlmProviderDeletedError, \
     LlmModelTypeError, LlmModelOfflineError, InitLlmError
-from bisheng.core.ai import CustomChatOllamaWithReasoning, ChatOpenAI, ChatOpenAICompatible, \
+from terminus.core.ai import CustomChatOllamaWithReasoning, ChatOpenAI, ChatOpenAICompatible, \
     AzureChatOpenAI, ChatTongyi, ChatZhipuAI, MiniMaxChat, ChatAnthropic, ChatDeepSeek, \
     MoonshotChat
-from bisheng.llm.domain.const import LLMModelType, LLMServerType
-from bisheng.llm.domain.models import LLMServer, LLMModel
+from terminus.llm.domain.const import LLMModelType, LLMServerType
+from terminus.llm.domain.models import LLMServer, LLMModel
 from .base import BishengBase
 from ..utils import wrapper_bisheng_model_limit_check, wrapper_bisheng_model_limit_check_async, \
     wrapper_bisheng_model_generator, wrapper_bisheng_model_generator_async

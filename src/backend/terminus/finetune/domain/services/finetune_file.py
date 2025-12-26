@@ -5,11 +5,11 @@ from fastapi import UploadFile
 from loguru import logger
 from pydantic import BaseModel
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.finetune import TrainFileNotExistError
-from bisheng.common.schemas.api import PageList
-from bisheng.core.storage.minio.minio_manager import get_minio_storage
-from bisheng.utils import generate_uuid
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.finetune import TrainFileNotExistError
+from terminus.common.schemas.api import PageList
+from terminus.core.storage.minio.minio_manager import get_minio_storage
+from terminus.utils import generate_uuid
 from ..models.preset_train import PresetTrain, PresetTrainDao
 
 

@@ -6,11 +6,11 @@ from datetime import datetime
 
 from langchain_core.messages import ToolMessage, AIMessage, HumanMessage, BaseMessage
 
-from bisheng_langchain.linsight.const import TaskStatus, CallUserInputToolName
-from bisheng_langchain.linsight.event import NeedUserInput, ExecStep
-from bisheng_langchain.linsight.react_prompt import ReactSingleAgentPrompt, ReactLoopAgentPrompt
-from bisheng_langchain.linsight.task import BaseTask
-from bisheng_langchain.linsight.utils import encode_str_tokens, generate_uuid_str, \
+from terminus_langchain.linsight.const import TaskStatus, CallUserInputToolName
+from terminus_langchain.linsight.event import NeedUserInput, ExecStep
+from terminus_langchain.linsight.react_prompt import ReactSingleAgentPrompt, ReactLoopAgentPrompt
+from terminus_langchain.linsight.task import BaseTask
+from terminus_langchain.linsight.utils import encode_str_tokens, generate_uuid_str, \
     extract_json_from_markdown
 
 

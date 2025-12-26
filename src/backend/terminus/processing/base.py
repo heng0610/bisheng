@@ -3,8 +3,8 @@ from typing import Tuple, Union
 from langchain_core.runnables import RunnableConfig
 from loguru import logger
 
-from bisheng.api.v1.callback import AsyncStreamingLLMCallbackHandler
-from bisheng.processing.process import fix_memory_inputs, format_actions
+from terminus.api.v1.callback import AsyncStreamingLLMCallbackHandler
+from terminus.processing.process import fix_memory_inputs, format_actions
 
 
 async def get_result_and_steps(langchain_object, inputs: Union[dict, str], **kwargs):

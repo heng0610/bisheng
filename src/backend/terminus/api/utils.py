@@ -7,10 +7,10 @@ from platformdirs import user_cache_dir
 from sqlalchemy import delete
 from sqlmodel import select
 
-from bisheng.api.v1.schemas import StreamData
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.models.variable_value import Variable
-from bisheng.graph.graph.base import Graph
+from terminus.api.v1.schemas import StreamData
+from terminus.core.database import get_sync_db_session
+from terminus.database.models.variable_value import Variable
+from terminus.graph.graph.base import Graph
 
 API_WORDS = ['api', 'key', 'token']
 
@@ -322,7 +322,7 @@ def get_file_path_value(file_path):
     # If the path is not in the cache dir, return empty string
     # This is to prevent access to files outside the cache dir
     # If the path is not a file, return empty string
-    if not path.exists() or not str(path).startswith(user_cache_dir('bisheng', 'bisheng')):
+    if not path.exists() or not str(path).startswith(user_cache_dir('terminus'', 'terminus'')):
         return ''
     return file_path
 

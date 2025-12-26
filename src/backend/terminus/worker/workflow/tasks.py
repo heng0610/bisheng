@@ -2,18 +2,18 @@ import time
 
 from loguru import logger
 
-from bisheng.api.services.workflow import WorkFlowService
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.schemas.telemetry.event_data_schema import ApplicationProcessEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import FlowDao
-from bisheng.utils.exceptions import IgnoreException
-from bisheng.worker.main import bisheng_celery
-from bisheng.worker.workflow.redis_callback import RedisCallback
-from bisheng.workflow.common.workflow import WorkflowStatus
-from bisheng.workflow.graph.workflow import Workflow
+from terminus.api.services.workflow import WorkFlowService
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.schemas.telemetry.event_data_schema import ApplicationProcessEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import FlowDao
+from terminus.utils.exceptions import IgnoreException
+from terminus.worker.main import bisheng_celery
+from terminus.worker.workflow.redis_callback import RedisCallback
+from terminus.workflow.common.workflow import WorkflowStatus
+from terminus.workflow.graph.workflow import Workflow
 
 # 存储全局的工作流对象
 _global_workflow: dict[str, Workflow] = {}

@@ -1,5 +1,5 @@
-from bisheng.common.constants.enums.telemetry import ApplicationTypeEnum
-from bisheng.telemetry.domain.mid_table.base import BaseMidTable, BaseRecord
+from terminus.common.constants.enums.telemetry import ApplicationTypeEnum
+from terminus.telemetry.domain.mid_table.base import BaseMidTable, BaseRecord
 
 
 class AppIncrementRecord(BaseRecord):

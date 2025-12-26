@@ -13,8 +13,8 @@ from langchain_core.language_models import BaseLLM
 from langchain_core.prompts import PromptTemplate
 from loguru import logger
 
-from bisheng_langchain.vectorstores.elastic_keywords_search import DEFAULT_PROMPT
-from bisheng_langchain.vectorstores.milvus import DEFAULT_MILVUS_CONNECTION
+from terminus_langchain.vectorstores.elastic_keywords_search import DEFAULT_PROMPT
+from terminus_langchain.vectorstores.milvus import DEFAULT_MILVUS_CONNECTION
 
 if TYPE_CHECKING:
     from elasticsearch import Elasticsearch  # noqa: F401

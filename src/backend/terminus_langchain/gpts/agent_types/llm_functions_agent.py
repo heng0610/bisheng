@@ -1,7 +1,7 @@
 import json
 import re
 
-from bisheng_langchain.gpts.message_types import LiberalFunctionMessage, LiberalToolMessage
+from terminus_langchain.gpts.message_types import LiberalFunctionMessage, LiberalToolMessage
 from langchain.tools import BaseTool
 from langchain.tools.render import format_tool_to_openai_tool
 from langchain_core.language_models.base import LanguageModelLike

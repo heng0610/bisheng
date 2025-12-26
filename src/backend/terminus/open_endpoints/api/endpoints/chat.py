@@ -8,16 +8,16 @@ from loguru import logger
 
 a = WSGIMiddleware
 
-from bisheng.api.services.chat_imp import comment_answer
-from bisheng.api.services.utils import set_flow_knowledge_id
-from bisheng.api.v1.schemas import ChatInput, resp_200
-from bisheng.chat.manager import ChatManager
-from bisheng.common.services.config_service import settings
-from bisheng.core.database import get_sync_db_session
-from bisheng.database.models.flow import Flow
-from bisheng.database.models.message import ChatMessage, ChatMessageDao
-from bisheng.open_endpoints.domain.schemas.message import SyncMessage
-from bisheng.processing.process import process_tweaks
+from terminus.api.services.chat_imp import comment_answer
+from terminus.api.services.utils import set_flow_knowledge_id
+from terminus.api.v1.schemas import ChatInput, resp_200
+from terminus.chat.manager import ChatManager
+from terminus.common.services.config_service import settings
+from terminus.core.database import get_sync_db_session
+from terminus.database.models.flow import Flow
+from terminus.database.models.message import ChatMessage, ChatMessageDao
+from terminus.open_endpoints.domain.schemas.message import SyncMessage
+from terminus.processing.process import process_tweaks
 
 router = APIRouter(prefix='/chat', tags=['OpenAPI', 'Chat'])
 chat_manager = ChatManager()

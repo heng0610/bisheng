@@ -1,6 +1,6 @@
-from bisheng.api.v1.schemas import ChatMessage
-from bisheng.interface.utils import try_setting_streaming_options
-from bisheng.processing.base import get_result_and_steps
+from terminus.api.v1.schemas import ChatMessage
+from terminus.interface.utils import try_setting_streaming_options
+from terminus.processing.base import get_result_and_steps
 from loguru import logger
 
 

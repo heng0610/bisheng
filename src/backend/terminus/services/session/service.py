@@ -1,10 +1,10 @@
-from bisheng.api.utils import build_flow_no_yield
-from bisheng.core.cache.redis_manager import get_redis_client_sync
-from bisheng.services.base import Service
-from bisheng.services.session.utils import compute_dict_hash, session_id_generator
+from terminus.api.utils import build_flow_no_yield
+from terminus.core.cache.redis_manager import get_redis_client_sync
+from terminus.services.base import Service
+from terminus.services.session.utils import compute_dict_hash, session_id_generator
 
 # if TYPE_CHECKING:
-#     from bisheng.services.cache.base import BaseCacheService
+#     from terminus.services.cache.base import BaseCacheService
 
 
 class SessionService(Service):

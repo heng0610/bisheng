@@ -10,21 +10,21 @@ from fastapi.responses import ORJSONResponse, StreamingResponse
 from langchain_core.messages import AIMessage, HumanMessage, AIMessageChunk
 from loguru import logger
 
-from bisheng.api.services.assistant import AssistantService
-from bisheng.api.services.assistant_agent import AssistantAgent
-from bisheng.api.v1.chat import chat_manager
-from bisheng.api.v1.schemas import (OpenAIChatCompletionReq,
+from terminus.api.services.assistant import AssistantService
+from terminus.api.services.assistant_agent import AssistantAgent
+from terminus.api.v1.chat import chat_manager
+from terminus.api.v1.schemas import (OpenAIChatCompletionReq,
                                     OpenAIChatCompletionResp, OpenAIChoice)
-from bisheng.chat.types import WorkType
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.schemas.api import resp_200, PageData
-from bisheng.common.schemas.telemetry.event_data_schema import ApplicationAliveEventData, ApplicationProcessEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.logger import trace_id_var
-from bisheng.open_endpoints.domain.utils import get_default_operator
-from bisheng.utils import generate_uuid
-from bisheng.utils import get_request_ip
+from terminus.chat.types import WorkType
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.schemas.api import resp_200, PageData
+from terminus.common.schemas.telemetry.event_data_schema import ApplicationAliveEventData, ApplicationProcessEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.logger import trace_id_var
+from terminus.open_endpoints.domain.utils import get_default_operator
+from terminus.utils import generate_uuid
+from terminus.utils import get_request_ip
 
 router = APIRouter(prefix='/assistant', tags=['OpenAPI', 'Assistant'])
 

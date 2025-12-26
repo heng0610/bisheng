@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from bisheng.services.base import Service
+    from terminus.services.base import Service
 
 
 class ServiceFactory:

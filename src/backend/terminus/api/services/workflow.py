@@ -4,32 +4,32 @@ from typing import Dict, Optional
 from fastapi.encoders import jsonable_encoder
 from langchain.memory import ConversationBufferWindowMemory
 
-from bisheng.api.services.base import BaseService
-from bisheng.api.v1.schema.workflow import WorkflowEvent, WorkflowEventType, WorkflowInputSchema, WorkflowInputItem, \
+from terminus.api.services.base import BaseService
+from terminus.api.v1.schema.workflow import WorkflowEvent, WorkflowEventType, WorkflowInputSchema, WorkflowInputItem, \
     WorkflowOutputSchema
-from bisheng.api.v1.schemas import ChatResponse
-from bisheng.chat.utils import SourceType
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.flow import WorkFlowInitError
-from bisheng.common.errcode.http_error import NotFoundError, UnAuthorizedError
-from bisheng.common.services import telemetry_service
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.flow import FlowDao, FlowStatus, FlowType, Flow
-from bisheng.database.models.flow import UserLinkType
-from bisheng.database.models.flow_version import FlowVersionDao
-from bisheng.database.models.group_resource import GroupResourceDao, ResourceTypeEnum
-from bisheng.database.models.role_access import AccessType, RoleAccessDao
-from bisheng.database.models.tag import TagDao
-from bisheng.database.models.user_link import UserLinkDao
-from bisheng.user.domain.models.user import UserDao
-from bisheng.user.domain.models.user_role import UserRoleDao
-from bisheng.utils import generate_uuid
-from bisheng.workflow.callback.base_callback import BaseCallback
-from bisheng.workflow.common.node import BaseNodeData, NodeType
-from bisheng.workflow.graph.graph_state import GraphState
-from bisheng.workflow.graph.workflow import Workflow
-from bisheng.workflow.nodes.node_manage import NodeFactory
+from terminus.api.v1.schemas import ChatResponse
+from terminus.chat.utils import SourceType
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.flow import WorkFlowInitError
+from terminus.common.errcode.http_error import NotFoundError, UnAuthorizedError
+from terminus.common.services import telemetry_service
+from terminus.core.logger import trace_id_var
+from terminus.database.models.flow import FlowDao, FlowStatus, FlowType, Flow
+from terminus.database.models.flow import UserLinkType
+from terminus.database.models.flow_version import FlowVersionDao
+from terminus.database.models.group_resource import GroupResourceDao, ResourceTypeEnum
+from terminus.database.models.role_access import AccessType, RoleAccessDao
+from terminus.database.models.tag import TagDao
+from terminus.database.models.user_link import UserLinkDao
+from terminus.user.domain.models.user import UserDao
+from terminus.user.domain.models.user_role import UserRoleDao
+from terminus.utils import generate_uuid
+from terminus.workflow.callback.base_callback import BaseCallback
+from terminus.workflow.common.node import BaseNodeData, NodeType
+from terminus.workflow.graph.graph_state import GraphState
+from terminus.workflow.graph.workflow import Workflow
+from terminus.workflow.nodes.node_manage import NodeFactory
 
 
 class WorkFlowService(BaseService):

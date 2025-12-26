@@ -2,7 +2,7 @@ from logging.config import fileConfig
 
 from alembic import context
 
-from bisheng.common.models.base import SQLModelSerializable
+from terminus.common.models.base import SQLModelSerializable
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -34,7 +34,7 @@ def run_migrations_online() -> None:
 
     """
 
-    from bisheng.core.database.manager import sync_get_database_connection
+    from terminus.core.database.manager import sync_get_database_connection
     database_conn_manager = sync_get_database_connection()
 
     with database_conn_manager.engine.connect() as connection:

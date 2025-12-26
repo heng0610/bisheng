@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.schemas.api import resp_200
-from bisheng.finetune.domain.models.model_deploy import ModelDeployDao
-from bisheng.finetune.domain.models.server import Server, ServerCreate, ServerDao
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.schemas.api import resp_200
+from terminus.finetune.domain.models.model_deploy import ModelDeployDao
+from terminus.finetune.domain.models.server import Server, ServerCreate, ServerDao
 from ...common.errcode.http_error import NotFoundError
 
 # build router

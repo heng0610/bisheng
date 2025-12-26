@@ -23,7 +23,7 @@ from pptx.enum.shapes import MSO_SHAPE_TYPE, PP_PLACEHOLDER
 from pptx.util import Length
 from scipy.optimize import curve_fit
 
-from bisheng.pptx2md.types import MultiColumnSlide
+from terminus.pptx2md.types import MultiColumnSlide
 
 logger = logging.getLogger(__name__)
 

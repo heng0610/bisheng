@@ -1,5 +1,5 @@
-from bisheng.interface.importing.utils import import_class
-from bisheng.interface.tools.custom import PythonFunction, PythonFunctionTool
+from terminus.interface.importing.utils import import_class
+from terminus.interface.tools.custom import PythonFunction, PythonFunctionTool
 from langchain_community.tools import Tool
 from langchain_community.agent_toolkits.load_tools import (_BASE_TOOLS, _EXTRA_LLM_TOOLS, _EXTRA_OPTIONAL_TOOLS,
                                                            _LLM_TOOLS)

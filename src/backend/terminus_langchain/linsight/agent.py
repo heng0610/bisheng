@@ -9,11 +9,11 @@ from langchain_core.tools import BaseTool
 from langchain_core.utils.function_calling import convert_to_openai_tool
 from pydantic import BaseModel, Field
 
-from bisheng_langchain.linsight.const import TaskMode, ExecConfig
-from bisheng_langchain.linsight.event import BaseEvent
-from bisheng_langchain.linsight.manage import TaskManage
-from bisheng_langchain.linsight.prompt import SopPrompt, FeedBackSopPrompt, GenerateTaskPrompt
-from bisheng_langchain.linsight.utils import record_llm_prompt, extract_json_from_markdown
+from terminus_langchain.linsight.const import TaskMode, ExecConfig
+from terminus_langchain.linsight.event import BaseEvent
+from terminus_langchain.linsight.manage import TaskManage
+from terminus_langchain.linsight.prompt import SopPrompt, FeedBackSopPrompt, GenerateTaskPrompt
+from terminus_langchain.linsight.utils import record_llm_prompt, extract_json_from_markdown
 
 
 class LinsightAgent(BaseModel):

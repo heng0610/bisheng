@@ -13,11 +13,11 @@ from langchain_core.messages import BaseMessage, ToolMessage, HumanMessage, AIMe
 from langchain_openai.chat_models.base import _convert_message_to_dict
 from pydantic import BaseModel, Field, ConfigDict, model_validator
 
-from bisheng_langchain.linsight.const import TaskStatus, CallUserInputToolName, ExecConfig
-from bisheng_langchain.linsight.event import ExecStep, GenerateSubTask, BaseEvent, NeedUserInput, TaskStart, TaskEnd
-from bisheng_langchain.linsight.prompt import SingleAgentPrompt, SummarizeHistoryPrompt, LoopAgentSplitPrompt, \
+from terminus_langchain.linsight.const import TaskStatus, CallUserInputToolName, ExecConfig
+from terminus_langchain.linsight.event import ExecStep, GenerateSubTask, BaseEvent, NeedUserInput, TaskStart, TaskEnd
+from terminus_langchain.linsight.prompt import SingleAgentPrompt, SummarizeHistoryPrompt, LoopAgentSplitPrompt, \
     LoopAgentPrompt, SummarizeAnswerPrompt, SplitEvent
-from bisheng_langchain.linsight.utils import encode_str_tokens, generate_uuid_str, \
+from terminus_langchain.linsight.utils import encode_str_tokens, generate_uuid_str, \
     record_llm_prompt, extract_json_from_markdown, get_model_name_from_llm
 
 

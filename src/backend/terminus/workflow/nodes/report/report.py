@@ -14,10 +14,10 @@ from charset_normalizer import detect
 from loguru import logger
 from openpyxl import load_workbook
 
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
-from bisheng.utils.docx_temp import DocxTemplateRender
-from bisheng.workflow.callback.event import OutputMsgData
-from bisheng.workflow.nodes.base import BaseNode
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.utils.docx_temp import DocxTemplateRender
+from terminus.workflow.callback.event import OutputMsgData
+from terminus.workflow.nodes.base import BaseNode
 
 
 class ResourceType(Enum):
@@ -862,9 +862,9 @@ class ResourceDownloadManager:
         支持特殊路径的正确映射
 
         规则:
-        - "/bisheng/xxx" -> bucket="bisheng", object_name="xxx"  
+        - "/bisheng/xxx" -> bucket="terminus", object_name="xxx"  
         - "/tmp-dir/xxx" -> bucket="tmp-dir", object_name="xxx"
-        - "/tmp/xxx" -> 优先尝试 bucket="bisheng", object_name="tmp/xxx"，然后尝试 bucket="tmp-dir", object_name="xxx"
+        - "/tmp/xxx" -> 优先尝试 bucket="terminus", object_name="tmp/xxx"，然后尝试 bucket="tmp-dir", object_name="xxx"
         - "images/photo.jpg" -> bucket="images", object_name="photo.jpg"
         """
         if not file_path:
@@ -872,9 +872,9 @@ class ResourceDownloadManager:
 
         # 特殊路径处理
         if file_path.startswith("/bisheng/"):
-            # /bisheng/object/name -> bucket="bisheng", object_name="object/name"
+            # /bisheng/object/name -> bucket="terminus", object_name="object/name"
             object_name = file_path[9:]  # 移除 '/bisheng/'
-            return "bisheng", object_name if object_name else None
+            return "terminus", object_name if object_name else None
 
         elif file_path.startswith("/tmp-dir/"):
             # /tmp-dir/object/name -> bucket="tmp-dir", object_name="object/name"  

@@ -3,18 +3,18 @@ from typing import List
 from loguru import logger
 from pymilvus import Collection
 
-from bisheng.api.services.knowledge import KnowledgeService
-from bisheng.api.services.knowledge_imp import QA_save_knowledge, decide_vectorstores
-from bisheng.common.errcode.knowledge import KnowledgeFileFailedError
-from bisheng.core.logger import trace_id_var
-from bisheng.interface.embeddings.custom import FakeEmbedding
-from bisheng.knowledge.domain.models.knowledge import KnowledgeDao, KnowledgeState
-from bisheng.knowledge.domain.models.knowledge_file import (
+from terminus.api.services.knowledge import KnowledgeService
+from terminus.api.services.knowledge_imp import QA_save_knowledge, decide_vectorstores
+from terminus.common.errcode.knowledge import KnowledgeFileFailedError
+from terminus.core.logger import trace_id_var
+from terminus.interface.embeddings.custom import FakeEmbedding
+from terminus.knowledge.domain.models.knowledge import KnowledgeDao, KnowledgeState
+from terminus.knowledge.domain.models.knowledge_file import (
     QAKnoweldgeDao, QAKnowledge, QAKnowledgeUpsert, QAStatus,
 )
-from bisheng.llm.domain import LLMService
-from bisheng.worker.main import bisheng_celery
-from bisheng_langchain.vectorstores import Milvus, ElasticKeywordsSearch
+from terminus.llm.domain import LLMService
+from terminus.worker.main import bisheng_celery
+from terminus_langchain.vectorstores import Milvus, ElasticKeywordsSearch
 
 
 @bisheng_celery.task

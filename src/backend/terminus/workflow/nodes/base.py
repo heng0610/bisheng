@@ -6,14 +6,14 @@ from typing import Any, Dict, List
 
 from langchain_core.messages import HumanMessage
 
-from bisheng.user.domain.models.user import UserDao
-from bisheng.utils.exceptions import IgnoreException
-from bisheng.workflow.callback.base_callback import BaseCallback
-from bisheng.workflow.callback.event import NodeEndData, NodeStartData
-from bisheng.workflow.common.node import BaseNodeData, NodeType
-from bisheng.workflow.edges.edges import EdgeBase
-from bisheng.workflow.graph.graph_state import GraphState
-from bisheng.workflow.nodes.prompt_template import PromptTemplateParser
+from terminus.user.domain.models.user import UserDao
+from terminus.utils.exceptions import IgnoreException
+from terminus.workflow.callback.base_callback import BaseCallback
+from terminus.workflow.callback.event import NodeEndData, NodeStartData
+from terminus.workflow.common.node import BaseNodeData, NodeType
+from terminus.workflow.edges.edges import EdgeBase
+from terminus.workflow.graph.graph_state import GraphState
+from terminus.workflow.nodes.prompt_template import PromptTemplateParser
 
 
 class BaseNode(ABC):

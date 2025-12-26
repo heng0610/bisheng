@@ -5,22 +5,22 @@ from typing import List
 import rsa
 from fastapi import Request, Depends
 
-from bisheng.api.services.audit_log import AuditLogService
-from bisheng.api.v1.schemas import CreateUserReq
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum
-from bisheng.common.errcode.user import (UserNameAlreadyExistError,
+from terminus.api.services.audit_log import AuditLogService
+from terminus.api.v1.schemas import CreateUserReq
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum
+from terminus.common.errcode.user import (UserNameAlreadyExistError,
                                          UserNeedGroupAndRoleError, UserForbiddenError, CaptchaError, UserValidateError,
                                          UserPasswordMaxTryError, UserPasswordExpireError, UserNameTooLongError)
-from bisheng.common.schemas.api import resp_200
-from bisheng.common.schemas.telemetry.event_data_schema import UserLoginEventData
-from bisheng.common.services import telemetry_service
-from bisheng.common.services.config_service import settings
-from bisheng.core.cache.redis_manager import get_redis_client_sync, get_redis_client
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.user_group import UserGroupDao
-from bisheng.user.domain.models.user import User, UserDao, UserLogin, UserRead, UserCreate
-from bisheng.utils import md5_hash, get_request_ip
-from bisheng.utils.constants import RSA_KEY
+from terminus.common.schemas.api import resp_200
+from terminus.common.schemas.telemetry.event_data_schema import UserLoginEventData
+from terminus.common.services import telemetry_service
+from terminus.common.services.config_service import settings
+from terminus.core.cache.redis_manager import get_redis_client_sync, get_redis_client
+from terminus.core.logger import trace_id_var
+from terminus.database.models.user_group import UserGroupDao
+from terminus.user.domain.models.user import User, UserDao, UserLogin, UserRead, UserCreate
+from terminus.utils import md5_hash, get_request_ip
+from terminus.utils.constants import RSA_KEY
 from .auth import LoginUser, AuthJwt
 from .captcha import verify_captcha
 from ..const import USER_PASSWORD_ERROR, USER_CURRENT_SESSION

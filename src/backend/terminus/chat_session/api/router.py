@@ -2,15 +2,15 @@ from typing import Optional, Literal
 
 from fastapi import APIRouter, Depends, Body
 
-from bisheng.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
-from bisheng.common.dependencies.user_deps import UserPayload
-from bisheng.common.errcode.http_error import NotFoundError
-from bisheng.common.schemas.api import resp_200
-from bisheng.common.schemas.telemetry.event_data_schema import MessageFeedbackEventData
-from bisheng.common.services import telemetry_service
-from bisheng.core.logger import trace_id_var
-from bisheng.database.models.message import ChatMessageDao
-from bisheng.database.models.session import MessageSessionDao
+from terminus.common.constants.enums.telemetry import BaseTelemetryTypeEnum, ApplicationTypeEnum
+from terminus.common.dependencies.user_deps import UserPayload
+from terminus.common.errcode.http_error import NotFoundError
+from terminus.common.schemas.api import resp_200
+from terminus.common.schemas.telemetry.event_data_schema import MessageFeedbackEventData
+from terminus.common.services import telemetry_service
+from terminus.core.logger import trace_id_var
+from terminus.database.models.message import ChatMessageDao
+from terminus.database.models.session import MessageSessionDao
 from ..domain.chat import ChatSessionService
 
 router = APIRouter(prefix='/session', tags=['Chat Session'])

@@ -4,9 +4,9 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, field_validator
 
-from bisheng.database.models.message import ChatMessage, ChatMessageQuery
-from bisheng.database.models.session import MessageSession
-from bisheng.user.domain.models.user import User
+from terminus.database.models.message import ChatMessage, ChatMessageQuery
+from terminus.database.models.session import MessageSession
+from terminus.user.domain.models.user import User
 
 
 class AppChatList(BaseModel):

@@ -2,14 +2,14 @@ import os
 
 from langchain_core.documents import Document
 
-from bisheng.api.services.md_from_docx import handler as docx_handler
-from bisheng.api.services.md_from_excel import handler as excel_handler
-from bisheng.api.services.md_from_html import handler as html_handler
-from bisheng.api.services.md_from_pdf import handler as pdf_handler
-from bisheng.api.services.md_from_pptx import handler as pptx_handler
-from bisheng.api.services.md_post_processing import post_processing
-from bisheng.core.cache.utils import CACHE_DIR
-from bisheng.core.storage.minio.minio_manager import get_minio_storage_sync
+from terminus.api.services.md_from_docx import handler as docx_handler
+from terminus.api.services.md_from_excel import handler as excel_handler
+from terminus.api.services.md_from_html import handler as html_handler
+from terminus.api.services.md_from_pdf import handler as pdf_handler
+from terminus.api.services.md_from_pptx import handler as pptx_handler
+from terminus.api.services.md_post_processing import post_processing
+from terminus.core.cache.utils import CACHE_DIR
+from terminus.core.storage.minio.minio_manager import get_minio_storage_sync
 
 
 def combine_multiple_md_files_to_raw_texts(
@@ -124,7 +124,7 @@ def replace_image_url(
             if the knowledge_id is None, this process will be interrupted,
             because the image files wouldn't be put into minio
     """
-    from bisheng.api.services.knowledge_imp import KnowledgeUtils
+    from terminus.api.services.knowledge_imp import KnowledgeUtils
 
     minio_image_path = f"/{get_minio_storage_sync().bucket}/{KnowledgeUtils.get_knowledge_file_image_dir(doc_id, knowledge_id)}"
     url_for_replacement = local_image_dir

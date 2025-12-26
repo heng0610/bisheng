@@ -12,9 +12,9 @@ from langchain.schema.document import Document
 from langchain.schema.messages import BaseMessage
 from langchain_core.messages import ToolMessage
 
-from bisheng.api.v1.schemas import ChatResponse
-from bisheng.database.models.message import ChatMessage as ChatMessageModel
-from bisheng.database.models.message import ChatMessageDao
+from terminus.api.v1.schemas import ChatResponse
+from terminus.database.models.message import ChatMessage as ChatMessageModel
+from terminus.database.models.message import ChatMessageDao
 from loguru import logger
 
 
