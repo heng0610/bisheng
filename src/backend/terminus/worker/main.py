@@ -11,8 +11,8 @@ def create_celery_app():
     """
     set_logger_config(settings.logger_conf)
     # loop = app_ctx.get_event_loop()
-    bisheng_celery = Celery('terminus'', include=['terminus'.worker'])
-    bisheng_celery.config_from_object('terminus'.worker.config')
+    bisheng_celery = Celery('terminus', include=['terminus.worker'])
+    bisheng_celery.config_from_object('terminus.worker.config')
     return bisheng_celery
 
 

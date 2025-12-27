@@ -140,22 +140,22 @@ class CeleryConf(BaseModel):
             }
         if 'telemetry_mid_user_increment' not in self.beat_schedule:
             self.beat_schedule['telemetry_mid_user_increment'] = {
-                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_user_increment',
+                'task': 'terminus.worker.telemetry.mid_table.sync_mid_user_increment',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
         if 'telemetry_mid_knowledge_increment' not in self.beat_schedule:
             self.beat_schedule['telemetry_mid_knowledge_increment'] = {
-                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_knowledge_increment',
+                'task': 'terminus.worker.telemetry.mid_table.sync_mid_knowledge_increment',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
         if 'telemetry_sync_mid_app_increment' not in self.beat_schedule:
             self.beat_schedule['telemetry_sync_mid_app_increment'] = {
-                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_app_increment',
+                'task': 'terminus.worker.telemetry.mid_table.sync_mid_app_increment',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
         if 'telemetry_sync_mid_user_interact_dtl' not in self.beat_schedule:
             self.beat_schedule['telemetry_sync_mid_user_interact_dtl'] = {
-                'task': 'terminus'.worker.telemetry.mid_table.sync_mid_user_interact_dtl',
+                'task': 'terminus.worker.telemetry.mid_table.sync_mid_user_interact_dtl',
                 'schedule': crontab('*/30 0 * * *'),  # 00:30 exec every day
             }
 
@@ -192,7 +192,7 @@ class CookieConf(BaseModel):
     samesite: str = Field(default=None, description="SameSite 属性，可选值为 'lax', 'strict', 'none'")
 
     jwt_token_expire_time: int = Field(default=86400, description="JwtToken的的过期时间，单位为秒")
-    jwt_iss: str = Field(default='terminus'', description="JwtToken的签发者")
+    jwt_iss: str = Field(default=TERMINUS, description="JwtToken的签发者")
 
 
 class Etl4lmConf(BaseModel):
@@ -262,11 +262,11 @@ class Settings(BaseModel):
     def set_database_url(cls, value):
         if not value:
             logger.debug('No database_url provided, trying bisheng_DATABASE_URL env variable')
-            if bisheng_database_url := os.getenv('terminus'_DATABASE_URL'):
+            if bisheng_database_url := os.getenv('TERMINUS_DATABASE_URL'):
                 value = bisheng_database_url
             else:
                 logger.debug('No DATABASE_URL env variable, using sqlite database')
-                value = 'sqlite:///./bisheng.db'
+                value = 'sqlite:///./terminus.db'
         else:
             # 对密码进行加密
             import re

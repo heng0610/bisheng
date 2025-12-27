@@ -69,7 +69,7 @@ def import_by_type(_type: str, name: str) -> Any:
 
 def import_custom_component(custom_component: str) -> CustomComponent:
     """Import custom component from custom component name"""
-    return import_class('terminus'.interface.custom.custom_component.CustomComponent')
+    return import_class('terminus.interface.custom.custom_component.CustomComponent')
 
 
 def import_inputoutput(input_output: str) -> Any:

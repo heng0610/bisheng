@@ -18,7 +18,7 @@ class PluginService(Service):
         self.plugins: dict[str, BasePlugin] = {}
         # plugin_dir = settings_service.settings.PLUGIN_DIR
         self.plugin_dir = os.path.dirname(__file__)
-        self.plugins_base_module = 'terminus'.services.plugins'
+        self.plugins_base_module = 'terminus.services.plugins''
         self.load_plugins()
 
     def load_plugins(self):
