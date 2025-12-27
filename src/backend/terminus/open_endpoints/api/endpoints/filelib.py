@@ -109,7 +109,7 @@ async def upload_file(
             return resp_500(message='file name must be not empty')
         # 缓存本地
         file_byte = await file.read()
-        file_path = save_download_file(file_byte, 'terminus'', file_name)
+        file_path = save_download_file(file_byte, 'terminus', file_name)
     else:
         file_path, file_name = file_download(file_url)
 
@@ -177,7 +177,7 @@ async def post_chunks(request: Request,
     if not file_name:
         return resp_500(message='file name must be not empty')
     file_byte = await file.read()
-    file_path = save_download_file(file_byte, 'terminus'', file_name)
+    file_path = save_download_file(file_byte, 'terminus', file_name)
 
     login_user = get_default_operator()
 
@@ -201,7 +201,7 @@ async def post_string_chunks(request: Request, document: ChunkInput):
     content = '\n\n'.join([doc.page_content for doc in document.documents])
     content_bytes = bytes(content, encoding='utf-8')
     file_name = document.documents[0].metadata.get('source')
-    file_path = save_download_file(content_bytes, 'terminus'', file_name)
+    file_path = save_download_file(content_bytes, 'terminus', file_name)
 
     login_user = get_default_operator()
 

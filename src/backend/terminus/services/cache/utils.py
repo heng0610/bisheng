@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 CACHE: Dict[str, Any] = {}
 
-CACHE_DIR = user_cache_dir('terminus'', 'terminus'')
+CACHE_DIR = user_cache_dir('terminus', 'terminus')
 
 PREFIX = 'terminus'_cache'
 

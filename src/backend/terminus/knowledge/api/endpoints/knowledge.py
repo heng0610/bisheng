@@ -51,7 +51,7 @@ async def upload_file(*, file: UploadFile = File(...)):
     file_name = file.filename
     # 缓存本地
     uuid_file_name = await KnowledgeService.save_upload_file_original_name(file_name)
-    file_path = await save_uploaded_file(file, 'terminus'', uuid_file_name)
+    file_path = await save_uploaded_file(file, 'terminus', uuid_file_name)
     if not isinstance(file_path, str):
         file_path = str(file_path)
     return resp_200(UploadFileResponse(file_path=file_path))
@@ -66,7 +66,7 @@ async def upload_knowledge_file(*, request: Request, login_user: UserPayload = D
     file_name = file.filename
     # 缓存本地
     uuid_file_name = await KnowledgeService.save_upload_file_original_name(file_name)
-    file_path = await save_uploaded_file(file, 'terminus'', uuid_file_name)
+    file_path = await save_uploaded_file(file, 'terminus', uuid_file_name)
     if not isinstance(file_path, str):
         file_path = str(file_path)
 
@@ -574,7 +574,7 @@ async def get_export_url():
     file_name = f"qa_export_template.xlsx"
     bio.seek(0)
     file = UploadFile(filename=file_name, file=bio)
-    file_path = await save_uploaded_file(file, 'terminus'', file_name)
+    file_path = await save_uploaded_file(file, 'terminus', file_name)
     return resp_200({"url": file_path})
 
 
@@ -631,7 +631,7 @@ async def get_export_url(*,
         file_index = file_index + 1
         bio.seek(0)
         file_io = UploadFile(filename=file_name, file=bio)
-        file_path = await save_uploaded_file(file_io, 'terminus'', file_name)
+        file_path = await save_uploaded_file(file_io, 'terminus', file_name)
         file_list.append(file_path)
         total_num += len(qa_list)
         if len(qa_list) < page_size or total_num >= total_count:

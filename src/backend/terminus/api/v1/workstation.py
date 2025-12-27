@@ -169,7 +169,7 @@ def knowledgeUpload(request: Request,
                     file: UploadFile = File(...),
                     login_user: UserPayload = Depends(UserPayload.get_login_user)):
     file_byte = file.file.read()
-    file_path = save_download_file(file_byte, 'terminus'', file.filename)
+    file_path = save_download_file(file_byte, 'terminus', file.filename)
     res = WorkStationService.uploadPersonalKnowledge(request,
                                                      login_user,
                                                      file_path=file_path,
@@ -207,7 +207,7 @@ async def upload_file(
     """
     # 读取文件内容
     # 保存文件
-    file_path = await save_uploaded_file(file, 'terminus'', unquote(file.filename))
+    file_path = await save_uploaded_file(file, 'terminus', unquote(file.filename))
 
     # 返回文件路径
     return resp_200(
