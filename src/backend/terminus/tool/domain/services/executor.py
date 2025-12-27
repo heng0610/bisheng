@@ -105,7 +105,7 @@ class ToolExecutor(BaseTool):
                 params = tool_type.extra
 
         # special handling for bisheng_code_interpreter, because it needs minio config
-        if tool.tool_key == 'terminus'_code_interpreter':
+        if tool.tool_key == 'terminus_code_interpreter'':
             return {'minio': settings.get_minio_conf().model_dump(), **params}
         return params
 

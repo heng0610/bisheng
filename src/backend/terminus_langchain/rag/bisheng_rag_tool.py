@@ -107,7 +107,7 @@ class BishengRAGTool:
         else:
             if self.params['elasticsearch'].get('extract_key_by_llm', False):
                 extract_key_prompt = import_class(
-                    'terminus'_langchain.rag.prompts.EXTRACT_KEY_PROMPT')
+                    'terminus_langchain.rag.prompts.EXTRACT_KEY_PROMPT')
                 llm_chain = LLMChain(llm=self.llm, prompt=extract_key_prompt)
             else:
                 llm_chain = None
@@ -139,7 +139,7 @@ class BishengRAGTool:
         else:
             if 'prompt_type' in self.params['generate']:
                 prompt_type = self.params['generate']['prompt_type']
-                prompt = import_class(f'terminus'_langchain.rag.prompts.{prompt_type}')
+                prompt = import_class(f'terminus_langchain.rag.prompts.{prompt_type}')
             else:
                 prompt = None
         self.prompt_inputs = prompt.input_variables

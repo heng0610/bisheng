@@ -61,7 +61,7 @@ class CodeInterpreterToolArguments(BaseModel):
 class CodeInterpreterTool(BaseTool):
     """Tool for evaluating python code in native environment."""
 
-    name: str = 'terminus'_code_interpreter'
+    name: str = 'terminus_code_interpreter''
     description: str = "code interpreter"
     args_schema: Type[BaseModel] = CodeInterpreterToolArguments
     executor: Any = None

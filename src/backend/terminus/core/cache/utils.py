@@ -79,7 +79,7 @@ def memoize_dict(maxsize=128):
     return decorator
 
 
-PREFIX = 'terminus'_cache'
+PREFIX = 'terminus_cache''
 
 
 @create_cache_folder

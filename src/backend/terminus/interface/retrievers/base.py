@@ -33,7 +33,7 @@ class RetrieverCreator(LangChainTypeCreator):
 
             self.type_dict.update({
                 retriever_name:
-                import_class(f'terminus'_langchain.retrievers.{retriever_name}')
+                import_class(f'terminus_langchain.retrievers.{retriever_name}')
                 for retriever_name in bisheng_retrievers.__all__
             })
             self.type_dict['MultiQueryRetriever'] = MultiQueryRetriever

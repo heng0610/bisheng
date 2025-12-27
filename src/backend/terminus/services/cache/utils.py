@@ -16,7 +16,7 @@ CACHE: Dict[str, Any] = {}
 
 CACHE_DIR = user_cache_dir('terminus', 'terminus')
 
-PREFIX = 'terminus'_cache'
+PREFIX = 'terminus_cache''
 
 
 def create_cache_folder(func):

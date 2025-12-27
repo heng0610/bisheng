@@ -19,7 +19,7 @@ class AutogenRole(LangChainTypeCreator):
     def type_to_loader_dict(self) -> Dict:
         if self.type_dict is None:
             self.type_dict: dict[str, Any] = {
-                role_name: import_class(f'terminus'_langchain.autogen_role.{role_name}')
+                role_name: import_class(f'terminus_langchain.autogen_role.{role_name}')
                 for role_name in autogen_role.__all__
             }
         return self.type_dict

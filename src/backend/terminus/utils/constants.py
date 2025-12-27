@@ -36,7 +36,7 @@ PYTHON_BASIC_TYPES = [str, bool, int, float, tuple, list, dict, set]
 
 DIRECT_TYPES = [
     'str', 'bool', 'dict', 'int', 'float', 'Any', 'prompt', 'code', 'NestedDict', 'variable', 'knowledge_list',
-    'knowledge_one', 'terminus'_model', 'terminus'_embedding'
+    'knowledge_one', 'terminus_model'', 'terminus_embedding''
 ]
 
 # 新增用来记录node_id 和 对象之间关系的key

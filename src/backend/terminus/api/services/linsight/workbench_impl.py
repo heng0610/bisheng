@@ -867,7 +867,7 @@ class LinsightWorkbenchImpl:
         特殊处理初始化毕昇的代码解释器工具
         """
         tools = []
-        bisheng_code_tool = await GptsToolsDao.aget_tool_by_tool_key(tool_key='terminus'_code_interpreter')
+        bisheng_code_tool = await GptsToolsDao.aget_tool_by_tool_key(tool_key='terminus_code_interpreter'')
         if not bisheng_code_tool or bisheng_code_tool.id not in config_tool_ids:
             return tools
         # 单独初始化代码解释器工具

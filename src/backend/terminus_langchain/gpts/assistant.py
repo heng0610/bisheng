@@ -37,7 +37,7 @@ class ConfigurableAssistant(RunnableBinding):
     ) -> None:
         others.pop('bound', None)
         agent_executor_object = import_class(
-            f'terminus'_langchain.gpts.agent_types.{agent_executor_type}')
+            f'terminus_langchain.gpts.agent_types.{agent_executor_type}')
 
         _agent_executor = agent_executor_object(tools, llm, assistant_message,
                                                 interrupt_before_action)
@@ -64,7 +64,7 @@ class BishengAssistant:
 
         # init assistant prompt
         prompt_type = self.assistant_params['prompt_type']
-        assistant_message = import_class(f'terminus'_langchain.gpts.prompts.{prompt_type}')
+        assistant_message = import_class(f'terminus_langchain.gpts.prompts.{prompt_type}')
 
         # init llm or agent
         llm_params = self.assistant_params['llm']

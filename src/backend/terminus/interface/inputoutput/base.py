@@ -23,7 +23,7 @@ class IOutputCreator(LangChainTypeCreator):
             self.type_dict = {}
             # bisheng-langchain
             bisheng = {
-                node_name: import_class(f'terminus'_langchain.input_output.{node_name}')
+                node_name: import_class(f'terminus_langchain.input_output.{node_name}')
                 for node_name in input_output.__all__
             }
             self.type_dict.update(bisheng)

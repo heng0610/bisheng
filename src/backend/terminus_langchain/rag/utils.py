@@ -99,7 +99,7 @@ def import_chat_llm(llm: str) -> BaseChatModel:
 
 def import_chain_contribute_llm(llm: str) -> BaseChatModel:
     """Import chat llm from llm name"""
-    return import_class(f'terminus'_langchain.chat_models.{llm}')
+    return import_class(f'terminus_langchain.chat_models.{llm}')
 
 
 def import_retriever(retriever: str) -> Any:
@@ -133,7 +133,7 @@ def import_agent(agent: str) -> Agent:
     # check for custom agent
     from terminus_langchain import agents
     if agent in agents.__all__:
-        return import_class(f'terminus'_langchain.agents.{agent}')
+        return import_class(f'terminus_langchain.agents.{agent}')
     return import_class(f'langchain.agents.{agent}')
 
 
@@ -156,7 +156,7 @@ def import_chain(chain: str) -> Type[Chain]:
     """Import chain from chain name"""
     from terminus_langchain import chains
     if chain in chains.__all__:
-        return import_class(f'terminus'_langchain.chains.{chain}')
+        return import_class(f'terminus_langchain.chains.{chain}')
     return import_class(f'langchain.chains.{chain}')
 
 
@@ -164,7 +164,7 @@ def import_embedding(embedding: str) -> Any:
     """Import embedding from embedding name"""
     from terminus_langchain import embeddings
     if embedding in embeddings.__all__:
-        return import_class(f'terminus'_langchain.embeddings.{embedding}')
+        return import_class(f'terminus_langchain.embeddings.{embedding}')
     return import_class(f'langchain.embeddings.{embedding}')
 
 
@@ -177,7 +177,7 @@ def import_vectorstore(vectorstore: str) -> Any:
     """Import vectorstore from vectorstore name"""
     from terminus_langchain import vectorstores
     if vectorstore in vectorstores.__all__:
-        return import_class(f'terminus'_langchain.vectorstores.{vectorstore}')
+        return import_class(f'terminus_langchain.vectorstores.{vectorstore}')
     return import_class(f'langchain.vectorstores.{vectorstore}')
 
 
@@ -185,7 +185,7 @@ def import_documentloader(documentloader: str) -> Any:
     """Import documentloader from documentloader name"""
     from terminus_langchain import document_loaders
     if documentloader in document_loaders.__all__:
-        return import_class(f'terminus'_langchain.document_loaders.{documentloader}')
+        return import_class(f'terminus_langchain.document_loaders.{documentloader}')
     return import_class(f'langchain.document_loaders.{documentloader}')
 
 
@@ -193,7 +193,7 @@ def import_textsplitter(textsplitter: str) -> Any:
     """Import textsplitter from textsplitter name"""
     from terminus_langchain import text_splitter
     if textsplitter in dir(text_splitter):
-        return import_class(f'terminus'_langchain.text_splitter.{textsplitter}')
+        return import_class(f'terminus_langchain.text_splitter.{textsplitter}')
     return import_class(f'langchain.text_splitter.{textsplitter}')
 
 

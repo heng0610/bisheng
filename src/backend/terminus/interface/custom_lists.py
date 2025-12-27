@@ -40,7 +40,7 @@ llm_type_to_cls_dict['MoonshotChat'] = MoonshotChat
 
 # llm contribute
 llm_type_to_cls_dict.update({
-    llm_name: import_class(f'terminus'_langchain.chat_models.{llm_name}')
+    llm_name: import_class(f'terminus_langchain.chat_models.{llm_name}')
     for llm_name in chat_models.__all__
 })
 
@@ -86,7 +86,7 @@ embedding_type_to_cls_dict: dict[str, Any] = {
 
 embedding_type_to_cls_dict.update({
     embedding_name:
-        import_class(f'terminus'_langchain.embeddings.{embedding_name}')
+        import_class(f'terminus_langchain.embeddings.{embedding_name}')
     for embedding_name in contribute_embeddings.__all__
 })
 embedding_type_to_cls_dict.update({
@@ -104,7 +104,7 @@ documentloaders_type_to_cls_dict: dict[str, Any] = {
 # contribute
 documentloaders_type_to_cls_dict.update({
     loader:
-        import_class(f'terminus'_langchain.document_loaders.{loader}')
+        import_class(f'terminus_langchain.document_loaders.{loader}')
     for loader in contribute_loader.__all__
 })
 

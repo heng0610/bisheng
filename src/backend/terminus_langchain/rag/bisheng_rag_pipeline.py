@@ -197,7 +197,7 @@ class BishengRagPipeline:
             if not hasattr(self, 'ranker'):
                 rerank_params = self.params['post_retrieval']['rerank']
                 rerank_type = rerank_params.pop('type')
-                rerank_object = import_class(f'terminus'_langchain.rag.rerank.{rerank_type}')
+                rerank_object = import_class(f'terminus_langchain.rag.rerank.{rerank_type}')
                 self.ranker = rerank_object(**rerank_params)
             docs = getattr(self, 'ranker').sort_and_filter(question, docs)
 
@@ -231,7 +231,7 @@ class BishengRagPipeline:
         all_questions_info = df.to_dict('records')
         if 'prompt_type' in self.params['generate']:
             prompt_type = self.params['generate']['prompt_type']
-            prompt = import_class(f'terminus'_langchain.rag.prompts.{prompt_type}')
+            prompt = import_class(f'terminus_langchain.rag.prompts.{prompt_type}')
         else:
             prompt = None
         qa_chain = load_qa_chain(

@@ -29,7 +29,7 @@ class VectorstoreCreator(LangChainTypeCreator):
             }
             self.type_dict.update({
                 vectorstore_name:
-                import_class(f'terminus'_langchain.vectorstores.{vectorstore_name}')
+                import_class(f'terminus_langchain.vectorstores.{vectorstore_name}')
                 for vectorstore_name in contribute_vectorstores.__all__
             })
             self.type_dict.update(CUSTOM_VECTORSTORE)

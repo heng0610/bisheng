@@ -17,7 +17,7 @@ class LLMServerType(Enum):
     ANTHROPIC = 'anthropic'
     DEEPSEEK = 'deepseek'
     SPARK = 'spark'  # 讯飞星火大模型
-    BISHENG_RT = 'terminus'_rt'
+    BISHENG_RT = 'terminus_rt''
     TENCENT = 'tencent'  # 腾讯云
     MOONSHOT = 'moonshot'  # 月之暗面的kimi
     VOLCENGINE = 'volcengine'  # 火山引擎的大模型

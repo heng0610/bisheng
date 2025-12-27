@@ -45,7 +45,7 @@ class ChainCreator(LangChainTypeCreator):
             }
             # bisheng-langchain
             bisheng = {
-                chain_name: import_class(f'terminus'_langchain.chains.{chain_name}')
+                chain_name: import_class(f'terminus_langchain.chains.{chain_name}')
                 for chain_name in bisheng_chains.__all__
             }
             # 若配置在custom_chains里，则不会从method初始化的方式，导致报错
@@ -61,7 +61,7 @@ class ChainCreator(LangChainTypeCreator):
 
             # sql community
             bisheng_sql_add = {
-                chain_name: import_class(f'terminus'_langchain.sql.{chain_name}')
+                chain_name: import_class(f'terminus_langchain.sql.{chain_name}')
                 for chain_name in bisheng_sql.__all__
             }
             self.type_dict.update(bisheng_sql_add)

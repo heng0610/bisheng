@@ -91,7 +91,7 @@ def import_chat_llm(llm: str) -> BaseChatModel:
     from terminus.interface.llms.base import llm_creator
     if llm in llm_creator.type_to_loader_dict:
         return llm_creator.type_to_loader_dict[llm]
-    return import_class(f'terminus'_langchain.chat_models.{llm}')
+    return import_class(f'terminus_langchain.chat_models.{llm}')
 
 
 def import_chain_contribute_llm(llm: str) -> BaseChatModel:
@@ -99,7 +99,7 @@ def import_chain_contribute_llm(llm: str) -> BaseChatModel:
     from terminus.interface.llms.base import llm_creator
     if llm in llm_creator.type_to_loader_dict:
         return llm_creator.type_to_loader_dict[llm]
-    return import_class(f'terminus'_langchain.chat_models.{llm}')
+    return import_class(f'terminus_langchain.chat_models.{llm}')
 
 
 def import_retriever(retriever: str) -> Any:
@@ -157,7 +157,7 @@ def import_agent(agent: str) -> Agent:
     # check for custom agent
     from terminus_langchain import agents
     if agent in agents.__all__:
-        return import_class(f'terminus'_langchain.agents.{agent}')
+        return import_class(f'terminus_langchain.agents.{agent}')
     return import_class(f'langchain.agents.{agent}')
 
 
@@ -197,7 +197,7 @@ def import_vectorstore(vectorstore: str) -> Any:
     if vectorstore_creator.type_to_loader_dict.get(vectorstore) is not None:
         return vectorstore_creator.type_to_loader_dict[vectorstore]
     if vectorstore in vectorstores.__all__:
-        return import_class(f'terminus'_langchain.vectorstores.{vectorstore}')
+        return import_class(f'terminus_langchain.vectorstores.{vectorstore}')
     return import_class(f'langchain_community.vectorstores.{vectorstore}')
 
 
@@ -207,7 +207,7 @@ def import_documentloader(documentloader: str) -> Any:
     from terminus.interface.document_loaders.base import documentloader_creator
 
     if documentloader in document_loaders.__all__:
-        return import_class(f'terminus'_langchain.document_loaders.{documentloader}')
+        return import_class(f'terminus_langchain.document_loaders.{documentloader}')
     return next(x for x in documentloader_creator.type_to_loader_dict.values()
                 if x.__name__ == documentloader)
 

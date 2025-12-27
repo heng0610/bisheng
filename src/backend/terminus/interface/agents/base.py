@@ -37,7 +37,7 @@ class AgentCreator(LangChainTypeCreator):
                 # TODO: validate AgentType
                 self.type_dict[name] = agent  # type: ignore
             bisheng = {
-                chain_name: import_class(f'terminus'_langchain.agents.{chain_name}')
+                chain_name: import_class(f'terminus_langchain.agents.{chain_name}')
                 for chain_name in bisheng_agents.__all__
             }
             self.type_dict.update(bisheng)

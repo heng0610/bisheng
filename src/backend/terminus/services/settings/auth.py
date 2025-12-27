@@ -35,7 +35,7 @@ class AuthSettings(BaseSettings):
     SUPERUSER_PASSWORD: str = DEFAULT_SUPERUSER_PASSWORD
 
     pwd_context: CryptContext = CryptContext(schemes=['bcrypt'], deprecated='auto')
-    model_config = SettingsConfigDict(validate_assignment=True, extra='ignore', env_prefix='terminus'_')
+    model_config = SettingsConfigDict(validate_assignment=True, extra='ignore', env_prefix='terminus_')
 
     def reset_credentials(self):
         self.SUPERUSER = DEFAULT_SUPERUSER
